@@ -172,7 +172,7 @@ nav.active > ul > li a{
 
 	position: fixed;
 	display: block;
-	z-index: 999;
+	z-index: 500;
 }
 
 .index ul{
@@ -378,9 +378,55 @@ nav.active > ul > li a{
 }
 
 
+/*お問い合わせフォーム*/
 
+.contact{
+	width: 100vw;
+	height: 80vh;
+	background-color: #ffffff;
+	z-index: 900;
+}
 
+.contact > p{
+	font-size: 30px;
+	text-align: center;
+}
 
+.contact-container{
+	width: 40vw;
+	height: 70vh;
+	background-color: #f5f5f5;
+	margin: 5% 5% 5% auto;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.contact-container p{
+	display: block;	
+	margin-bottom: 10px;
+}
+
+.contact-container label{
+	font-size: 16px;
+}
+
+.contact-container input{
+	width: 20vw;
+	height: 3vw;
+}
+
+.contact-container textarea{
+	resize: none;
+	width: 30vw;
+	height: 10vw;
+}
+
+.contact-container input[type="submit"]{
+	width: 10vw;
+	height: 3vh;
+}
 
 
 
