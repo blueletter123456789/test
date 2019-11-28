@@ -1,20 +1,22 @@
 
+/* 共通エリア設定*/
 *{
 	margin: 0;
 	padding: 0;
 }
-
 
 body{
 	overflow-x: hidden;
 }
 
 
+
+/* ヘッダ部分(ロゴ、メニューボタン)の設定*/
 header{
 	width: 100vw;
 	height: 200px;
 	position: fixed;
-	z-index: 100;
+	z-index: 1000;
 }
 
 header > div{
@@ -83,6 +85,22 @@ header > div{
 	width: 50px;
 }
 
+
+
+/* ナビゲーションの設定（メニューボタン押下時）*/
+
+.close{
+	float: right;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+
+	position: relative;
+	margin: 50px;
+
+	cursor: pointer;
+}
+
 .close > span{
 	height: 2px;
 	border-radius: 1px;
@@ -122,23 +140,11 @@ nav{
 	transition: all 1s cubic-bezier(0.82, 0.02, 0.09, 1);
 }
 
-.close{
-	float: right;
-	width: 30px;
-	height: 30px;
-	display: inline-block;
-
-	position: relative;
-	margin: 50px;
-
-	cursor: pointer;
-}
-
 nav > ul{	
 	position: absolute;
 	margin: auto;
 	top: 50%;
-	right: 50%;
+	right: 80%;
 	list-style: none;
 	transform: translate(50%, -50%);
 }
@@ -152,7 +158,6 @@ nav > ul > li > a{
 	width: 50%;
 	text-decoration: none;
 	transition: all 1s ease .25s;
-	transform: translateX(-250%);
 }
 
 nav.active{
@@ -162,8 +167,12 @@ nav.active{
 nav.active > ul > li a{
 	opacity: 0.7;
 	width: 100%;
-	transform: translateX(-80%);
+	transform: translateX(80%);
 }
+
+
+
+/* ページ番号の表示　*/
 
 .index{
 	height: 100vh;
@@ -176,7 +185,7 @@ nav.active > ul > li a{
 }
 
 .index ul{
-	margin-top: 360%;
+	margin-top: 300px;
 	list-style: none;
 }
 
@@ -212,6 +221,10 @@ nav.active > ul > li a{
 	opacity: 1;
 }
 
+
+
+/* トップページレイアウト　*/
+
 #top {
 	background-color: #f8f8ff;
 	width: 100vw;
@@ -236,6 +249,10 @@ nav.active > ul > li a{
 	margin-bottom: 20px;
 }
 
+
+
+/* コンテンツ画面の共通レイアウト　*/
+
 .page {
 	background-color: #f0f8ff;
 	width: 100vw;
@@ -244,6 +261,10 @@ nav.active > ul > li a{
 
 	border-bottom: solid 1px #0000CD;
 }
+
+
+
+/* コンテンツ画面の画像のレイアウト　*/
 
 .image{
 	background-color: #f5f5f5;
@@ -264,6 +285,10 @@ nav.active > ul > li a{
 	height: 40%;
 	transform: translate(-50%, 10%);
 }
+
+
+
+/* コンテンツ画面のガイドのレイアウト　*/
 
 .guide{
 	position: absolute;
@@ -304,6 +329,10 @@ nav.active > ul > li a{
 	transition: all 2s ease;
 	transform: translateX(-50px);
 }
+
+
+
+/* コンテンツ画面の移動ボタン　*/
 
 .button{
 	width: 120px;
@@ -377,6 +406,8 @@ nav.active > ul > li a{
 	left: -60px;
 }
 
+
+
 /*お問い合わせフォームアイコン*/
 .contact-icons{
 	width: 50%;
@@ -394,6 +425,8 @@ nav.active > ul > li a{
 	right: 30%;
 	top: 50%;
 }
+
+
 
 /*お問い合わせフォーム*/
 
@@ -430,6 +463,10 @@ nav.active > ul > li a{
 	align-items: center;
 }
 
+.contact-container form{
+	margin-top: 20px;
+}
+
 .contact-container i{
 	font-size: 15px;
 	color: #777777;
@@ -438,7 +475,7 @@ nav.active > ul > li a{
 
 .contact-container p{
 	display: block;
-	margin: 15px;
+	margin-bottom: 15px;
 }
 
 .contact-container label{
@@ -446,15 +483,19 @@ nav.active > ul > li a{
 }
 
 .contact-container input{
-	width: 20vw;
-	height: 20px;
-	margin-top: 0;
+	width: 25vw;
+	height: 25px;
+	margin-left: 5px;
+	font-size: 16px;
+	transform: scale(0.8) translateX(-3vw);
 }
 
 .contact-container textarea{
 	resize: none;
+	font-size: 16px;
 	width: 30vw;
-	height: 10vw;
+	height: 13vw;
+	transform: scale(0.8) translateX(-3vw);	
 }
 
 .contact-container input[type="submit"]{
@@ -470,10 +511,133 @@ nav.active > ul > li a{
 
 .contact input[type="submit"]:active{
 	width: 9vw;
-	height: 18px;
+	height: 20px;
 	background-color: #0000ff;
 	margin-left: .5vw;
 }
 
 
+
+
+/*レスポンシブ（スマートフォン以下の場合）*/
+
+@media screen and (max-width: 411px){
+
+	/*	ヘッダ　*/
+	header > div{
+		padding: 30px 20px;
+	}
+
+	#logo a{
+		margin: 20px;
+		font-size: 20px;
+	}
+
+	.open{
+		margin-right: 20px;
+		transform: scale(0.7);
+	}
+
+	.close{
+		transform: scale(0.8);
+	}
+
+	/*　メニュー　*/
+	nav ul{
+		right: 90%;
+	}
+
+	nav > ul > li > a{
+		font-size: 30px;
+	}
+
+	/*	ページ番号の表示　*/
+	.index {
+		width: 40px;
+	}
+
+	/*	トップ画面　*/
+	#top div{
+		top: 35%;
+	}
+
+	#top div a{
+		font-size: 14px;
+		margin-bottom: 15px;
+	}
+
+	/*	コンテンツ画面　*/
+	.page .image{
+		width: 70%;
+		height: 50%;
+		top: 55%;
+		left: 45%;
+	}
+
+	.page .guide{
+		top: 55%;
+		left: 20%;
+	}
+
+	.page .guide2{
+		margin-bottom: 40px;
+	}
+
+	.page .button{
+		display: none;
+	}
+
+	/*	お問い合わせフォーム　*/
+	.contact > div >  p{
+		font-size: 24px;
+	}
+
+	.contact-icons{
+		width: 100vw;
+		height: 90px;
+	}
+
+	.contact > .contact-icons > .material-icons{
+		font-size: 80px;
+		right: 50%;
+		top: 5%;
+		transform: translateX(50%);
+	}
+
+	.contact-container{
+		width: 70vw;
+		height: 65vh;
+		margin: 0 auto;
+	}
+
+	.contact-container p{
+		margin-bottom: 5px;
+	}
+
+	.contact-container p > i{
+		margin-left: 15px;
+	}
+
+	.contact-container input{
+		width: 70vw;
+		margin-left: 0
+	}
+
+	.contact-container textarea{
+		width: 70vw;
+		height: 29vw;
+	}
+
+	.contact-container input[type="submit"]{
+		margin-left: 24px;
+		width: 20vw;
+	}
+
+	.contact input[type="submit"]:active{
+	width: 20vw;
+	height: 20px;
+	background-color: #0000ff;
+	margin-left: 25px;
+	}
+}
 
