@@ -7,6 +7,7 @@
 
 body{
 	overflow-x: hidden;
+	width: 100vw;
 }
 
 
@@ -434,7 +435,7 @@ nav.active > ul > li a{
 	width: 100vw;
 	height: 100vh;
 	background-color: #ffffff;
-	z-index: 900;
+	z-index: 9900;
 }
 
 .contact .contact-title{
@@ -453,14 +454,11 @@ nav.active > ul > li a{
 }
 
 .contact-container{
-	width: 40vw;
-	height: 75vh;
+	width: 40%;
+	height: 77%;
 	background-color: #f5f5f5;
 	margin: 3% 5% 3% auto;
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 .contact-container form{
@@ -473,55 +471,178 @@ nav.active > ul > li a{
 	display: inline-block;
 }
 
+.contact-container > form > p > i{
+	color: #f5f5f5;
+}
+
 .contact-container p{
 	display: block;
-	margin-bottom: 15px;
+	margin-left: 20px;
+	padding: 2px;
 }
 
 .contact-container label{
 	font-size: 16px;
 }
 
-.contact-container input{
-	width: 25vw;
-	height: 25px;
+.contact-container label span{
 	margin-left: 5px;
+}
+
+.contact-container input{
+	width: 70%;
+	height: 25px;
 	font-size: 16px;
-	transform: scale(0.8) translateX(-3vw);
+	transform: scale(0.8) translateX(-30px);
 }
 
 .contact-container textarea{
 	resize: none;
 	font-size: 16px;
-	width: 30vw;
-	height: 13vw;
-	transform: scale(0.8) translateX(-3vw);	
+	width: 90%;
+	height: 130px;
+	transform: scale(0.8) translateX(-40px);	
 }
 
+.contact-container .error-message{
+	font-size: 14px;
+	height: 18px;
+	width: 100%;
+	display: block;
+}
+
+
+/* 送信ボタン　*/
+
 .contact-container input[type="submit"]{
-	width: 10vw;
+	width: 120px;
 	height: 25px;
 	color: #ffffff;
 	background-color: #3366FF;
 	border-radius: 10px;
 	cursor: pointer;
+	margin-left: 30px;
+	margin-bottom: 10px;
 
 	transition: 0.15s all ease-in 0s;
 }
 
 .contact input[type="submit"]:active{
-	width: 9vw;
+	width: 110px;
 	height: 20px;
 	background-color: #0000ff;
-	margin-left: .5vw;
+	margin-left: 35px;
 }
 
 
+/*
+///////////////レスポンシブ（タブレット）の場合///////////////
+*/
+
+@media screen and (max-width: 768px){
+
+	/*	ヘッダ　*/
+	header > div{
+		padding: 60px 50px;
+	}
+
+	#logo a{
+		margin: 20px;
+		font-size: 24px;
+	}
+
+	.open{
+		margin-right: 20px;
+		transform: scale(0.8);
+	}
+
+	.close{
+		margin-right: 70px;
+	}
+
+	/*　メニュー　*/
+	nav ul{
+		right: 90%;
+	}
+
+	nav > ul > li > a{
+		font-size: 40px;
+	}
+
+	/*	ページ番号の表示　*/
+	.index {
+		width: 60px;
+	}
+
+	/*	トップ画面　*/
+	#top div{
+		top: 40%;
+	}
+
+	#top div a{
+		font-size: 16px;
+		margin-bottom: 20px;
+	}
+
+	/*	コンテンツ画面　*/
+	.page .image{
+		width: 80%;
+		height: 60%;
+	}
+
+	.page .guide{
+		top: 55%;
+		left: 20%;
+	}
+
+	.page .guide2{
+		margin-bottom: 40px;
+	}
+
+	.page .button{
+		display: none;
+	}
+
+		/*	お問い合わせフォーム　*/
+	.contact .contact-title{
+		height: 10%;
+	}
+
+	.contact .contact-title >  p{
+		font-size: 24px;
+	}
+
+	.contact-icons{
+		width: 100vw;
+		height: 40px;
+		float: none;
+	}
+
+	.contact > .contact-icons > .material-icons{
+		font-size: 40px;
+		right: 50%;
+		top: 5%;
+		transform: translateX(50%);
+	}
+
+	.contact-container{
+		width: 70%;
+		height: auto;
+		margin: 0 auto 10% auto;
+	}
+
+	.contact-container textarea, .contact-container input{
+		width: 90%;
+		transform: scale(0.8) translateX(-8%);
+	}
+}
 
 
-/*レスポンシブ（スマートフォン以下の場合）*/
+/*
+//////////////レスポンシブ（スマートフォン）の場合//////////////
+*/
 
-@media screen and (max-width: 411px){
+@media screen and (max-width: 414px){
 
 	/*	ヘッダ　*/
 	header > div{
@@ -538,10 +659,6 @@ nav.active > ul > li a{
 		transform: scale(0.7);
 	}
 
-	.close{
-		transform: scale(0.8);
-	}
-
 	/*　メニュー　*/
 	nav ul{
 		right: 90%;
@@ -549,6 +666,11 @@ nav.active > ul > li a{
 
 	nav > ul > li > a{
 		font-size: 30px;
+	}
+
+	.close{
+		transform: scale(0.8);
+		margin: 30px 50px;
 	}
 
 	/*	ページ番号の表示　*/
@@ -574,70 +696,15 @@ nav.active > ul > li a{
 		left: 45%;
 	}
 
-	.page .guide{
-		top: 55%;
-		left: 20%;
-	}
-
 	.page .guide2{
 		margin-bottom: 40px;
 	}
 
-	.page .button{
-		display: none;
-	}
 
 	/*	お問い合わせフォーム　*/
-	.contact > div >  p{
-		font-size: 24px;
+	.contact-container textarea, .contact-container input{
+	width: 85%;
 	}
 
-	.contact-icons{
-		width: 100vw;
-		height: 90px;
-	}
-
-	.contact > .contact-icons > .material-icons{
-		font-size: 80px;
-		right: 50%;
-		top: 5%;
-		transform: translateX(50%);
-	}
-
-	.contact-container{
-		width: 70vw;
-		height: 65vh;
-		margin: 0 auto;
-	}
-
-	.contact-container p{
-		margin-bottom: 5px;
-	}
-
-	.contact-container p > i{
-		margin-left: 15px;
-	}
-
-	.contact-container input{
-		width: 70vw;
-		margin-left: 0
-	}
-
-	.contact-container textarea{
-		width: 70vw;
-		height: 29vw;
-	}
-
-	.contact-container input[type="submit"]{
-		margin-left: 24px;
-		width: 20vw;
-	}
-
-	.contact input[type="submit"]:active{
-	width: 20vw;
-	height: 20px;
-	background-color: #0000ff;
-	margin-left: 25px;
-	}
 }
 

@@ -159,33 +159,53 @@
 		</div>
 		<div class="contact-container">
 			<form action="./php/index.php" method="post" autocomplete="off">
-				<p>
+				<p class="name-container">
+					<label>
+						<i class="material-icons">person</i>
+						<span>氏名</span>
+					</label><br>
 					<i class="material-icons">check</i>
-					<label><i class="material-icons">perm_identity</i>氏名</label><br>
-					<input type="text" name="name" maxlength="200" required>
+					<input type="text" name="name" maxlength="200" required><br>
+					<span class="error-message"></span>
+				</p>
+				<p class="mail-container">
+					<label>
+						<i class="material-icons">email</i>
+						<span>メールアドレス</span>
+					</label><br>
+					<i class="material-icons">check</i>
+					<input type="text" name="mail" maxlength="200" required><br>
+					<span class="error-message"></span>
+				</p>
+				<p class="tel-container">
+					<label>
+						<i class="material-icons">phone</i>
+						<span>電話番号</span>
+					</label><br>
+					<i class="material-icons">check</i>
+					<input type="text" name="tel" maxlength="200" required><br>
+					<span class="error-message"></span>
+				</p>
+				<p class="subject-container">
+					<label>
+						<i class="material-icons">short_text</i>
+						<span>件名</span>
+					</label><br>
+					<i class="material-icons">check</i>
+					<input type="text" name="subject" maxlength="200" required><br>
+					<span class="error-message"></span>
+				</p>
+				<p class="content-container">
+					<label>
+						<i class="material-icons">comment</i>
+						<span>お問い合わせ内容</span>
+					</label><br>
+					<i class="material-icons">check</i>
+					<textarea name="content" maxlength="500" required></textarea><br>
+					<span class="error-message"></span>
 				</p>
 				<p>
-					<i class="material-icons">check</i>
-					<label>メールアドレス</label><br>
-					<input type="text" name="mail" maxlength="200" required>
-				</p>
-				<p>
-					<i class="material-icons">check</i>
-					<label>電話番号</label><br>
-					<input type="text" name="tel" maxlength="200" required>
-				</p>
-				<p>
-					<i class="material-icons">check</i>
-					<label>件名</label><br>
-					<input type="text" name="subject" maxlength="200" required>
-				</p>
-				<p>
-					<i class="material-icons">check</i>
-					<label>お問い合わせ内容</label><br>
-					<textarea name="content" maxlength="500" required></textarea>
-				</p>
-				<p>
-					<input type="submit" name="submit" value=" 送信 ">
+					<input type="submit" name="submit" value=" 送信 " disabled>
 				</p>
 			</form>
 		</div>
