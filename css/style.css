@@ -5,11 +5,10 @@
 	padding: 0;
 }
 
-body{
+.wrapper{
+	width: 100%;
 	overflow-x: hidden;
-	width: 100vw;
 }
-
 
 
 /* ヘッダ部分(ロゴ、メニューボタン)の設定*/
