@@ -366,10 +366,22 @@ nav.active > ul > li a{
 
 /* SLICK-SECTION */
 
+#page4 p{
+	display: flex;
+	justify-content: center;
+	padding-top: 20vh; 
+}
+
+#page4 .slider-title{
+	font-size: 36px;
+}
+
+
 .slider-container{
 	position: relative;
 	width: 80%;
 	margin: 0 auto;
+	padding-top: 20vh;
 }
 
 .slider img{
@@ -493,6 +505,11 @@ nav.active > ul > li a{
 	height: 25px;
 	font-size: 16px;
 	transform: scale(0.8) translateX(-30px);
+}
+
+.contact-container .error-message{
+	margin-left: 30px;
+	color: #ff0000;
 }
 
 .contact-container textarea{

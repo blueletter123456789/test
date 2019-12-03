@@ -85,7 +85,7 @@ $(function(){
       symbolCheck(name, val);
     }
 
-    console.log(errorMessage);
+    // console.log(errorMessage);
 
     ouputMessage(name);
 
