@@ -384,8 +384,16 @@ nav.active > ul > li a{
 	padding-top: 20vh;
 }
 
+.slider-container .slider .slick-center img{
+    transform: scale(2);
+}
+
 .slider img{
 	width: 100%;
+}
+
+.slick-current img{
+	transform: scale(1.0);
 }
 
 .slick-list{
