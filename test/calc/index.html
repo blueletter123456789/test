@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>電卓APP</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		h1{
+			text-align: center;
+		}
+		#calc div{
+			margin: 0 auto;
+			width: 200px;
+			text-align: center;
+		}
+		#calculator div{
+			width: 200px
+			margin: 0 auto;
+			text-align: center;
+		}
+		input[type="text"]{
+			font-size: 16px;
+			height: 40px;
+			width: 190px;
+			text-align: right;
+		}
+		input[type="button"]{
+			padding: 10px;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: #f26522;
+		}
+		.rows{
+			display: flex;
+			flex-flow: row;
+			justify-content: space-around;
+			flex-grow: 1;
+		}
+		#zero{
+			border-radius: 20px;
+			width: 88px;
+		}
+		input[type="button"].num{
+			background-color: #777777;
+		}
+		@media only screen and (max-width: 766px) {
+			#calc div{
+				width: 100%;
+			}
+			#calculator div{
+				width: 100%;
+			}
+			input[type="text"]{
+				width: 95%;
+				font-size: 40px;
+				height: 75px;
+			}
+			input[type="button"]{
+				width: 24%;
+				height: 70px;
+				border-radius: 35px;
+				font-size: 30px;
+			}
+			#zero{
+				width: 49%;
+			    border-radius: 35px;
+			}
+			#calculator div.column{
+				margin-top: 30px;
+			}
+			#calculator div.column > div.rows{
+				margin-top: 15px;
+			}
+
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript"><!--
+		myTotal = 0;	// 現在の合計値
+		myInput = "";	// 現在入力している値
+		myCalc = "+";	// 合計と入力値の演算子
+		myFlg = 1;	// １回前に入力したもの 0:数字 1:演算子
+		 	
+		function myValue(myData){	// 0～9または小数点ボタンを押した
+			myFlg = 0;	// １回前に入力したものは数値
+			if(myInput==0 && myData==0) return;
+			myInput += myData;	// 現在入力している値に追加
+			document.myForm.myLine.value = myInput;	// 現在入力している値表示
+		}	
+		 	
+		function myCalculate(myData){	// 演算ボタンを押した
+			if (myFlg==0){	// １回前に入力したものは数値か？
+				myFlg = 1;	// １回前に入力したものは演算子
+				myWork = myTotal + myCalc + myInput;	// 一連の計算式を作る
+				myTotal = eval(myWork);	// 計算式を計算させる
+				myInput = "";	// 現在入力している値をクリア
+				document.myForm.myLine.value = myTotal;	// 合計を表示
+			}	
+			if (myData == "="){	// 演算ボタンは[＝]か？
+				myTotal = 0;	// 合計をクリア
+				myCalc = "+";	// 演算子を[+]とする
+			}else{	// 演算ボタンは[＝]以外である
+				myCalc = myData;	// 演算子を退避させておく
+			}	
+		}
+		function myPlusMinus(myData){
+			if(myInput<0){
+				//str.replace( 対象の文字, 置換する文字 );
+				myInput = myInput;
+			}else{
+				myInput = '-' + myInput;	
+			}
+			
+			document.myForm.myLine.value = myInput;
+		}
+
+		function myDot(myData){
+			myFlg = 0;
+			if(myInput.match(/\./)) return;
+			if(myInput==0) {
+				myInput = '0' + myData;
+			} else {
+				myInput += myData;
+			}
+			
+			document.myForm.myLine.value = myInput;	// 現在入力している値表示
+		}
+
+		function myC(){	// クリアボタン[C]を押した
+			myTotal = 0;	// 合計クリア
+			myCalc = "+";	// 演算子クリア
+			myInput = "";	// 現在入力している値をクリア
+			document.myForm.myLine.value = myTotal;	// つまり、０を表示
+		}	
+// --></script>
+</head>
+<body>
+	<div id="calc">
+		<h1>電卓</h1>
+		<div>
+			<form id="calculator" name="myForm">
+				<!-- OUTPUT  -->
+				<div>
+					<input type="text" name="myLine" id="output" value="0" disabled>
+				</div>
+				<!-- INPUT -->
+				<div class="column">
+					<div class="rows">
+						<input type="button" name="clear" id="clear" value="AC" onclick="myC()">
+						<input type="button" name="plusmin" id="plusmin" value="+/-">
+						<input type="button" name="percent" id="percent" value="%" >
+						<input type="button" name="divide" id="divide" value="÷" onclick="myCalculate('/')">	
+					</div>
+					<div class="rows">
+						<input type="button" name="seven" id="seven" class="num" value="7" onclick="myValue(7)">
+						<input type="button" name="eight" id="eight" class="num" value="8" onclick="myValue(8)">
+						<input type="button" name="nine" id="nine" class="num" value="9" onclick="myValue(9)">
+						<input type="button" name="multiple" id="multiple" value="×" onclick="myCalculate('*')">
+					</div>
+					<div class="rows">
+						<input type="button" name="four" id="four" class="num" value="4" onclick="myValue(4)">
+						<input type="button" name="five" id="five" class="num" value="5" onclick="myValue(5)">
+						<input type="button" name="six" id="six" class="num" value="6" onclick="myValue(6)">
+						<input type="button" name="minus" id="minus" value="-" onclick="myCalculate('-')">
+					</div>
+					<div class="rows">
+						<input type="button" name="one" id="one" class="num" value="1" onclick="myValue(1)">
+						<input type="button" name="two" id="two" class="num" value="2" onclick="myValue(2)">
+						<input type="button" name="three" id="three" class="num" value="3" onclick="myValue(3)">
+						<input type="button" name="plus" id="plus" value="+" onclick="myCalculate('+')">
+					</div>
+					<div class="rows">
+						<input type="button" name="zero" id="zero" class="num" value="0" onclick="myValue(0)">
+						<input type="button" name="dot" id="dot" class="num" value="." onclick="myDot('.')">
+						<input type="button" name="equal" id="equal" value="=" onclick="myCalculate('=')">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

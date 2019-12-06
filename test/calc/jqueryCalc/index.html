@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>電卓APP</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		h1{
+			text-align: center;
+		}
+		#calc div{
+			margin: 0 auto;
+			width: 200px;
+			text-align: center;
+		}
+		#calculator div{
+			width: 200px
+			margin: 0 auto;
+			text-align: center;
+		}
+		.disp{
+			width: 190px;
+			display: table;
+		}
+		input[type="text"]{
+			font-size: 16px;
+			height: 40px;
+			/* width: 190px; */
+			text-align: right;
+			border: none;
+		}
+		#dspOpe{
+			width: 10px;
+			display: table-cell;
+		}
+		#output{
+			width: 170px;
+			display: table-cell;
+			padding-right: 5px;
+		}
+		input[type="button"]{
+			padding: 10px;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background-color: #f26522;
+		}
+		.rows{
+			display: flex;
+			flex-flow: row;
+			justify-content: space-around;
+			flex-grow: 1;
+		}
+		#zero{
+			border-radius: 20px;
+			width: 88px;
+		}
+		input[type="button"].num{
+			background-color: #777777;
+		}
+		@media only screen and (max-width: 766px) {
+			#calc div{
+				width: 100%;
+			}
+			#calculator div{
+				width: 100%;
+			}
+			input[type="text"]{
+				width: 95%;
+				font-size: 40px;
+				height: 75px;
+			}
+			input[type="button"]{
+				width: 24%;
+				height: 70px;
+				border-radius: 35px;
+				font-size: 30px;
+			}
+			#zero{
+				width: 49%;
+			    border-radius: 35px;
+			}
+			#calculator div.column{
+				margin-top: 30px;
+			}
+			#calculator div.column > div.rows{
+				margin-top: 15px;
+			}
+
+		}
+	</style>
+	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			calc.init();		//関数導入処理
+			calc.initDisp();	//初期表示（０）処理
+		})
+		var calc = {
+			dspVal:0,
+			optVal:'+',
+			valflg:1,
+			preVal:0,
+			setVal:0,
+			init:function(){
+				calc.clickEvent();
+			},
+			clickEvent:function(){
+				calc.valClick();		//数値入力
+				calc.dotClick();		//小数点入力
+				calc.opeClick();		//演算子入力
+				calc.clearClick();		//クリア入力
+				calc.plusMinusClick();	//プラマイ入力
+				calc.percentClick();	//パーセント入力
+			},
+			initDisp:function(){//初期表示
+				calc.dspNum(calc.dspVal);
+			},
+			valClick:function(){//数値入力処理
+				$('.num').on('click', function(){
+					if(calc.valflg==1) {
+						calc.preVal = calc.dspVal;
+						calc.dspVal = 0;
+					}
+					var ope = $('#dspOpe').val();
+					if(ope=='='){
+						$('#dspOpe').val(calc.optVal);
+					}
+					calc.valflg = 0;
+					var val = $(this).val();
+					if(calc.dspVal === 0){
+						calc.dspVal = val;
+					}else{
+						calc.dspVal += val;
+					}
+					calc.dspNum(calc.dspVal);
+
+					calc.changeClearMode();
+				});
+			},
+			dotClick:function(){//小数点クリック時
+				$('.dot').on('click', function(){
+					var val = $(this).val();
+					if(calc.valflg==1) {
+						calc.preVal = calc.dspVal;
+						calc.dspVal = 0;
+					}
+					calc.valflg = 0;
+					if(calc.dspVal===0){	//表示内容0時処理
+						calc.dspVal += val;
+						calc.dspNum(calc.dspVal);
+						return;
+					}
+					if(calc.dspVal.match(/\./)) return;	//既に小数点がある場合return
+					calc.dspVal += val;
+					calc.dspNum(calc.dspVal);
+					calc.changeClearMode();
+				});
+			},
+			opeClick:function(){//演算子（+,-,*,/,=）クリック時処理
+				$('.ope').on('click', function(){
+					var ope = $(this).val();
+					if(calc.valflg==0){
+						calc.setVal = calc.dspVal;
+						var total = calc.preVal + calc.optVal + calc.setVal;
+						calc.dspVal = eval(total);
+						calc.preVal = calc.dspVal;
+						calc.dspNum(calc.dspVal);
+					}else{
+						//=を連続時、連続計算
+						if(ope=='='){
+							var total = calc.dspVal + calc.optVal + calc.setVal;
+							calc.dspVal = eval(total);
+							calc.preVal = calc.dspVal;
+							calc.dspNum(calc.dspVal);
+						}
+					}
+					calc.valflg = 1;
+					if(ope!='=') calc.optVal = ope;
+					//演算子の表示
+					$('#dspOpe').val(ope);
+					if(ope=='×') calc.optVal='*';
+					if(ope=='÷') calc.optVal='/';
+				})
+			},
+			clearClick:function(){//クリアボタン（AC、C時の処理分け）
+				$('#clear').on('click', function(){
+					var mode = $(this).val();
+					if(mode=='AC'){//オールクリア
+						calc.dspVal=0;
+						calc.optVal='+';
+						calc.valflg=1;
+						calc.preVal=0;
+						calc.setVal=0;
+						calc.dspNum(calc.dspVal);
+						$('#dspOpe').val('');
+						$('#clear').val('C');
+					} else {//表示内容のみクリア
+						calc.dspVal=0;
+						calc.dspNum(calc.dspVal);
+						$('#clear').val('AC');
+					}
+				});
+			},
+			percentClick:function(){//パーセント処理
+				$('#percent').on('click', function(){
+					calc.dspVal = calc.dspVal / 100;
+					calc.dspNum(calc.dspVal);
+				});
+			},
+			plusMinusClick:function(){//プラマイ処理
+				$('#plusmin').on('click', function(){
+					calc.dspVal = (-1) * calc.dspVal;
+					calc.dspNum(calc.dspVal);
+				});
+			},
+			dspNum:function(val){//テキストエリアに表示処理
+				$('#output').val(val);
+			},
+			changeClearMode:function(){//クリアモードチェンジ処理
+				$('#clear').val('C');
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="calc">
+		<h1>電卓</h1>
+		<div>
+			<form id="calculator" name="myForm">
+				<!-- OUTPUT  -->
+				<div>
+					<div class="disp">
+						<input type="text" name="dspOpe" id="dspOpe" class="dspOpe" disabled>
+						<input type="text" name="myLine" id="output" disabled>
+					</div>
+				</div>
+				<!-- INPUT -->
+				<div class="column">
+					<div class="rows">
+						<input type="button" name="clear" id="clear" value="C">
+						<input type="button" name="plusmin" id="plusmin" value="+/-">
+						<input type="button" name="percent" id="percent" value="%" >
+						<input type="button" name="divide" id="divide" class="ope" value="÷">	
+					</div>
+					<div class="rows">
+						<input type="button" name="seven" id="seven" class="num" value="7">
+						<input type="button" name="eight" id="eight" class="num" value="8">
+						<input type="button" name="nine" id="nine" class="num" value="9">
+						<input type="button" name="multiple" id="multiple" class="ope" value="×">
+					</div>
+					<div class="rows">
+						<input type="button" name="four" id="four" class="num" value="4">
+						<input type="button" name="five" id="five" class="num" value="5">
+						<input type="button" name="six" id="six" class="num" value="6">
+						<input type="button" name="minus" id="minus" class="ope" value="-">
+					</div>
+					<div class="rows">
+						<input type="button" name="one" id="one" class="num" value="1">
+						<input type="button" name="two" id="two" class="num" value="2">
+						<input type="button" name="three" id="three" class="num" value="3">
+						<input type="button" name="plus" id="plus" class="ope" value="+">
+					</div>
+					<div class="rows">
+						<input type="button" name="zero" id="zero" class="num" value="0">
+						<input type="button" name="dot" id="dot" class="dot" value=".">
+						<input type="button" name="equal" id="equal" class="ope" value="=">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
