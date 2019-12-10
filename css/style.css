@@ -7,7 +7,7 @@
 
 .wrapper{
 	width: 100%;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 
@@ -385,15 +385,11 @@ nav.active > ul > li a{
 }
 
 .slider-container .slider .slick-center img{
-    transform: scale(2);
+    transform: scale(1.3);
 }
 
 .slider img{
 	width: 100%;
-}
-
-.slick-current img{
-	transform: scale(1.0);
 }
 
 .slick-list{

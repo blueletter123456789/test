@@ -3,10 +3,14 @@ $(function(){
 /* MENU PART */
 	$('.open').on('click', function(){
 		$('nav').addClass('active');
+
+    $.scrollify.disable();
 	});
 	$('.close').on('click', function(){
 		if ($('nav').hasClass('active')) {
 		$('nav').removeClass('active');}
+
+    $.scrollify.enable();
 		return false;
 	});
 
@@ -145,10 +149,13 @@ $(function(){
       }
   };
 
-
-
-
-
+  $.scrollify({
+    section:'.wrapper > section', 
+    setHeights:false, 
+    scrollbars:false, 
+    scrollSpeed:1000,
+    updateHash:false,
+  });
 
 
 })
