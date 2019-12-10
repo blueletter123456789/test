@@ -1,6 +1,5 @@
 $(function(){
 	var current;
-	var sections_array = [];
 	var sections = $('div.wrapper > section');
 	// https://webdesignday.jp/inspiration/technique/jquery-js/3812/
 	// プロパティ記述参考サイト
