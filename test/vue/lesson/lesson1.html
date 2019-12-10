@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vue.js</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	
+	<!-- Library（ライブラリ） : あらゆる機能、関数を簡潔にプログラミングできるようにしたもの -->
+	<!-- JQuery -->
+	
+	<!-- FrameWorks（フレームワーク） : 特定の機能に特化して、簡潔にプログラミングできるようにしたもの -->
+	<!-- Vue.js・React.js・Angular.js・Node.js などなど -->
+	<h1>カウントアップ練習</h1>
+	<div id="app">
+		<p>{{ product }}</p>
+		<p>LocalStorage Count : {{ counter }}</p>
+		<p>SessionStorage Count : {{ ssCounter }}</p>
+		<button v-on:click="count()"> Local COUNT UP </button>
+		<button v-on:click="sesCount()"> Session COUNT UP </button>
+		<br>
+		<button v-on:click="deleteStorage()"> Reset </button>
+	</div>
+<!--　vue.js 導入部 -->
+	<!-- promise (IEに必要) -->
+	<script src="https://unpkg.com/es6-promise"></script>
+	<!-- vue -->
+	<script src="https://unpkg.com/vue"></script>
+	<!-- http-vue-loader -->
+	<script src="https://unpkg.com/http-vue-loader"></script>
+<!--　vue.js 導入部 -->
+<!-- 編集用 Vue.js -->
+	<script type="text/javascript" src="js/lesson1.js"></script>
+</body>
+</html>
