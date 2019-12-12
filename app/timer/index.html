@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>timer</title>
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+</head>
+<body>
+	<div id="timer">
+		<h1>Timer</h1>
+		<div>
+			<span>{{ hour }}</span>:
+			<span>{{ minute }}</span>:
+			<span>{{ second }}</span>
+		</div>
+		<button v-if="status" v-on:click="countDown()"> start </button>
+		<button v-if="!status" v-on:click="stop()"> stop </button>
+		<button v-on:click="reset"> reset </button>
+	</div>
+
+
+
+	<!--　Vue.js 導入部 -->
+	<script src="https://unpkg.com/es6-promise"></script>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/http-vue-loader"></script>
+	<script type="text/javascript" src="JS/main.js"></script>
+
+</body>
+</html>

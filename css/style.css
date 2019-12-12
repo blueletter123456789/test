@@ -27,15 +27,13 @@ header > div{
 #logo {
 	float: left;
 	margin-right: auto;
-	display: inline-block;
 }
 
 #logo > a{
 	text-decoration: none;
-	font-size: 20px;
-	margin: 50px;
-	font-size: 25px;
+	font-size: 15px;
 	font-weight: 500;
+	text-align: right;
 }
 
 .open{
@@ -89,6 +87,7 @@ header > div{
 
 /* ナビゲーションの設定（メニューボタン押下時）*/
 
+/*　メニューボタン　*/
 .close{
 	float: right;
 	width: 30px;
@@ -128,6 +127,7 @@ header > div{
 	background-color: #ffffff;
 }
 
+/*　メニュー項目　*/
 nav{
 	width: 100vw;
 	height: 100vh;
@@ -328,6 +328,7 @@ nav.active > ul > li a{
 	opacity: 1;
 	transition: all 2s ease;
 	transform: translateX(-50px);
+	overflow: hidden;
 }
 
 
