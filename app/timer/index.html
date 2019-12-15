@@ -8,9 +8,29 @@
 </head>
 <body>
 	<div id="timer">
-		<h1>Timer</h1>
-		<div>
-			<span>{{ hour }}</span>:
+		<h1>Coutn down Timer</h1>
+		<div v-if="disp" class="set">
+			<span>
+				<select type="number" name="hours" v-model="hour">
+					<option v-for="n in 24" v-bind:value="n-1">{{ n-1 }}</option>
+				</select>
+				<p class="text">Hours</p>
+			</span>
+			<span>
+				<select type="number" name="minutes" v-model="minute">
+					<option v-for="n in 60" v-bind:value="n-1">{{ n-1 }}</option>
+				</select>
+				<p class="text">Minutes</p>
+			</span>
+			<span>
+				<select type="number" name="seonds" v-model="second">
+					<option v-for="n in 60" v-bind:value="n-1">{{ n-1 }}</option>
+				</select>
+				<p class="text">Seconds</p>
+			</span>
+		</div>
+		<div v-if!="disp" class="active">
+			<span>{{ hour }}</span>
 			<span>{{ minute }}</span>:
 			<span>{{ second }}</span>
 		</div>

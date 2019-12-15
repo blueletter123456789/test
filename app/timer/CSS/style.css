@@ -3,3 +3,37 @@
 	padding: 0;
 }
 
+#timer{
+	width: 100vw;
+	height: 100vh;
+	background-color: #5F9EA0;
+}
+
+h1{
+	text-align: center;
+}
+
+.set{
+	display: flex;
+	justify-content: center;
+	margin-top: 40vh;
+}
+
+.set > span{
+	display: block;
+	margin: 6%;
+
+	position: relative;
+}
+
+.set > span > select{
+	font-size: 36px;
+
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -120%);
+}
+
+.set > span > p{
+	font-size: 24px;
+}
