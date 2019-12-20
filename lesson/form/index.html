@@ -13,15 +13,17 @@
 		<p>Login Page</p>
 	</div>
 	<div class="form_wrapper">
-		<div class="input_id">
-			<input type="" name="id" placeholder='ID'>
-		</div>
-		<div class="input_pass">
-			<input type="password" name="password" placeholder='PASSWORD'>
-		</div>
-		<div class="input_button">
-			<input type="submit" name="button" value="SIGN IN">
-		</div>
+		<form action="PHP/loginTest.php" method="POST" autocomplete="off">
+			<div class="input_id">
+				<input type="" name="name" placeholder='ID'>
+			</div>
+			<div class="input_pass">
+				<input type="password" name="pass" placeholder='PASSWORD'>
+			</div>
+			<div class="input_button">
+				<input type="submit" name="button" value="SIGN IN">
+			</div>
+		</form>
 	</div>
 </body>
 </html>
