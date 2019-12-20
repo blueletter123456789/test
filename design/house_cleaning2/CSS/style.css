@@ -1,0 +1,98 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+/*サイトタイトル*/
+.title{
+	width: 100vw;
+	height: 7vh;
+	background-color: #222222;
+}
+
+.title > span{
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.title > span > a{
+	color: #cccccc;
+	padding: 5px;
+	text-decoration: none;
+	transition: 0.1s all ease-in 0s;
+}
+
+.title > span > #logo{
+	font-size: 17px;
+}
+
+.title > span > a:hover{
+	color: #ffffff;
+}
+
+/*ヘッダーメニュー*/
+.header_menu{
+	width: 100vw;
+	height: 10vh;
+}
+
+.header_list{
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center
+}
+
+.header_menu > .header_list > li{
+	list-style: none;
+}
+
+.header_menu > .header_list > li > a{
+	text-decoration: none;
+	color: #000000;
+	padding: 5px;
+}
+
+/*背景設定*/
+.content_image{
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    position: fixed;
+    background-position: center center;
+    opacity: 0;
+-webkit-background-size: cover;
+        background-size: cover;
+-webkit-transition: all 0.5s ease 0s;
+   -moz-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s;
+}
+
+#image1{
+	background-image: url("http://localhost/github/design/house_cleaning2/IMG/mac_img065.jpg");
+}
+
+#image2{
+	background-image: url("http://localhost/github/design/house_cleaning2/IMG/mac_wallpaper_1366x768_01040.jpg");
+}
+
+#image3{
+	background-image: url("http://localhost/github/design/house_cleaning2/IMG/mac_wallpaper_2560x1600_00713.jpg");
+}
+
+#image4{
+	background-image: url("http://localhost/github/design/house_cleaning2/アンドロメダ銀河の壁紙壁紙_2560x1600[10wallpaper.com].jpg");
+}
+
+/*会社概要*/
+
+/*サービス*/
+/*予約までの流れ*/
+/*質問*/

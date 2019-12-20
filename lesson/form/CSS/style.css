@@ -1,0 +1,56 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: 'Raleway', sans-serif;
+}
+
+.image{
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	z-index: -100;
+	opacity: 0.3;
+	background-image: url('http://localhost/github/lesson/form/IMG/test.JPG');
+	background-size: cover;
+}
+
+/*タイトル*/
+.title{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 30vh;
+}
+
+.title > p{
+	font-size: 48px;
+	color: #555555;
+}
+
+.form_wrapper{
+	width: 100vw;
+	height: 60vh;
+}
+
+.form_wrapper > div{
+	text-align: center;
+	margin-top: 7vh;
+}
+
+input{
+	width: 300px;
+	height: 30px;
+	font-size: 100%;
+}
+
+input[type="submit"]{
+	background-color: #008080;
+	color: #ffffff;
+	height: 40px;
+	border-radius: 20px;
+	cursor: pointer;
+}
