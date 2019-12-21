@@ -106,7 +106,7 @@ body{
 
 /*サービス*/
 #service .service_content{
-    padding: 20vh 0 60vh 10vw;
+    padding: 20vh 10vw 60vh 40vw;
     position: relative;
     z-index: 2;
 }
@@ -120,7 +120,7 @@ body{
 
 /*質問*/
 #faq .faq_content{
-    padding: 20vh 0 60vh 10vw;
+    padding: 20vh 10vw 60vh 40vw;
     position: relative;
     z-index: 2;
 }
