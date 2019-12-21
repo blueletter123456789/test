@@ -12,6 +12,7 @@ body{
 	width: 100vw;
 	height: 7vh;
 	background-color: #222222;
+	z-index: 500;
 }
 
 .title > span{
@@ -40,6 +41,8 @@ body{
 .header_menu{
 	width: 100vw;
 	height: 10vh;
+	background-color: #ffffff;
+	z-index: 500;
 }
 
 .header_list{
@@ -68,31 +71,68 @@ body{
     position: fixed;
     background-position: center center;
     opacity: 0;
--webkit-background-size: cover;
-        background-size: cover;
--webkit-transition: all 0.5s ease 0s;
-   -moz-transition: all 0.5s ease 0s;
-        transition: all 0.5s ease 0s;
+    background-size: cover;
+    transition: all 0.5s ease 0s;
+}
+
+.show .content_image {
+    opacity: 1;
+    z-index: -100;
 }
 
 #image1{
-	background-image: url("http://localhost/github/design/house_cleaning2/IMG/mac_img065.jpg");
+	background-image: url("http://localhost/github/design/house_cleaning2/IMG/img_style10_02.jpg");
 }
 
 #image2{
-	background-image: url("http://localhost/github/design/house_cleaning2/IMG/mac_wallpaper_1366x768_01040.jpg");
+	background-image: url("http://localhost/github/design/house_cleaning2/IMG/img-20@2x.jpg");
 }
 
 #image3{
-	background-image: url("http://localhost/github/design/house_cleaning2/IMG/mac_wallpaper_2560x1600_00713.jpg");
+	background-image: url("http://localhost/github/design/house_cleaning2/IMG/shutterstock_215522980-e1470709899253.jpg");
 }
 
 #image4{
-	background-image: url("http://localhost/github/design/house_cleaning2/アンドロメダ銀河の壁紙壁紙_2560x1600[10wallpaper.com].jpg");
+	background-image: url("http://localhost/github/design/house_cleaning2/IMG/family-advocacy-program-1.jpg");
 }
 
+
 /*会社概要*/
+#about .about_content{
+    padding: 20vh 0 60vh 10vw;
+    position: relative;
+    z-index: 2;
+}
 
 /*サービス*/
+#service .service_content{
+    padding: 20vh 0 60vh 10vw;
+    position: relative;
+    z-index: 2;
+}
+
 /*予約までの流れ*/
+#booking .booking_content{
+    padding: 20vh 0 60vh 10vw;
+    position: relative;
+    z-index: 2;
+}
+
 /*質問*/
+#faq .faq_content{
+    padding: 20vh 0 60vh 10vw;
+    position: relative;
+    z-index: 2;
+}
+
+.text-box{
+    padding: 50px 25px;
+    width: 50vw;
+    height: 40vh;
+    background-color: rgba(0,0,0,0.7);
+    color: #fff;
+}
+.text-box p{
+    margin: 0 0 10px;
+    font-size: 40px;
+}
