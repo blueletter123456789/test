@@ -13,6 +13,7 @@ body{
 	height: 7vh;
 	background-color: #222222;
 	z-index: 500;
+	position: fixed;
 }
 
 .title > span{
@@ -42,7 +43,10 @@ body{
 	width: 100vw;
 	height: 10vh;
 	background-color: #ffffff;
+	opacity: 0.9;
 	z-index: 500;
+	position: fixed;
+	top: 7vh;
 }
 
 .header_list{
@@ -72,7 +76,7 @@ body{
     background-position: center center;
     opacity: 0;
     background-size: cover;
-    transition: all 0.5s ease 0s;
+    transition: all 1s ease 0s;
 }
 
 .show .content_image {
@@ -99,38 +103,38 @@ body{
 
 /*会社概要*/
 #about .about_content{
-    padding: 20vh 0 60vh 10vw;
+    padding: 30vh 0 40vh;
     position: relative;
     z-index: 2;
 }
 
 /*サービス*/
 #service .service_content{
-    padding: 20vh 10vw 60vh 40vw;
+    padding: 30vh 0 20vh 40vw;
     position: relative;
     z-index: 2;
 }
 
 /*予約までの流れ*/
 #booking .booking_content{
-    padding: 20vh 0 60vh 10vw;
+    padding: 45vh 0 30vh;
     position: relative;
     z-index: 2;
 }
 
 /*質問*/
 #faq .faq_content{
-    padding: 20vh 10vw 60vh 40vw;
+    padding: 40vh 10vw 10vh 40vw;
     position: relative;
     z-index: 2;
 }
 
 .text-box{
     padding: 50px 25px;
-    width: 50vw;
-    height: 40vh;
-    background-color: rgba(0,0,0,0.7);
-    color: #fff;
+    width: 60vw;
+    height: 50vh;
+    background-color: rgba(255,255,255,0.9);
+    color: #555555;
 }
 .text-box p{
     margin: 0 0 10px;
