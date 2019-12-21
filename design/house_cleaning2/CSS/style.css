@@ -41,7 +41,7 @@ body{
 /*ヘッダーメニュー*/
 .header_menu{
 	width: 100vw;
-	height: 10vh;
+	height: 6vh;
 	background-color: #ffffff;
 	opacity: 0.9;
 	z-index: 500;
@@ -93,11 +93,11 @@ body{
 }
 
 #image3{
-	background-image: url("http://localhost/github/design/house_cleaning2/IMG/shutterstock_215522980-e1470709899253.jpg");
+	background-image: url("http://localhost/github/design/house_cleaning2/IMG/30.jpg");
 }
 
 #image4{
-	background-image: url("http://localhost/github/design/house_cleaning2/IMG/family-advocacy-program-1.jpg");
+	background-image: url("http://localhost/github/design/house_cleaning2/IMG/46.jpg");
 }
 
 
