@@ -36,7 +36,7 @@ body{
 /*写真挿入部分*/
 .top > .top_image > .image{
 	width: 100vw;
-	height: 75vh;
+	height: 77vh;
 	background-image: url(/github/design/house_cleaning/IMG/room_image.jpg);
 	background-size: cover;
 	background-position: center;
@@ -97,6 +97,7 @@ body{
 .about{
 	width: 100vw;
 	height: 85vh;
+	margin-top: 15vh;
 	background-color: #eeeeee;
 }
 
