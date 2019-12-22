@@ -37,7 +37,7 @@ body{
 .top > .top_image > .image{
 	width: 100vw;
 	height: 77vh;
-	background-image: url(/github/design/house_cleaning/IMG/room_image.jpg);
+	background-image: url(IMG/room_image.jpg);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;

@@ -8,7 +8,6 @@ _window.on('scroll',function(){
     heroBottom = $('.top').height();
     heroBottom += logoBottom;
     if(_window.scrollTop() > heroBottom){
-    	console.log('chk');
         _header.addClass('fixed');   
     }
     else{
