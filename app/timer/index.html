@@ -8,7 +8,8 @@
 </head>
 <body>
 	<div id="timer">
-		<h1>Coutn down Timer</h1>
+		<h1>Count down Timer</h1>
+
 		<div v-if="disp" class="set">
 			<span>
 				<select type="number" name="hours" v-model="hour">
@@ -29,14 +30,20 @@
 				<p class="text">Seconds</p>
 			</span>
 		</div>
-		<div v-if!="disp" class="active">
+
+		<div v-if="!disp" class="active">
 			<span>{{ hour }}</span>
-			<span>{{ minute }}</span>:
+			<span> : </span>
+			<span>{{ minute }}</span>
+			<span> : </span>
 			<span>{{ second }}</span>
 		</div>
-		<button v-if="status" v-on:click="countDown()"> start </button>
-		<button v-if="!status" v-on:click="stop()"> stop </button>
-		<button v-on:click="reset"> reset </button>
+
+		<div class = "timer-button">
+			<button v-if="btn_status" v-on:click="start()"> start </button>
+			<button v-if="!btn_status" v-on:click="stop()"> stop </button>
+			<button v-on:click="reset"> reset </button>			
+		</div>
 	</div>
 
 

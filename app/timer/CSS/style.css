@@ -1,22 +1,27 @@
+/*初期設定*/
 *{
 	margin: 0;
 	padding: 0;
 }
 
+/*タイマークラスの設定*/
 #timer{
 	width: 100vw;
 	height: 100vh;
 	background-color: #5F9EA0;
 }
 
+/*タイマーのタイトル部分*/
 h1{
 	text-align: center;
+
 }
 
+/*カウントダウン時間の部分*/
 .set{
 	display: flex;
 	justify-content: center;
-	margin-top: 40vh;
+	margin-top: 35vh;
 }
 
 .set > span{
@@ -27,13 +32,51 @@ h1{
 }
 
 .set > span > select{
-	font-size: 36px;
+	font-size: 18px;
+	width: 70px;
+	height: 50px;
+	background-color: #5F9EA0;
+	border-style: none;
 
 	position: absolute;
 	left: 50%;
-	transform: translate(-50%, -120%);
+	transform: translate(-20%, -120%);
 }
 
 .set > span > p{
 	font-size: 24px;
+}
+
+/*カウントダウン時間表示部分*/
+.active{
+	text-align: center;
+	margin-top: 40vh;
+}
+
+.active > span{
+	margin: 2%;
+	font-size: 48px;
+}
+
+/*タイマーボタン部分*/
+.timer-button{
+	display: flex;
+	justify-content: center;
+
+	position: absolute;
+	top: 60vh;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.timer-button > button{
+	margin: 30px;
+	width: 90px;
+	height: 90px;
+	font-size: 16px;
+	border-radius: 45px;
+	border-width: 3px;
+	border-color: #555555;
+	background-color: #5F9EA0;
+	cursor: pointer;
 }
