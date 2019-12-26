@@ -1,0 +1,46 @@
+<?php
+
+session_start();
+
+$session = $_SESSION;
+
+if(isset($session['LOGIN']) && !empty($session['LOGIN'])){
+	if($session['LOGIN'] != 'ok'){
+	}
+	header('location:http://localhost/github/lesson/form/PHP/welcome.php');
+}else{}
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+	<title>login lesson</title>
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="image"></div>
+	<div class="title">
+		<p>Login Page</p>
+	</div>
+	<div class="form_wrapper">
+		<form action="PHP/loginTest.php" method="POST" autocomplete="off">
+			<div class="input_id">
+				<input type="" name="name" placeholder='ID'>
+			</div>
+			<div class="input_pass">
+				<input type="password" name="pass" placeholder='PASSWORD'>
+			</div>
+			<div class="input_button">
+				<input type="submit" name="button" value="SIGN IN">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

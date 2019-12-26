@@ -59,6 +59,25 @@ const timer = new Vue({
 				this.second--;
 			}
 		},
-
 	},
+
+	updated(){
+		if(!this.disp){
+			console.log('chk');
+			if(String(this.hour).length < 2){
+				this.hour = '0' + String(this.hour);
+			}
+			if(String(this.minute).length < 2){
+				this.minute = '0' + String(this.minute);
+			}
+			if(String(this.second).length < 2){
+				this.second = '0' + String(this.second);
+			}
+		}else{
+			this.hour = Number(this.hour);
+			this.minute = Number(this.minute);
+			this.second = Number(this.second);
+		}
+	}
+
 });

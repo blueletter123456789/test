@@ -1,5 +1,7 @@
 <?php
 
+	session_start();
+
 	// var_dump($_POST);
 
 	// リダイレクト
@@ -50,7 +52,8 @@
 	if (empty($row)){
 		echo "空";
 	}else if($post['pass'] == $row["PASS"]){
-		echo "OK";
+		$_SESSION['LOGIN'] = 'ok';
+		header('location:http://localhost/github/lesson/form/PHP/welcome.php');
 	}else{
 		echo "NG";
 	}
