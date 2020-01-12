@@ -95,7 +95,6 @@ header, .close{
 
 .top_image img{
 	width: 100%;
-	max-height: 90vh;
 }
 
 /*企業理念説明部分*/
@@ -112,7 +111,7 @@ header, .close{
 .ci > h1{
 	text-align: center;
 	font-size: 40px;
-	padding-top: 15vh;
+	padding-top: 20vh;
 }
 
 .ci > h3{
@@ -211,7 +210,7 @@ header, .close{
 }
 
 .ci > .main_ci > .wrapper_ci > #main_ci2{
-	transform: translateX(50vh);
+	transform: translateX(50vw);
 }
 
 .ci > .main_ci > .wrapper_ci > #main_ci3{
@@ -253,6 +252,8 @@ header, .close{
 .work > .text_work{
 	margin: 0 auto;
 	display: flex;
+
+	transition: all ease 0.8s 0s;
 }
 
 .work > .text_work > div{
@@ -373,32 +374,131 @@ header, .close{
 }
 
 .about > .text_about{
-	width: 500px;
+	width: 700px;
+	height: 60vh;
 	margin: 0 auto;
+	box-shadow: 0px 0px 20px 10px rgba(10, 10, 10, 0.2);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: all ease 0.5s 0s;
+}
+
+.about > .text_about:hover{
+	box-shadow: 0px 0px 20px 15px rgba(10, 10, 10, 0.3);	
+}
+
+.about > .text_about > span{
+	font-size: 17px;
+	color: #333;
+}
+
+.about > .text_about > span > p{
+	padding-top: 2vh;
 }
 
 /*アクセス説明部分*/
 .access{
 	width: 100vw;
-	height: 100vh;
+}
 
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.access > .text_access > h1{
+	text-align: center;
+	font-size: 40px;
+	padding-top: 20vh;
+}
+
+.access > .text_access > h3{
+	text-align: center;
+	padding-bottom: 10vh;
+}
+
+.access > .text_access > span{
+	text-align: center;
+	width: 70vw;
+	padding-bottom: 15px;
+	display: block;
+	margin: 0 auto;
+}
+
+.access > .text_access > .textCenter{
+	width: 60vw;
+	margin: 0 auto;
 }
 
 .access > .text_access > .textCenter > iframe{
-	width: 60vw;
+	width: 100%;
 	height: 60vh;
+	max-height: 500px;
+	margin-top: 5vh;
 }
 
 /*お問い合わせ部分*/
 .contact{
 	width: 100vw;
-	height: 80vh;
-	margin-top: 20vh;
+}
 
+.contact > h1{
+	font-size: 40px;
+	text-align: center;
+	padding-top: 20vh;
+}
+
+.contact > h3{
+	text-align: center;
+	padding-bottom: 7vh;
+}
+
+.contact > .text_contact > .mailForm{
+	width: 60vw;
+	max-width: 900px;
+	padding: 10vh 0 10vh 0;
+	margin: 0 auto 10vh auto;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #bbb;
+	box-shadow: 0px 0px 50px rgba(100, 100, 100, 0.1);
+}
+
+.contact > .text_contact > .mailForm > form{
 	display: flex;
-	justify-content: center;
-	align-items: center;
+}
+
+.contact > .text_contact > .mailForm > form > span{
+	width: 50%;
+}
+
+.contact > .text_contact > .mailForm > form > span > p{
+	width: 100%;
+	height: 30px;
+	margin-bottom: 30px;
+}
+
+.contact > .text_contact > .mailForm > form > span > #title_textarea{
+	margin-bottom: 155px;
+}
+
+.contact > .text_contact > .mailForm > form > span > p > input{
+	width: 80%;
+	height: 24px;
+	font-size: 16px;
+}
+
+.contact > .text_contact > .mailForm > form > span > p > textarea{
+	width: 80%;
+	height: 130px;
+	font-size: 16px;
+}
+
+.contact > .text_contact > .mailForm > form > span > #contact_button{
+	display: flex;
+}
+
+.contact > .text_contact > .mailForm > form > span > #contact_button > input{
+	width: 30%;
+	height: 20px;
+	cursor: pointer;
+	margin-left: 10%;
 }

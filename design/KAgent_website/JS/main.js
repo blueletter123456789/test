@@ -81,11 +81,11 @@ $(function(){
 
   // スクロール機能
 
-  $('.text_ci > .content_ci, .text_ci > div > .emphasis_ci, .main_ci > .wrapper_ci').css("opacity","0");
+  $('.text_ci > .content_ci, .text_ci > div > .emphasis_ci, .main_ci > .wrapper_ci, .text_work, .text_about').css("opacity","0");
 
   $(window).scroll(function (){
 
-    $('.text_ci > .content_ci, .text_ci > div > .emphasis_ci, #wrapper_ci1, #wrapper_ci2, #wrapper_ci3').each(function(){
+    $('.text_ci > .content_ci, .text_ci > div > .emphasis_ci, #wrapper_ci1, #wrapper_ci2, #wrapper_ci3, .text_work, .text_about').each(function(){
 
       var contentPos = $('.text_ci > .content_ci').offset().top;   
 
@@ -95,7 +95,11 @@ $(function(){
 
       var wrapper2Pos = $('#wrapper_ci2').offset().top;   
 
-      var wrapper3Pos = $('#wrapper_ci3').offset().top;   
+      var wrapper3Pos = $('#wrapper_ci3').offset().top;
+
+      var workPos = $('.text_work').offset().top;
+
+      var aboutPos = $('.text_about').offset().top;
 
       // var imgPos = $(this).offset().top;   
 
@@ -142,6 +146,18 @@ $(function(){
         $('#wrapper_ci3').css("opacity", "1");
       }else{
         $('#wrapper_ci3').css("opacity","0");
+      }
+
+      if (scroll > workPos - windowHeight / 2){
+        $('.text_work').css("opacity", "1");
+      }else{
+        $('.text_work').css("opacity","0");
+      }
+
+      if (scroll > aboutPos - windowHeight / 2){
+        $('.text_about').css("opacity", "1");
+      }else{
+        $('.text_about').css("opacity","0");
       }
 
     });
