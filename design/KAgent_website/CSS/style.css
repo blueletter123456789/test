@@ -1,0 +1,404 @@
+/*ページ共通部分*/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*ヘッダー部分*/
+header{
+	width: 100vw;
+	height: 15vh;
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+/*ヘッダー_ロゴ部分*/
+header > .title{
+	vertical-align: middle;
+	text-align: center;
+	margin-top: 20px;
+}
+
+header > .title > .logo{
+	margin: 20px;
+	font-size: 42px;
+	color: #333333;
+}
+
+header > .title > .menu{
+	position: absolute;
+	top: 20px;
+	left: 13.5vw;
+	font-size: 35px;
+	cursor: pointer;
+	z-index: 9999;
+	color: #333333;
+}
+
+/*ヘッダー_メニューバー部分*/
+header, .close{
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
+.close{
+	transform: translate(-100vw, -15vh);
+	height: 110vh;
+	width: 35vw;
+	z-index: 1000;
+	position: fixed;
+	background-color: #222222;
+
+	transition: all ease .8s 0s;
+}
+
+.close > ul{
+	display: block;
+	margin-top: 20vh;
+}
+
+.close > ul > li{
+	list-style: none;
+	text-align: center;
+	margin-top: 9vh;
+}
+
+.close > ul > li > a{
+	text-decoration: none;
+	color: #FFF6E5;
+	font-size: 24px;
+}
+
+.close > ul > li > a:hover{
+	text-shadow: 0 0 1rem #FEEDCC, 0 0 6ch #FFA500, 0 0 1ch #FEEDCC, 0 0 1rem #FFA500;
+}
+
+/*メニューバーアクティブ状態*/
+.open{
+	transform: translate(0, -15vh);
+}
+
+/*スリック導入部分*/
+.top{
+	margin-top: 15vh;
+	width: 100vw;
+	height: 85%;
+	display: flex;
+	justify-content: center;
+}
+
+.top_image{
+	max-width: 90%;
+	margin: 0 auto 20px;
+}
+
+.top_image img{
+	width: 100%;
+	max-height: 90vh;
+}
+
+/*企業理念説明部分*/
+.ci{
+	width: 100vw;
+}
+
+.ci > .text_ci{
+	width: 80vw;
+	height: 50vh;
+	margin: 0 auto;
+}
+
+.ci > h1{
+	text-align: center;
+	font-size: 40px;
+	padding-top: 15vh;
+}
+
+.ci > h3{
+	text-align: center;
+	padding-bottom: 10vh;
+}
+
+.ci > .text_ci > .content_ci{
+	text-align: center;
+	margin-bottom: 5vh;
+	font-size: 20px;
+
+	transition: all linear 0.5s 0s;
+}
+
+.ci > .text_ci > #emphasis_wrapper{
+	max-width: 410px;
+	margin: 5vh auto;
+}
+
+.ci > .text_ci > div > .emphasis_ci{
+
+	transition: all ease 1s 0.2s;
+
+}
+
+.ci > .main_ci{
+	width: 100vw;
+	margin-top: 5vw;
+	background-image: url(../IMG/IMG_8226.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	z-index: -999;
+	position: relative;
+}
+
+.ci > .main_ci::before{
+	content: '';
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.3);
+	position: absolute;
+}
+
+.ci > .main_ci > .wrapper_ci{
+	width: 100%;
+	height: 500px;
+	padding: 10vh 0;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	transition: all ease-in 0.7s 0s;
+}
+
+.emphasis_ci, .emphasis_ci1, .emphasis_ci2{
+	font-size: 24px;
+}
+
+.ci > .main_ci > .wrapper_ci > .img_ci{
+	width: 80%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+	max-width: 750px;
+	z-index: 1;
+	box-shadow: 10px 10px 10px rgba(10, 10, 10, 0.3);
+	filter: grayscale(40%);
+}
+
+.ci > .main_ci > .wrapper_ci > #img_ci1{
+	background-image: url(../IMG/IMG_2619.JPG);
+	margin-left: 0;
+}
+
+.ci > .main_ci > .wrapper_ci > #img_ci2{
+	background-image: url(../IMG/IMG_2621.JPG);
+	margin: 0 0 0 auto;
+}
+
+.ci > .main_ci > .wrapper_ci > #img_ci3{
+	background-image: url(../IMG/IMG_2649.JPG);
+	margin-left: 0: 
+}
+
+.ci > .main_ci > .wrapper_ci > span{
+	height: 300px;
+	width: 500px;
+	background-color: #fff;
+	z-index: 100;
+	box-shadow: 10px 10px 10px rgba(10, 10, 10, 0.3);
+}
+
+.ci > .main_ci > .wrapper_ci > #main_ci1{
+	transform: translateX(-15vw);
+}
+
+.ci > .main_ci > .wrapper_ci > #main_ci2{
+	transform: translateX(50vh);
+}
+
+.ci > .main_ci > .wrapper_ci > #main_ci3{
+	transform: translateX(-15vw);
+}
+
+.ci > .main_ci > .wrapper_ci > span > p{
+	width: 100%;
+	margin-top: 40px;
+	text-align: center;
+}
+
+.ci > .main_ci > .wrapper_ci > #main_ci3 > p{
+	margin-top: 20px;
+}
+
+.ci > .main_ci > .wrapper_ci > span > .content_ci{
+	font-size: 16px;
+}
+
+
+
+/*業務内容説明部分*/
+.work{
+	width: 100vw;
+}
+
+.work > h1{
+	text-align: center;
+	padding-top: 15vh;
+	font-size: 40px;
+}
+
+.work > h3{
+	text-align: center;
+	padding-bottom: 10vh;
+}
+
+.work > .text_work{
+	margin: 0 auto;
+	display: flex;
+}
+
+.work > .text_work > div{
+	width: 50vw;
+	height: 45vw;
+	overflow: hidden;
+	position: relative;
+}
+
+.work > .text_work > .content_ses::after{
+	content: "";
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	top: 0;
+	background-image: url("../IMG/IMG_2644.JPG");
+	background-size: cover;
+	background-position: center;
+	z-index: -100;
+	transition: all ease 0.3s 0s
+}
+
+.work > .text_work > .content_dev::after{
+	content: "";
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	top: 0;
+	background-image: url("../IMG/IMG_2654.JPG");
+	background-size: cover;
+	background-position: center;	
+	z-index: -1;
+	transition: all ease 0.3s 0s
+}
+
+.work > .text_work > .content_ses:hover::after{
+	transform: scale(1.1);
+	opacity: 0.8;
+}
+
+.work > .text_work > .content_dev:hover::after{
+	transform: scale(1.1);
+	opacity: 0.8;
+}
+
+.work > .text_work > div > h3{
+	text-align: center;
+	font-size: 22px;
+	font-weight: lighter;
+	color: #eeeeee;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.work > .text_work > div > span{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	transition: all ease 1s 0s;
+}
+
+.content_ses > span{
+	transform: translateX(50vw);
+	opacity: 0;
+}
+
+.content_ses > .open{
+	transform: translateX(0px);
+	background-color: rgba(100, 100, 100, 0.9);
+	opacity: 1;
+}
+
+.content_dev > span{
+	transform: translateX(-50vw);
+	opacity: 0;
+}
+
+.content_dev > .open{
+	transform: translateX(0px);
+	background-color: rgba(100, 100, 100, 0.9);
+	opacity: 1;
+}
+
+.work > .text_work > div > span > p{
+	color: #fff;
+	padding-left: 5%;
+}
+
+.work > .text_work > div > span > .content_work{
+	padding-top: 2%;
+}
+
+.work > .text_work > div > span > .contenttop_work{
+	padding-top: 10%;
+}
+
+/*企業概要説明部分*/
+.about{	
+	width: 100vw;
+	height: 100vh;
+}
+
+.about > h1{
+	text-align: center;
+	padding-top: 15vh;
+	font-size: 40px;
+}
+
+.about > h3{
+	text-align: center;
+	padding-bottom: 10vh;
+}
+
+.about > .text_about{
+	width: 500px;
+	margin: 0 auto;
+}
+
+/*アクセス説明部分*/
+.access{
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.access > .text_access > .textCenter > iframe{
+	width: 60vw;
+	height: 60vh;
+}
+
+/*お問い合わせ部分*/
+.contact{
+	width: 100vw;
+	height: 80vh;
+	margin-top: 20vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

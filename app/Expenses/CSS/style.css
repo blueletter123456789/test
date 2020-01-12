@@ -1,0 +1,73 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#app{
+	height: 100vh;
+	width: 100vw;
+	background-color: #3D4490;
+}
+
+/*ヘッダータイトル部分*/
+.title{
+	width: 100vw;
+	height: 20vh;
+	font-family: 'Long Cang', cursive;
+
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.title > p{
+	font-size: 60px;
+	letter-spacing: 5px;
+	color: #A8CBEC;
+}
+
+/*ユーザー情報入力部分*/
+.input_box{
+	width: 100vw;
+	height: 70vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.input_box > form{
+	width: 40vw;
+	height: 55vh;
+	background-color: #8F929F;
+	text-align: center;
+}
+
+.input_box > form > input{
+	margin-top: 10vh;
+}
+
+/*ID部分*/
+.input_box > form > #user_id{
+	width: 30vw;
+	height: 30px;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+.input_box > form > #pass{
+	width: 30vw;
+	height: 30px;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+.input_box > form > #button{
+	width: 150px;
+	height: 40px;
+	background-color: #dddddd;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+
