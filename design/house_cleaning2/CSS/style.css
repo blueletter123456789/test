@@ -39,7 +39,11 @@ body{
 }
 
 /*ヘッダーメニュー*/
-.header_menu{
+.menu_icon{
+  display: none;
+}
+
+nav{
 	width: 100vw;
 	height: 6vh;
 	background-color: #ffffff;
@@ -56,18 +60,18 @@ body{
 	align-items: center
 }
 
-.header_menu > .header_list > li{
+nav > .header_list > li{
 	list-style: none;
 	position: relative;	
 }
 
-.header_menu > .header_list > li > a{
+nav > .header_list > li > a{
 	text-decoration: none;
 	color: #000000;
 	padding: 5px;
 }
 
-.header_menu > .header_list > li > a::after {
+nav > .header_list > li > a::after {
   position: absolute;
   bottom: 2px;
   left: 0;
@@ -80,11 +84,11 @@ body{
   transition: .3s;
 }
 
-.header_menu > .header_list > li > a:hover {
+nav > .header_list > li > a:hover {
 	color: rgba(150, 150, 150, 0.7);
 }
 
-.header_menu > .header_list > li > a:hover::after {
+nav > .header_list > li > a:hover::after {
   bottom: -4px;
   opacity: 1;
   visibility: visible;
@@ -92,15 +96,15 @@ body{
 
 /*背景設定*/
 .content_image{
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    position: fixed;
-    background-position: center center;
-    opacity: 0;
-    background-size: cover;
-    transition: all 1s ease 0s;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  position: fixed;
+  background-position: center center;
+  opacity: 0;
+  background-size: cover;
+  transition: all 1s ease 0s;
 }
 
 .show .content_image {
@@ -124,44 +128,268 @@ body{
 	background-image: url("IMG/46.jpg");
 }
 
+#image5{
+  background-image: url("IMG/img-12.jpg");
+}
+
+.contents{
+  width: 100vw;
+  height: 100vh;
+}
+
+section{
+  position: relative;
+}
+
+/*中身共通*/
+.text-box{
+  padding: 50px 25px 10px 25px;
+  width: 60vw;
+  height: 50vh;
+  opacity: 0;
+  background-color: rgba(255,255,255,0.9);
+  color: #555555;
+  transition: all ease 2s 0s;
+  transform: translateY(50px);
+}
+
+.show .text-box{
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.text-box h1{
+  margin: 0 0 10px;
+  font-size: 30px;
+  width: 100%;
+}
+
+.text-box h2{
+  width: 100%;
+}
+
+.text-box > p{
+  width: 100%;
+  margin-top: 25px;
+  word-wrap: break-word;
+}
+
+
+
+/*トップ*/
+#top .top_content{
+  z-index: 2;
+  position: absolute;
+  top: 30%;
+  left: 0;
+}
+
+
+
+/*バッカンについて*/
+#about .about_content{
+  z-index: 2;
+  position: absolute;
+  top: 30%;
+  right: 0;
+}
+
+
+
+/*プラン*/
+#plan .plan_content{
+  z-index: 2;
+  position: absolute;
+  top: 30%;
+  left: 0;
+}
+
+#plan .text-box{
+  padding: 0;
+  width: 100vw;
+  height: 60vh;
+}
+
+#plan .text-box h1{
+  padding: 50px 25px 10px 25px;
+  width: 50%;
+}
+
+#plan .text-box > div{
+  width: 100vw;
+  height: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#plan .text-box > .wrapper_plan > div{
+  width: 30%;
+  height: 100%;
+  background-color: #ddd;
+}
+
+#plan .text-box > .wrapper_plan > div > p{
+  padding: 10px 2px;
+  word-wrap: break-word;
+}
+
+#plan .text-box > .wrapper_plan .text_plan{
+  text-align: center;
+}
+
 
 /*会社概要*/
-#about .about_content{
-    padding: 30vh 0 40vh;
-    position: relative;
-    z-index: 2;
+#company .company_content{
+  z-index: 2;
+  position: absolute;
+  top: 30%;
+  right: 0;
 }
 
-/*サービス*/
-#service .service_content{
-    padding: 30vh 0 20vh 40vw;
-    position: relative;
-    z-index: 2;
+#company .text-box .company_index{
+  width: 30%;
 }
 
-/*予約までの流れ*/
-#booking .booking_content{
-    padding: 45vh 0 30vh;
-    position: relative;
-    z-index: 2;
+#company .text-box > table{
+  margin: 0 auto;
+  width: 80%;
+  table-layout:fixed
 }
 
-/*質問*/
-#faq .faq_content{
-    padding: 40vh 10vw 10vh 40vw;
-    position: relative;
-    z-index: 2;
+#company .text-box tr th{
+  text-align: left;
+  vertical-align: top;
+  word-wrap: break-word;
+  padding: 10px;
 }
+
+
+
+/*問い合わせ*/
+#contact{
+  height: 100vh;
+}
+
+#contact .contact_content{
+  z-index: 2;
+  position: absolute;
+  top: 30%;
+  left: 0;
+}
+
+
+#contact .text-box{
+  padding: 50px 25px 50px 25px;
+}
+
+#contact .text-box > iframe{
+  height: 60%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#contact .text-box > div{
+  padding: 20px 0;
+  width: 40%;
+  margin: 0 auto;
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#contact .text-box .contact_index{
+  width: 20%;
+}
+
+
+/*****************レスポンシブ対応*****************/
+@media screen and (max-width:480px){
+
+.menu_icon{
+  display: block;
+  z-index: 9999;
+  position: fixed;
+  top: 8vh;
+  left: 50%;
+  transform: rotateZ(0deg) translateX(-50%);
+  transition: top ease 1s 0.05s;
+}
+
+.menu_icon > img{
+  width: 50px;
+  height: auto;
+}
+
+nav{
+  height: 0;
+  transition: all ease 1s 0s;
+}
+
+.header_list{
+  display: none;
+  opacity: 0;
+  transition: all ease 1s 1s;
+}
+
+.open{
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.open .header_list{
+  width: 100%;
+  height: 50%;
+  opacity: 1;
+  display: block;
+  background-color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 8vh;
+}
+
+
+/*共通*/
 
 .text-box{
-    padding: 50px 25px;
-    width: 60vw;
-    height: 50vh;
-    background-color: rgba(255,255,255,0.9);
-    color: #555555;
+  width: 80vw;
 }
 
-.text-box p{
-    margin: 0 0 10px;
-    font-size: 40px;
+/*プラン*/
+#plan{
+  height: auto;
+  min-height: 130vh;
+}
+
+#plan .text-box{
+  height: 90vh;
+}
+
+/*#plan .text-box{
+  height: auto;
+}*/
+
+#plan .text-box > div{
+  flex-direction: column;
+  justify-content: flex-end;
+  height: auto;
+}
+
+#plan .text-box > .wrapper_plan > div{
+  width: 80%;
+  border-color: rgba(255, 255, 255, 0.5);
+  border-style: solid;
+}
+
+/*会社情報*/
+#company .text-box > table{
+  width: 100%;
+}
+
+#company > .company_content > .text-box{
+  height: 60vh;
+}
+
 }
