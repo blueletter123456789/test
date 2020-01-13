@@ -7,7 +7,7 @@ $(function(){
             var winHeight = $(window).height();
             var scrollTop = $(window).scrollTop();
             var showClass = 'show';
-            var timing = 100; // 100pxコンテンツが見えたら次のif文がtrue
+            var timing = 500; // 500pxコンテンツが見えたら次のif文がtrue
 
             if (scrollTop >= contentsPOS - winHeight + timing){
               $(elem).addClass(showClass);

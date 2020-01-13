@@ -11,7 +11,7 @@ body{
 .title{
 	width: 100vw;
 	height: 7vh;
-	background-color: #222222;
+	background-color: #707B80;
 	z-index: 500;
 	position: fixed;
 }
@@ -24,14 +24,14 @@ body{
 }
 
 .title > span > a{
-	color: #cccccc;
+	color: #dcdade;
 	padding: 5px;
 	text-decoration: none;
 	transition: 0.1s all ease-in 0s;
 }
 
 .title > span > #logo{
-	font-size: 17px;
+	font-size: 20px;
 }
 
 .title > span > a:hover{
@@ -46,7 +46,7 @@ body{
 nav{
 	width: 100vw;
 	height: 6vh;
-	background-color: #ffffff;
+	background-color: #f1f1f2;
 	opacity: 0.9;
 	z-index: 500;
 	position: fixed;
@@ -100,11 +100,19 @@ nav > .header_list > li > a:hover::after {
   left: 0;
   right: 0;
   height: 100%;
-  position: fixed;
-  background-position: center center;
   opacity: 0;
+  position: fixed;
+  background-position: center;
   background-size: cover;
   transition: all 1s ease 0s;
+}
+
+.content_image::before{
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 255, 255, 0.3);
 }
 
 .show .content_image {
@@ -113,23 +121,23 @@ nav > .header_list > li > a:hover::after {
 }
 
 #image1{
-	background-image: url("IMG/40.jpg");
+	background-image: url("IMG/osaka2.jpg");
 }
 
 #image2{
-	background-image: url("IMG/img-20@2x.jpg");
+	background-image: url("IMG/about.jpg");
 }
 
 #image3{
-	background-image: url("IMG/30.jpg");
+	background-image: url("IMG/plan.jpg");
 }
 
 #image4{
-	background-image: url("IMG/46.jpg");
+	background-image: url("IMG/osaka1.jpg");
 }
 
 #image5{
-  background-image: url("IMG/img-12.jpg");
+  background-image: url("IMG/contact.jpg");
 }
 
 .contents{
@@ -147,10 +155,10 @@ section{
   width: 60vw;
   height: 50vh;
   opacity: 0;
-  background-color: rgba(255,255,255,0.9);
-  color: #555555;
-  transition: all ease 2s 0s;
-  transform: translateY(50px);
+  background-color: rgba(74,113,128,0.8);
+  color: #E0F7FF;
+  transition: all ease 1s 0s;
+  transform: translateY(20px);
 }
 
 .show .text-box{
@@ -226,12 +234,13 @@ section{
 #plan .text-box > .wrapper_plan > div{
   width: 30%;
   height: 100%;
-  background-color: #ddd;
+  background-color: #fff;
 }
 
 #plan .text-box > .wrapper_plan > div > p{
   padding: 10px 2px;
   word-wrap: break-word;
+  color: #555;
 }
 
 #plan .text-box > .wrapper_plan .text_plan{
@@ -347,7 +356,7 @@ nav{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding-bottom: 8vh;
+  padding-bottom: 9vh;
 }
 
 
@@ -367,9 +376,14 @@ nav{
   height: 90vh;
 }
 
-/*#plan .text-box{
-  height: auto;
-}*/
+#plan .text-box h1{
+  padding: 2vh 25px 1vh 25px;
+  margin: 0 0 1vh; 
+}
+
+#plan .text-box > .wrapper_plan > div > p{
+  padding: 0.3vh 2px;
+}
 
 #plan .text-box > div{
   flex-direction: column;
@@ -379,17 +393,34 @@ nav{
 
 #plan .text-box > .wrapper_plan > div{
   width: 80%;
-  border-color: rgba(255, 255, 255, 0.5);
-  border-style: solid;
+  height: 24vh;
+  margin-top: 2vh;
 }
 
 /*会社情報*/
+#company h1{
+  margin: 0 0 1vh;
+}
+
 #company .text-box > table{
   width: 100%;
 }
 
+#company .text-box tr th{
+  padding: 1vh 0;
+}
+
 #company > .company_content > .text-box{
   height: 60vh;
+  padding: 3vh 25px 10vh 25px;
+}
+
+#contact .text-box > div{
+  width: 80%;
+}
+
+#contact .text-box > div{
+  padding: 2vh 0;
 }
 
 }
