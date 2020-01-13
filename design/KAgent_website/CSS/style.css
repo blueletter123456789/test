@@ -142,9 +142,11 @@ header, .close{
 	width: 100vw;
 	margin-top: 5vw;
 	background-image: url(../IMG/IMG_8226.jpg);
-	background-size: cover;
+	background-size: 150%;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-position: center;
+	background-position-x: 50%;
+	background-position-y: 50%;
 	z-index: -999;
 	position: relative;
 }
@@ -455,7 +457,7 @@ header, .close{
 	width: 60vw;
 	max-width: 900px;
 	padding: 10vh 0 10vh 0;
-	margin: 0 auto 10vh auto;
+	margin: 0 auto 15vh auto;
 	border-style: solid;
 	border-width: 2px;
 	border-color: #bbb;
@@ -501,4 +503,60 @@ header, .close{
 	height: 20px;
 	cursor: pointer;
 	margin-left: 10%;
+}
+
+/*フッター部分*/
+
+footer{
+	height: 70vh;
+	width: 100vw;
+}
+
+footer > .footer_img{
+	width: 100%;
+	height: 40%;
+	background-image: url("../IMG/IMG_1007_Original.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+footer > .footer_img:after{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 40%;
+	background-color: rgba(50, 50, 50, 0.5);
+}
+
+footer > .site_map{
+	width: 100%;
+	height: 100%;
+	background-color: #212a37;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+footer > .site_map > ul{
+	height: 80%;
+}
+
+footer > .site_map > ul > li{
+	margin: 5vh;
+	list-style: none;
+}
+
+footer > .site_map > ul > li > a{
+	text-decoration: none;
+	color: #ccc;
+	font-size: 14px;
+}
+
+footer > .site_map > ul > li > a:hover{
+	color: #fff;
+}
+
+footer > .site_map > ul > li > p{
+	color: #fff;
+	font-size: 16px;
 }

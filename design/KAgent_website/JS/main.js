@@ -9,7 +9,7 @@ $(function(){
 
     if(flg==1){
 
-      $('.top, .ci, .about, .work, .access, .contact').foggy({
+      $('.top, .ci, .about, .work, .access, .contact, footer').foggy({
       opacity:      0.8,
       blurRadius:   10,
       quality:      16,
@@ -24,7 +24,7 @@ $(function(){
 
     }else{
 
-      $('.top, .ci, .about, .work, .access, .contact').foggy(false); 
+      $('.top, .ci, .about, .work, .access, .contact, footer').foggy(false); 
       
       $('header > .title > .menu').css('color', '#333333');
 
@@ -74,7 +74,7 @@ $(function(){
   	speed: 800,
   	fade: true,
   	cssEase: 'ease',
-    autoplay: true, //自動再生
+    autoplay: true,
     autoplaySpeed: 2000,
   });
 
@@ -85,7 +85,7 @@ $(function(){
 
   $(window).scroll(function (){
 
-    $('.text_ci > .content_ci, .text_ci > div > .emphasis_ci, #wrapper_ci1, #wrapper_ci2, #wrapper_ci3, .text_work, .text_about').each(function(){
+    $('.text_ci > .content_ci, .text_ci > div > .emphasis_ci, .main_ci, #wrapper_ci1, #wrapper_ci2, #wrapper_ci3, .text_work, .text_about').each(function(){
 
       var contentPos = $('.text_ci > .content_ci').offset().top;   
 
@@ -101,22 +101,13 @@ $(function(){
 
       var aboutPos = $('.text_about').offset().top;
 
-      // var imgPos = $(this).offset().top;   
+      var mainCiPos = $('.main_ci').offset().top;
+      var getmainHeight = $('.main_ci').height();
+      var bgPosition = 80 / getmainHeight * mainCiPos+ 10;
 
       var scroll = $(window).scrollTop();
 
       var windowHeight = $(window).height();
-
-      // if (scroll > imgPos - windowHeight + 100){
-
-      //   $('.text_ci > .content_ci, .text_ci > div > .emphasis_ci, .main_ci > .wrapper_ci').css({
-      //     "opacity": "1", 
-      //   });
-
-      // }else{
-
-      //   $('.text_ci > .content_ci, .text_ci > div > .emphasis_ci, .main_ci > .wrapper_ci').css("opacity","0" );
-      // }
 
       if (scroll > contentPos - windowHeight + 200){
         $('.text_ci > .content_ci').css("opacity", "1");
@@ -128,6 +119,14 @@ $(function(){
         $('.text_ci > div > .emphasis_ci').css("opacity", "1");
       }else{
         $('.text_ci > div > .emphasis_ci').css("opacity","0");
+      }
+
+      if (scroll > mainCiPos - windowHeight){
+        $('.text_work').css({
+          "backgroundPositionY": bgPosition + "%"
+        });
+      // }else{
+      //   $('.text_work').css("opacity","0");
       }
 
       if(scroll > wrapper1Pos - windowHeight / 3){
