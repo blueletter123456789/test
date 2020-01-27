@@ -1,6 +1,6 @@
 $(function(){
 
-/* MENU PART */
+/* Menu animation */
 	$('.open').on('click', function(){
 		$('nav').addClass('active');
 
@@ -15,7 +15,7 @@ $(function(){
 	});
 
 
-/* SLIDER ANIMATION */
+/* Slider animation */
   $('.slider').slick({
     prevArrow: '<span class="arrow prev-arrow"><i class="material-icons">arrow_left</i></span>',
     nextArrow: '<span class="arrow next-arrow"><i class="material-icons">arrow_right</i></span>',
@@ -44,26 +44,9 @@ $(function(){
     ]
   });
 
-// contact validation
-  // $('input, textarea').on('blur', function(){
-  //   var name = $(this).attr('name');
-  //   var val = $(this).val();
-  //   console.log(name + ':' + val);
 
-  //   if (name == 'tel'){
-  //     chkTel(val);
-  //   }
-    
-  // });
 
-  // function chkTel(val){
-  //   if (val.match(/^\d{10,11}$/)){
-  //     console.log('OK');
-  //   }else{
-  //     console.log('NG');
-  //   }
-  // }
-
+// バリデーションチェック
   var errorMessage = {
     'name' : '', 
     'mail' : '', 
@@ -72,6 +55,7 @@ $(function(){
     'content' : '', 
   };
 
+// 空白チェック
   $('input, textarea').on('blur', function(){
     var name = $(this).attr('name');
     var val = $(this).val();
@@ -81,6 +65,7 @@ $(function(){
       return;
     };
 
+// 電話、メール形式チェック
     if (name == 'tel') {
       telCheck(val);
     }else if(name == 'mail'){
@@ -89,43 +74,34 @@ $(function(){
       symbolCheck(name, val);
     }
 
-    // console.log(errorMessage);
-
     ouputMessage(name);
-
-
 
   });
 
+
+  // 空白チェック関数
   function emptyCheck(name, val){
-    // if (val=='' ) {
-    //   errorMessage[name] = '必須項目です';
-    // }else{
-    //   errorMessage[name] = ''; 
-    // }
 
     errorMessage[name] = (val == '') ? '必須項目です' : '';
     return (val=='') ? false : true;
 
   };
 
+  // 電話形式チェック関数
   function telCheck(val){
-    // console.log(val.match(/^\d{10,11}$/));
-    // if (val.match(/^\d{10,11}$/)){
-    //   errorMessage['tel'] = '';
-    // }else{
-    //   errorMessage['tel'] = '形式が正しくありません';
-    // }
 
-  // 三項演算子
-  errorMessage['tel'] = (val.match(/^\d{10,11}$/)) ? '' : '電話の形式が正しくありません';
+  errorMessage['tel'] = (val.match(/^\d{10,11}$/)) ? '' : '電話の形式が正しくありません';　// 三項演算子
 
   };
 
+
+  // 記号チェック関数
   function symbolCheck(name, val){
   errorMessage[name] = (val.match(/[!"#$%&'()\*\+\-\.,\/:;<=>?@\[\\\]^_`{|}~]/g)) ? '入力値が正しくありません' : '';
   };
 
+
+  // メール形式チェック関数
   function mailCheck(val){
     if (!val.match(/^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9]{1}[A-Za-z0-9_.-]*\.[A-Za-z0-9]{1,}$/)){
       errorMessage['mail'] = 'メールの記載が正しくありません'
@@ -135,6 +111,7 @@ $(function(){
   };
 
 
+  // メッセージ出力関数
   function ouputMessage(name){
     var cnt = 0;
     for(key in errorMessage){
@@ -149,12 +126,22 @@ $(function(){
       }
   };
 
+
+
+// スクローリファイ制御
+
+  var current;
+
   $.scrollify({
     section:'.wrapper > section', 
     setHeights:false, 
     scrollbars:false, 
     scrollSpeed:1000,
     updateHash:false,
+    before:function(i,box){
+        current = i;
+    }
+    
   });
 
 

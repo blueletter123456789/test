@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="view-port" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+	<title>KAgent</title>
+	<link rel="stylesheet" type="text/css" href="./CSS/style.css">
+	<link rel="stylesheet" type="text/css" href="./CSS/slick/slick-theme.css"/>
+ 	<link rel="stylesheet" type="text/css" href="./CSS/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="./CSS/slick-style.css">
+	<script type="text/javascript" src="JS/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="CSS/slick/slick.min.js"></script>
+	<script type="text/javascript" src="JS/scrollmagic/uncompressed/plugins/TweenMax.min.js"></script>
+	<script type="text/javascript" src="JS/scrollmagic/uncompressed/ScrollMagic.js"></script>
+ 	<script type="text/javascript" src="JS/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+	<script type="text/javascript" src="JS/main.js"></script>
+</head>
+<body>
+	<header>
+		<div class="title_header">
+			<a class="menu_button">menu</a>
+			<h1>KAgent</h1>
+		</div>
+	</header>
+	<nav>
+		<div>
+			<ul>
+				<li><a href="#1">CI</a></li>
+				<li><a href="#2">Business</a></li>
+				<li><a href="#3">About</a></li>
+				<li><a href="#4">Access</a></li>
+				<li><a href="#5">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+	<section class="top">
+		<ul class="slider">
+			<li><img src="./IMG/IMG_2625.JPG"></li>
+			<li><img src="./IMG/IMG_2631.JPG"></li>
+			<li><img src="./IMG/IMG_2636.JPG"></li>
+			<li><img src="./IMG/IMG_2647.JPG"></li>
+		</ul>
+	</section>
+	<div class="homeContainer">
+		<section class="panel ci">
+			<div class="img ci"></div>
+			<div class="content ci">
+				<h2>Philosophy</h2>
+				<div>
+					<p>sample,sample,sample,sample,sample,<br>sample,sample,sample</p>
+					<p>sample,sample,sample,sample,sample,sample</p>
+				</div>
+				<a href="#1">
+					<span>View More</span>
+				</a>
+			</div>
+		</section>
+		<section class="panel business">
+			<div class="img business"></div>
+			<div class="content business">
+				<h2>Business</h2>
+				<div>
+					<p>sample,sample,sample,sample,sample,<br>sample,sample,sample</p>
+					<p>sample,sample,sample,sample,sample,sample</p>
+				</div>
+				<a href="#2">
+					<span>View More</span>
+				</a>
+			</div>
+		</section>
+		<section class="panel about">
+			<div class="img about"></div>
+			<div class="content about">
+				<h2>About</h2>
+				<div>
+					<p>sample,sample,sample,sample,sample,<br>sample,sample,sample</p>
+					<p>sample,sample,sample,sample,sample,sample</p>
+				</div>
+				<a href="#3">
+					<span>View More</span>
+				</a>
+			</div>
+		</section>
+		<section class="panel access">
+			<div class="img access"></div>
+			<div class="content access">
+				<h2>Access</h2>
+				<div>
+					<p>sample,sample,sample,sample,sample,<br>sample,sample,sample</p>
+					<p>sample,sample,sample,sample,sample,sample</p>
+				</div>
+				<a href="#4">
+					<span>View More</span>
+				</a>
+		</section>
+		<section class="panel contact">
+		<h1>Contact</h1>
+		<h3>お問い合わせ</h3>
+		<div class="text_contact">
+        	<div class="mailForm">
+    		    <form mepod="post" action="../php/mail.php">
+    		    	<span>
+		                <p align="center">会社・組織名：<br />
+			          	  <input size="30" maxlength="50" type="text" name="会社・組織名" placeholder="任意"/>
+			          	</p><br />      
+	            		<p align="center">担当者・氏名：<br />
+	            			<input size="30" maxlength="50" type="text" name="担当者・氏名" placeholder="必須"  required />
+	            		</p><br />      
+	            		<p align="center">電話番号（半角）：<br />
+	            			<input size="30" maxlength="20" type="text" name="電話番号" placeholder="必須"   required/>
+	            		</p><br />      
+	            		<p align="center">Email（半角）：<br />
+	            			<input size="30" maxlength="256" type="text" name="Email" placeholder="必須"   required/>
+	            		</p>
+            		</span>
+            		<span>
+	            		<p align="center">件名：<br />
+	            			<input size="30" maxlength="50" type="text" name="件名" placeholder="必須"  required />
+	            		</p><br />      
+	            		<p id="title_textarea" align="center">お問い合わせ内容：<br />
+	            			<textarea name="お問い合わせ内容" maxlength="500" cols="30" rows="10" placeholder="お問い合わせ内容をご記入ください。">
+	            			</textarea></p>
+	        			<p id="contact_button" align="center">
+	            			<input type="submit" value="　 確認 　" /><br />
+	            			<input type="reset" value="リセット" />
+	        			</p>
+	        		</span>
+        		</form>
+			</div>
+		</div>
+		</section>
+	</div>
+	<footer>
+		<div class="site_map">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</footer>
+</body>
+</html>

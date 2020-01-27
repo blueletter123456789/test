@@ -78,7 +78,6 @@ $(function(){
     autoplaySpeed: 2000,
   });
 
-
   // スクロール機能
 
   $('.text_ci > .content_ci, .text_ci > div > .emphasis_ci, .main_ci > .wrapper_ci, .text_work, .text_about').css("opacity","0");
@@ -102,8 +101,6 @@ $(function(){
       var aboutPos = $('.text_about').offset().top;
 
       var mainCiPos = $('.main_ci').offset().top;
-      var getmainHeight = $('.main_ci').height();
-      var bgPosition = 80 / getmainHeight * mainCiPos+ 10;
 
       var scroll = $(window).scrollTop();
 
@@ -122,11 +119,10 @@ $(function(){
       }
 
       if (scroll > mainCiPos - windowHeight){
-        $('.text_work').css({
-          "backgroundPositionY": bgPosition + "%"
+        $('.main_ci').css({
+          "backgroundPositionY": scroll / 80 + "%"
         });
-      // }else{
-      //   $('.text_work').css("opacity","0");
+
       }
 
       if(scroll > wrapper1Pos - windowHeight / 3){
