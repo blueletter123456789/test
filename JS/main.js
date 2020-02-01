@@ -140,8 +140,9 @@ $(function(){
     updateHash:false,
     before:function(i,box){
         current = i;
+        console.log(current);
     }
-    
+
   });
 
 
