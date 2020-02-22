@@ -1,0 +1,23 @@
+【Lato】
+	font-family: 'Lato', sans-serif;
+
+【Roboto Mono】
+	font-family: 'Roboto Mono', monospace;
+
+【Montserrat】
+	font-family: 'Montserrat', sans-serif;
+
+【Noto_Sans_JP】
+	font-family: 'Noto Sans JP', sans-serif;
+
+【Quicksand】
+	font-family: 'Quicksand', sans-serif;
+
+【Roboto_Mono】
+	font-family: 'Roboto Mono', monospace;
+
+【Sawarabi_Gothic】
+	font-family: 'Sawarabi Gothic', sans-serif;
+
+【Ubuntu】
+	font-family: 'Ubuntu', sans-serif;
