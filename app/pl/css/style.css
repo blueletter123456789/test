@@ -1,4 +1,4 @@
-/*アプリ共通*/
+/*********** アプリ共通 ***********/
 *{
 	margin: 0;
 	padding: 0;
@@ -6,16 +6,28 @@
 
 #account{
 	position: relative;
+	font-family: 'Noto Sans JP', sans-serif;
 }
 
-/*セクション共通*/
+/*********** セクション共通 ***********/
 section{
 	width: 70%;
 	height: 100vh;
 }
 
+table{
+	border-collapse: collapse;
+	border-color: #bbb;
+	background-color: #eee;
+	color: #222;
+}
 
-/*サイドメニュー*/
+table td{
+	padding-left: 1em;
+	font-weight: 300;
+}
+
+/*********** サイドメニュー ***********/
 .side_menu{
 	position: fixed;
 	width: 30%;
@@ -42,13 +54,15 @@ section{
 	text-decoration: none;
 	font-size: 20px;
 	color: #d7cbb1;
-	font-family: 'Noto Sans JP', sans-serif;
+	font-family: 'Sawarabi Gothic' ;
 }
 
 
-/*家計簿情報登録画面*/
+
+
+/*********** 家計簿情報登録画面 ***********/
 .info_register{
-	background-color: #cfd7db;
+	background-color: #d6ccc4;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -92,7 +106,7 @@ section{
 
 .info_register form >div{
 	width: 90%;
-	height: 25%;
+	height: 20%;
 	margin: 0 auto;
 }
 
@@ -109,15 +123,17 @@ section{
 	font-size: 16px;
 }
 
-.info_register table{
+.infoTable{
+	width: 80%;
 	margin: 20px auto;
 }
 
 .info_register table th{
 	width: 25%;
+	background-color: #c4996d;
 }
 
-.input{
+.inputRegister{
 	width: 80%;
 	height: 40%;
 	margin: 0 auto;
@@ -125,7 +141,7 @@ section{
 	border-radius: 0 10px 10px 10px;
 }
 
-.output{
+.outputRegister{
 	width: 80%;
 	height: 40%;
 	margin: 0 auto;
@@ -134,31 +150,377 @@ section{
 	color: #fff;
 }
 
+section > h1{
+	color: #e0e5e6;
+	background-color: #56626e;
+	padding: 10px;
+	text-align: center;
+}
+
+.inputRegister > form > div > p{
+	font-size: 14px;
+}
+
+.outputRegister > form > div > p{
+	font-size: 14px;
+}
 
 
-/*仕訳帳表示画面*/
+
+
+/*********** 仕訳帳表示画面 ***********/
 .journal{
-	background-color: #aae;
-/*	position: absolute;
+	background-color: #d6ccc4;
+	position: absolute;
 	top: 0;
-	right: 0;*/
+	right: 0;
 }
 
 
-/*合計残高試算表表示画面*/
+/* 仕訳帳条件 */
+.journalInput{
+	width: 80%;
+	margin: 20px auto;
+}
+
+.journalInput form > div{
+	position: relative;
+}
+
+.journalInput .journalDate, .journalInput select{
+	position: absolute;
+	left: 100px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.journalInput form >div{
+	width: 90%;
+	height: 25%;
+	margin-bottom: 10px;
+}
+
+.journalInput form > div input{
+	width: 40%;
+	height: 25px;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+.journalInput form > div > select{
+	width: 60%;
+	height: 25px;
+	font-size: 16px;
+}
+
+
+/* 仕訳帳情報表示 */
+.journalTable{
+	width: 80%;
+	margin: 20px auto;
+}
+
+
+
+
+/*********** 合計残高試算表表示画面 ***********/
 .balance{
-	background-color: #eea;
-/*	position: absolute;
+	background-color: #d6ccc4;
+	position: absolute;
 	top: 0;
-	right: 0;*/
+	right: 0;
+}
+
+.balance_title{
+	display: flex;
+	width: 80%;
+	height: 50px;
+	margin: 30px auto 0 auto;
+}
+
+.balance_title > div{
+	width: 80px;
+	height: 100%;
+	border-radius: 10px 10px 0 0;
+	position: relative;
+	cursor: pointer;
+}
+
+.balance_title > div > span{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 
-/*貸借対照表表示画面*/
-.pl{
-	background-color: #aee;
-/*	position: absolute;
-	top: 0;
-	right: 0;*/
+/****** 予算登録 ******/
+.inputBudget{
+	width: 80%;
+	height: 70%;
+	margin: 0 auto;
+	background-color: #c4996d;
+	border-radius: 0 10px 10px 10px;
 }
 
+.inputBudget > form{
+	width: 90%;
+	margin: 0 auto;
+	padding-top: 10px;
+	justify-content: space-around;
+}
+
+.inputBudget > form > div{
+	display: flex;
+}
+
+.inputBudget > form > div > div{
+	width: 25%;
+}
+
+.inputBudget form > div > div > p{
+	font-size: 14px;
+}
+
+.inputBudget form > div > div > input{
+	width: 80%;
+	height: 25px;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+.inputBudget form > div > div > select{
+	width: 80%;
+	height: 30px;
+	font-size: 16px;
+}
+
+.inputBudget form > div > input[type="submit"]{
+	height: 25px;
+}
+
+.budgetTable > table{
+	margin: 10px auto;
+}
+
+.budgetTable > table tr{
+	background-color: #eee;
+}
+
+
+/****** 合計残高試算表 ******/
+.outputBalance{
+	width: 80%;
+	height: 70%;
+	margin: 0 auto;
+	background-color: #1e130d;
+	border-radius: 0 10px 10px 10px;
+	color: #fff;
+}
+
+.outputBalance > form{
+	padding-top: 10px;
+	margin-left: 5%;
+}
+
+.outputBalance > form > p{
+	font-size: 14px;
+}
+
+.balanceTable{
+	width: 90%;
+	margin: 20px auto;
+}
+
+
+
+
+/*********** 貸借対照表表示画面 ***********/
+.bs{
+	background-color: #d6ccc4;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+/****** 貸借対照表 ******/
+.bs_title{
+	display: flex;
+	width: 80%;
+	height: 50px;
+	margin: 30px auto 0 auto;
+}
+
+.bs_title > div{
+	width: 80px;
+	height: 100%;
+	border-radius: 10px 10px 0 0;
+	position: relative;
+	cursor: pointer;
+}
+
+.bs_title > div > span{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.bsDetail{
+	width: 80%;
+	height: 70%;
+	margin: 0 auto;
+	background-color: #c4996d;
+	border-radius: 0 10px 10px 10px;
+}
+
+.plDetail{
+	width: 80%;
+	height: 70%;
+	margin: 0 auto;
+	background-color: #1e130d;
+	border-radius: 0 10px 10px 10px;
+	color: #fff;
+}
+
+.bsDetail > form{
+	padding-top: 10px;
+	margin-left: 5%;
+}
+
+.bsDetail > form > p{
+	font-size: 14px;
+}
+
+.plDetail > form{
+	padding-top: 10px;
+	margin-left: 5%;
+}
+
+.plDetail > form > p{
+	font-size: 14px;
+}
+
+.bsTable{
+	display: flex;
+	width: 90%;
+	margin: 20px auto 0 auto;
+	border-style: solid;
+	border-width: thin;
+	background-color: #eee;
+}
+
+.bsDetail_title{
+	width: 100%;
+	border-style: solid;
+	border-width: thin;
+	margin: -1px;
+	text-align: center;
+}
+
+.asset{
+	width: 50%;
+	border-style: solid;
+	border-width: thin;
+	margin: -1px;
+}
+
+.debt{
+	width: 50%;
+	border-style: solid;
+	border-width: thin;
+	margin: -1px;
+}
+
+.account_category{
+	width: 100%;
+	border-style: solid;
+	border-width: thin;
+	margin: -1px;
+}
+
+.category_title{
+	padding-left: 10%;
+}
+
+.account_record{
+	width: 100%;
+	border-style: solid;
+	border-width: thin;
+	margin: -1px;
+	display: flex;
+}
+
+.account_record > span{
+	width: 50%;
+	text-align: center;
+}
+
+.bsDetail_total{
+	width: calc(90% - 2px);
+	margin: 0 auto;
+	display: flex;
+	border-style: solid;
+	background-color: #eee;
+}
+
+.asset_total{
+	width: 100%;
+	border-style: solid;
+	border-width: thin;
+	margin: -1px;
+	display: flex;
+}
+
+.asset_total > span{
+	width: 50%;
+	text-align: center;	
+}
+
+.debt_total{
+	width: 100%;
+	border-style: solid;
+	border-width: thin;
+	margin: -1px;
+	display: flex;
+}
+
+.debt_total > span{
+	width: 50%;
+	text-align: center;	
+}
+
+
+/****** 損益計算書 ******/
+.plTable{
+	display: flex;
+	width: 90%;
+	margin: 20px auto 0 auto;
+	border-style: solid;
+	border-width: thin;
+}
+
+.plsubject{
+	text-align: center;
+}
+
+.plamount{
+	text-align: right;
+	padding-right: 1em;
+}
+
+
+/*********** inputタグ共通 ***********/
+form > div > input[type="submit"]{
+	width: 80px;
+	margin-top: 20px;
+}
+
+input[type="month"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+input[type="month"]::-webkit-clear-button{
+    -webkit-appearance: none;
+}

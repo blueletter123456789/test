@@ -4,29 +4,31 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>PL app</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400&display=swap&subset=japanese" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div id="account">
-		<section v-show="disp" class="side_menu">
+		<section class="side_menu">
 			<ul>
-				<li><a @click="displayPage" href="#1">家計簿情報登録・削除・編集</a></li>
-				<li><a @click="displayPage" href="#2">仕訳帳表示（家計簿情報一覧）</a></li>
-				<li><a @click="displayPage" href="#3">合計残高試算表表示</a></li>
-				<li><a @click="displayPage" href="#4">貸借対照表表示</a></li>
+				<li><a @click="activePage = 1" href="#1">家計簿情報登録・削除・編集</a></li>
+				<li><a @click="activePage = 2" href="#2">仕訳帳表示（家計簿情報一覧）</a></li>
+				<li><a @click="activePage = 3" href="#3">合計残高試算表表示</a></li>
+				<li><a @click="activePage = 4" href="#4">貸借対照表／損益計算書表示</a></li>
 			</ul>
 		</section>
-		<section v-show="disp" class="info_register">
+		<section v-show="activePage === 1" class="info_register page">
 			<div class="register_title">
-				<div @click="registerTab" class="input_tab">
+				<div @click="registerTab = 1" class="input_tab">
 					<span>Input</span>
 				</div>
-				<div @click="registerTab" class="output_tab">
+				<div @click="registerTab = 2" class="output_tab">
 					<span>Output</span>
 				</div>
 			</div>
-			<div v-show="disp" class="input">
+			<div v-show="registerTab === 1" class="inputRegister">
 				<form>
 					<div>
 						<p>日付</p>
@@ -48,9 +50,12 @@
 						<p>金額</p>
 						<input type="number" name="input-amount">
 					</div>
+					<div>
+						<input type="submit" name="inputRegistButton" value="登録">
+					</div>
 				</form>
 			</div>
-			<div v-show="hidden" class="output">
+			<div v-show="registerTab === 2" class="outputRegister">
 				<form>
 					<div>
 						<p>日付</p>
@@ -72,28 +77,347 @@
 						<p>金額</p>
 						<input type="number" name="output-amount">
 					</div>
+					<div>
+						<input type="submit" name="outputRegistButton" value="登録">
+					</div>
 				</form>
 			</div>
-			<div class="info-table">
-				<table width="80%">
+			<div class="infoTable">
+				<table width="100%" border="1">
 					<tr>
 						<th>日付</th>
 						<th>用途</th>
 						<th>勘定科目</th>
 						<th>金額</th>
 					</tr>
-					<tr v-for></tr>
+					<tr>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+					</tr>
+					<tr>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+					</tr>
+					<tr>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+					</tr>
+					<tr>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+					</tr>
 				</table>
 			</div>
 		</section>
-		<section v-show="disp" class="journal">
-			<div></div>
+		<section v-show="activePage === 2" class="journal page">
+			<h1>仕訳帳表示（家計簿情報一覧）</h1>
+			<div class="journalInput">
+				<form>
+					<div>
+						<span>期間：</span>
+						<div class="journalDate">
+							<input type="date" name="startDate">
+							<span> ~ </span>
+							<input type="date" name="endDate">
+						</div>
+					</div>
+					<div>
+						<span>用途：</span>
+						<select class="journalUse">
+							<option></option>
+						</select>
+					</div>
+					<div>
+						<span>勘定科目：</span>
+						<select class="journalAccount">
+							<option></option>
+						</select>
+					</div>
+					<div>
+						<input type="submit" name="journalButton" value="表示">
+					</div>
+				</form>
+			</div>
+			<div class="journalTable">
+				<table width="100%" border="1">
+					<tr>
+						<th>日付</th>
+						<th>用途</th>
+						<th>勘定科目</th>
+						<th>金額</th>
+					</tr>
+					<tr>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+					</tr>
+					<tr>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+					</tr>
+					<tr>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+					</tr>
+					<tr>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+						<td>sample</td>
+					</tr>
+				</table>
+			</div>
 		</section>
-		<section v-show="disp" class="balance">
-			<div></div>
+		<section v-show="activePage === 3" class="balance page">
+			<h1>合計残高試算表表示</h1>
+			<div class="balance_title">
+				<div @click="balanceTab = 1" class="input_tab">
+					<span>Budget</span>
+				</div>
+				<div @click="balanceTab = 2" class="output_tab">
+					<span>Balance</span>
+				</div>
+			</div>
+			<div v-show="balanceTab === 1" class="inputBudget">
+				<form>
+					<div>
+						<div>
+							<p>年月</p>
+							<input type="month" name="input-month">
+						</div>
+						<div>
+							<p>用途</p>
+							<select name="input-use">
+								<option v-for></option>
+							</select>
+						</div>
+						<div>
+							<p>勘定科目</p>
+							<select name="input-account">
+								<option></option>
+							</select>
+						</div>
+						<div>
+							<p>金額</p>
+							<input type="number" name="input-amount">
+						</div>
+					</div>
+					<div>
+						<input type="submit" name="inputBudgetButton" value="登録">
+					</div>
+				</form>
+				<div class="budgetTable">
+					<table width="90%" border="1">
+						<tr>
+							<th>用途</th>
+							<th>勘定科目</th>
+							<th>金額</th>
+						</tr>
+						<tr>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+						</tr>
+						<tr>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+						</tr>
+						<tr>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+						</tr>
+						<tr>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div v-show="balanceTab === 2" class="outputBalance">
+				<form>
+					<p>出力年月</p>
+					<input type="month" name="balanceDate">
+				</form>
+				<div class="balanceTable">
+					<table width="100%" border="1">
+						<tr>
+							<th>借方残高</th>
+							<th>借方合計</th>
+							<th>勘定科目</th>
+							<th>貸方合計</th>
+							<th>貸方残高</th>
+						</tr>
+						<tr>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+						</tr>
+						<tr>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+						</tr>
+						<tr>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+						</tr>
+						<tr>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+							<td>sample</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</section>
-		<section v-show="disp" class="pl">
-			<div></div>
+		<section v-show="activePage === 4" class="bs page">
+			<h1>貸借対照表／損益計算書表示</h1>
+			<div class="bs_title">
+				<div @click="bsTab = 1" class="input_tab">
+					<span>BS</span>
+				</div>
+				<div @click="bsTab = 2" class="output_tab">
+					<span>PL</span>
+				</div>
+			</div>
+			<div v-show="bsTab === 1" class="bsDetail">
+				<form>
+					<p>出力年月</p>
+					<input type="month" name="bsMonth">
+				</form>
+				<div class="bsTable">
+					<div class="asset">
+						<p class="bsDetail_title">資産の部</p>
+						<div class="account_category">
+							<p class="category_title">sample</p>
+							<div class="account_record">
+								<span>sample</span>
+								<span>sample</span>
+							</div>
+							<div class="account_record">
+								<span>sample</span>
+								<span>sample</span>
+							</div>
+							<div class="account_record">
+								<span>sample</span>
+								<span>sample</span>
+							</div>
+						</div>
+					</div>
+					<div class="debt">
+						<p class="bsDetail_title">負債の部</p>
+						<div class="account_category">
+							<p class="category_title">sample</p>
+							<div class="account_record">
+								<span>sample</span>
+								<span>sample</span>
+							</div>
+							<div class="account_record">
+								<span>sample</span>
+								<span>sample</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bsDetail_total">
+					<div class="asset_total">
+						<span>資産合計</span>
+						<span>sample</span>
+					</div>
+					<div class="debt_total">
+						<span>負債・純資産合計</span>
+						<span>sample</span>
+					</div>
+				</div>
+			</div>
+			<div v-show="bsTab === 2" class="plDetail">
+				<form>
+					<p>出力年月</p>
+					<input type="month" name="plMonth">
+				</form>
+				<div class="plTable">
+					<table width="100%">
+						<tr border="1">
+							<th border="1">科目</th>
+							<th border="1">金額</th>
+						</tr>
+						<tr>
+							<td class="plsubject">売上高</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+						<tr>
+							<td class="plsubject">売上原価</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+							<td class="plsubject">売上総利益</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+							<td class="plsubject">販売費及び一般管理費</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+							<td class="plsubject">営業利益</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+							<td class="plsubject">営業外収益</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+							<td class="plsubject">営業外費用</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+							<td class="plsubject">経常利益</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+							<td class="plsubject">特別利益</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+							<td class="plsubject">特別損失</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+							<td class="plsubject">税引前登記純利益</td>
+							<td class="plamount">sample</td>
+						</tr>
+						<tr>
+							<td class="plsubject">税引後当期純利益</td>
+							<td class="plamount">sample</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</section>
 	</div>
 
