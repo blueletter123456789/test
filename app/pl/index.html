@@ -90,29 +90,11 @@
 						<th>勘定科目</th>
 						<th>金額</th>
 					</tr>
-					<tr>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-					</tr>
-					<tr>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-					</tr>
-					<tr>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-					</tr>
-					<tr>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
+					<tr v-for="register in registerList" v-bind:key="register.id">
+						<td>{{ register.date }}</td>
+						<td>{{ register.use }}</td>
+						<td>{{ register.account }}</td>
+						<td>{{ register.amount }}</td>
 					</tr>
 				</table>
 			</div>
@@ -154,29 +136,11 @@
 						<th>勘定科目</th>
 						<th>金額</th>
 					</tr>
-					<tr>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-					</tr>
-					<tr>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-					</tr>
-					<tr>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-					</tr>
-					<tr>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
-						<td>sample</td>
+					<tr v-for="journal in journalList" v-bind:key="journal.id">
+						<td>{{ journal.date }}</td>
+						<td>{{ journal.use }}</td>
+						<td>{{ journal.account }}</td>
+						<td>{{ journal.amount }}</td>
 					</tr>
 				</table>
 			</div>
@@ -226,25 +190,10 @@
 							<th>勘定科目</th>
 							<th>金額</th>
 						</tr>
-						<tr>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-						</tr>
-						<tr>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-						</tr>
-						<tr>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-						</tr>
-						<tr>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
+						<tr v-for="budget in budgetList" v-bind:key="budget.id">
+							<td>{{ budget.use }}</td>
+							<td>{{ budget.account }}</td>
+							<td>{{ budget.amount }}</td>
 						</tr>
 					</table>
 				</div>
@@ -263,33 +212,12 @@
 							<th>貸方合計</th>
 							<th>貸方残高</th>
 						</tr>
-						<tr>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-						</tr>
-						<tr>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-						</tr>
-						<tr>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-						</tr>
-						<tr>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
-							<td>sample</td>
+						<tr v-for="balance in balanceList" v-bind:key="balance.id">
+							<td>{{ balance.debitBaelance }}</td>
+							<td>{{ balance.debitTotal }}</td>
+							<td>{{ balance.account }}</td>
+							<td>{{ balance.creditorTotal }}</td>
+							<td>{{ balance.creditorBalance }}</td>
 						</tr>
 					</table>
 				</div>
@@ -313,33 +241,21 @@
 				<div class="bsTable">
 					<div class="asset">
 						<p class="bsDetail_title">資産の部</p>
-						<div class="account_category">
-							<p class="category_title">sample</p>
-							<div class="account_record">
-								<span>sample</span>
-								<span>sample</span>
-							</div>
-							<div class="account_record">
-								<span>sample</span>
-								<span>sample</span>
-							</div>
-							<div class="account_record">
-								<span>sample</span>
-								<span>sample</span>
+						<div v-for="assetCategory in assetCategories" class="account_category">
+							<p class="category_title">{{ assetCategory.title }}</p>
+							<div v-for="assetRecord in assetCategories.assetRecords" class="account_record">
+								<span>{{ assetRecord.account }}</span>
+								<span>{{ assetRecord.amount }}</span>
 							</div>
 						</div>
 					</div>
 					<div class="debt">
 						<p class="bsDetail_title">負債の部</p>
-						<div class="account_category">
-							<p class="category_title">sample</p>
-							<div class="account_record">
-								<span>sample</span>
-								<span>sample</span>
-							</div>
-							<div class="account_record">
-								<span>sample</span>
-								<span>sample</span>
+						<div v-for="debtCategory in debtCategories" class="account_category">
+							<p class="category_title">{{ debtCategory.title }}</p>
+							<div v-for="bsRecord in debtCategories.bsRecords" class="account_record">
+								<span>{{ debtRecord.account }}</span>
+								<span>{{ debtRecord.amount }}</span>
 							</div>
 						</div>
 					</div>
@@ -347,11 +263,11 @@
 				<div class="bsDetail_total">
 					<div class="asset_total">
 						<span>資産合計</span>
-						<span>sample</span>
+						<span>{{ assetTotal }}</span>
 					</div>
 					<div class="debt_total">
 						<span>負債・純資産合計</span>
-						<span>sample</span>
+						<span>{{ debtTotal }}</span>
 					</div>
 				</div>
 			</div>
