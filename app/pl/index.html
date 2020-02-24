@@ -282,54 +282,9 @@
 							<th border="1">科目</th>
 							<th border="1">金額</th>
 						</tr>
-						<tr>
-							<td class="plsubject">売上高</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-						<tr>
-							<td class="plsubject">売上原価</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-							<td class="plsubject">売上総利益</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-							<td class="plsubject">販売費及び一般管理費</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-							<td class="plsubject">営業利益</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-							<td class="plsubject">営業外収益</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-							<td class="plsubject">営業外費用</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-							<td class="plsubject">経常利益</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-							<td class="plsubject">特別利益</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-							<td class="plsubject">特別損失</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-							<td class="plsubject">税引前登記純利益</td>
-							<td class="plamount">sample</td>
-						</tr>
-						<tr>
-							<td class="plsubject">税引後当期純利益</td>
-							<td class="plamount">sample</td>
+						<tr v-for="plRecord in plRecords">
+							<td class="plsubject">{{ plRecord.subject }}</td>
+							<td class="plamount">{{ plRecord.amount }}</td>
 						</tr>
 					</table>
 				</div>
