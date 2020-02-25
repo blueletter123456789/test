@@ -13,6 +13,7 @@
 section{
 	width: 70%;
 	height: 100vh;
+	box-shadow:  7px 0px 6px -6px #555 inset;
 }
 
 table{
@@ -53,8 +54,13 @@ table td{
 .side_menu ul > li > a{
 	text-decoration: none;
 	font-size: 20px;
-	color: #d7cbb1;
-	font-family: 'Sawarabi Gothic' ;
+	color: #e7dbc1;
+	font-weight: 300;
+	text-shadow: 0 0 10px #999;
+}
+
+.side_menu ul > li > a:hover{
+	text-shadow:  0 0 15px #f7cbb1;
 }
 
 
@@ -81,6 +87,7 @@ table td{
 	border-radius: 10px 10px 0 0;
 	position: relative;
 	cursor: pointer;
+	box-shadow: 2px -5px 10px -5px #222
 }
 
 .input_tab{
@@ -139,6 +146,7 @@ table td{
 	margin: 0 auto;
 	background-color: #c4996d;
 	border-radius: 0 10px 10px 10px;
+	box-shadow: 3px -3px 10px -3px #444;
 }
 
 .outputRegister{
@@ -148,13 +156,15 @@ table td{
 	background-color: #1e130d;
 	border-radius: 0 10px 10px 10px;
 	color: #fff;
+	box-shadow: 3px -3px 10px -3px #444;
 }
 
 section > h1{
-	color: #e0e5e6;
+	color: #f0f5f6;
 	background-color: #56626e;
 	padding: 10px;
-	text-align: center;
+	padding-left: 10%;
+	box-shadow: 0px 5px 5px -5px #222;
 }
 
 .inputRegister > form > div > p{
@@ -244,6 +254,7 @@ section > h1{
 	border-radius: 10px 10px 0 0;
 	position: relative;
 	cursor: pointer;
+	box-shadow: 2px -5px 10px -5px #222
 }
 
 .balance_title > div > span{
@@ -261,6 +272,7 @@ section > h1{
 	margin: 0 auto;
 	background-color: #c4996d;
 	border-radius: 0 10px 10px 10px;
+	box-shadow: 3px -3px 10px -3px #444;
 }
 
 .inputBudget > form{
@@ -316,6 +328,7 @@ section > h1{
 	background-color: #1e130d;
 	border-radius: 0 10px 10px 10px;
 	color: #fff;
+	box-shadow: 3px -3px 10px -3px #444;
 }
 
 .outputBalance > form{
@@ -358,6 +371,7 @@ section > h1{
 	border-radius: 10px 10px 0 0;
 	position: relative;
 	cursor: pointer;
+	box-shadow: 2px -5px 10px -5px #222
 }
 
 .bs_title > div > span{
@@ -373,6 +387,7 @@ section > h1{
 	margin: 0 auto;
 	background-color: #c4996d;
 	border-radius: 0 10px 10px 10px;
+	box-shadow: 3px -3px 10px -3px #444;
 }
 
 .plDetail{
@@ -382,6 +397,7 @@ section > h1{
 	background-color: #1e130d;
 	border-radius: 0 10px 10px 10px;
 	color: #fff;
+	box-shadow: 3px -3px 10px -3px #444;
 }
 
 .bsDetail > form{
@@ -499,6 +515,10 @@ section > h1{
 	margin: 20px auto 0 auto;
 	border-style: solid;
 	border-width: thin;
+}
+
+.plTable > table{
+	box-shadow: 0px 0px 15px -5px #222 inset;
 }
 
 .plsubject{

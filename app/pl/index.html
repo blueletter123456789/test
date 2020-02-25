@@ -241,9 +241,9 @@
 				<div class="bsTable">
 					<div class="asset">
 						<p class="bsDetail_title">資産の部</p>
-						<div v-for="assetCategory in assetCategories" class="account_category">
+						<div v-for="assetCategory in assetCategories" v-bind:key="assetCategory.id" class="account_category">
 							<p class="category_title">{{ assetCategory.title }}</p>
-							<div v-for="assetRecord in assetCategories.assetRecords" class="account_record">
+							<div v-for="assetRecord in assetCategories.assetRecords" v-bind:key="assetRecord.id" class="account_record">
 								<span>{{ assetRecord.account }}</span>
 								<span>{{ assetRecord.amount }}</span>
 							</div>
@@ -251,9 +251,9 @@
 					</div>
 					<div class="debt">
 						<p class="bsDetail_title">負債の部</p>
-						<div v-for="debtCategory in debtCategories" class="account_category">
+						<div v-for="debtCategory in debtCategories" v-bind:key="debtCategory.id" class="account_category">
 							<p class="category_title">{{ debtCategory.title }}</p>
-							<div v-for="bsRecord in debtCategories.bsRecords" class="account_record">
+							<div v-for="bsRecord in debtCategories.bsRecords" v-bind:key="bsRecord.id" class="account_record">
 								<span>{{ debtRecord.account }}</span>
 								<span>{{ debtRecord.amount }}</span>
 							</div>
@@ -282,7 +282,7 @@
 							<th border="1">科目</th>
 							<th border="1">金額</th>
 						</tr>
-						<tr v-for="plRecord in plRecords">
+						<tr v-for="plRecord in plRecords" v-bind:key="plRecord.id">
 							<td class="plsubject">{{ plRecord.subject }}</td>
 							<td class="plamount">{{ plRecord.amount }}</td>
 						</tr>
