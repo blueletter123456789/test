@@ -48,8 +48,8 @@ var pl = new Vue({
 	mounted(){
     axios
       .get('./PHP/pdo_select.php')
-      .then(response => (this.registerList = response));
-      console.log(this.registerList);
+      .then(response => this.registerList = response.data);
+      // .then(response => console.log(response));
   }
 })
 
