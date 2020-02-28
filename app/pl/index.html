@@ -91,9 +91,9 @@
 						<th>金額</th>
 					</tr>
 					<tr v-for="register in registerList" v-bind:key="register.id">
-						<td>{{ register.date }}</td>
-						<td>{{ register.use }}</td>
-						<td>{{ register.account }}</td>
+						<td>{{ register.input_date }}</td>
+						<td>{{ register.use_name }}</td>
+						<td>{{ register.account_name }}</td>
 						<td>{{ register.amount }}</td>
 					</tr>
 				</table>
@@ -243,7 +243,7 @@
 						<p class="bsDetail_title">資産の部</p>
 						<div v-for="assetCategory in assetCategories" v-bind:key="assetCategory.id" class="account_category">
 							<p class="category_title">{{ assetCategory.title }}</p>
-							<div v-for="assetRecord in assetCategories.assetRecords" v-bind:key="assetRecord.id" class="account_record">
+							<div v-for="assetRecord in assetCategory.assetRecords" v-bind:key="assetRecord.id" class="account_record">
 								<span>{{ assetRecord.account }}</span>
 								<span>{{ assetRecord.amount }}</span>
 							</div>
@@ -253,7 +253,7 @@
 						<p class="bsDetail_title">負債の部</p>
 						<div v-for="debtCategory in debtCategories" v-bind:key="debtCategory.id" class="account_category">
 							<p class="category_title">{{ debtCategory.title }}</p>
-							<div v-for="bsRecord in debtCategories.bsRecords" v-bind:key="bsRecord.id" class="account_record">
+							<div v-for="debtRecord in debtCategory.debtRecords" v-bind:key="debtRecord.id" class="account_record">
 								<span>{{ debtRecord.account }}</span>
 								<span>{{ debtRecord.amount }}</span>
 							</div>
@@ -296,6 +296,7 @@
 	<!--　Vue.js 導入部 -->
 	<script src="https://unpkg.com/es6-promise"></script>
 	<script src="https://unpkg.com/vue"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="https://unpkg.com/http-vue-loader"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 
