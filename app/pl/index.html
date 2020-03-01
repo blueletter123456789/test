@@ -90,11 +90,17 @@
 						<th>勘定科目</th>
 						<th>金額</th>
 					</tr>
-					<tr v-for="register in registerList" v-bind:key="register.id">
-						<td>{{ register.input_date }}</td>
-						<td>{{ register.use_name }}</td>
-						<td>{{ register.account_name }}</td>
-						<td>{{ register.amount }}</td>
+					<tr v-show="registerTab === 1" v-for="input in inputList">
+						<td>{{ input.input_date }}</td>
+						<td>{{ input.use_name }}</td>
+						<td>{{ input.account_name }}</td>
+						<td>{{ input.amount }}</td>
+					</tr>
+					<tr v-show="registerTab === 2" v-for="output in outputList">
+						<td>{{ output.output_date }}</td>
+						<td>{{ output.use_name }}</td>
+						<td>{{ output.account_name }}</td>
+						<td>{{ output.amount }}</td>
 					</tr>
 				</table>
 			</div>
@@ -138,8 +144,8 @@
 					</tr>
 					<tr v-for="journal in journalList" v-bind:key="journal.id">
 						<td>{{ journal.date }}</td>
-						<td>{{ journal.use }}</td>
-						<td>{{ journal.account }}</td>
+						<td>{{ journal.use_name }}</td>
+						<td>{{ journal.account_name }}</td>
 						<td>{{ journal.amount }}</td>
 					</tr>
 				</table>
@@ -191,8 +197,8 @@
 							<th>金額</th>
 						</tr>
 						<tr v-for="budget in budgetList" v-bind:key="budget.id">
-							<td>{{ budget.use }}</td>
-							<td>{{ budget.account }}</td>
+							<td>{{ budget.use_name }}</td>
+							<td>{{ budget.account_name }}</td>
 							<td>{{ budget.amount }}</td>
 						</tr>
 					</table>
