@@ -37,13 +37,13 @@
 					<div>
 						<p>用途</p>
 						<select name="input-use">
-							<option v-for></option>
+							<option v-for="useInput in useInputList">{{ useInput.use_name }}</option>
 						</select>
 					</div>
 					<div>
 						<p>勘定科目</p>
 						<select name="input-account">
-							<option></option>
+							<option v-for="accountInput in accountInputList">{{ accountInput.account_name }}</option>
 						</select>
 					</div>
 					<div>
@@ -64,13 +64,13 @@
 					<div>
 						<p>用途</p>
 						<select name="output-use">
-							<option v-for></option>
+							<option v-for="useOutput in useOutputList">{{ useOutput.use_name }}</option>
 						</select>
 					</div>
 					<div>
 						<p>勘定科目</p>
 						<select name="output-account">
-							<option></option>
+							<option v-for="accountOutput in accountOutputList">{{ accountOutput.account_name }}</option>
 						</select>
 					</div>
 					<div>
@@ -120,13 +120,15 @@
 					<div>
 						<span>用途：</span>
 						<select class="journalUse">
-							<option></option>
+							<option v-for="useInput in useInputList">{{ useInput.use_name }}</option>
+							<option v-for="useOutput in useOutputList">{{ useOutput.use_name }}</option>
 						</select>
 					</div>
 					<div>
 						<span>勘定科目：</span>
 						<select class="journalAccount">
-							<option></option>
+							<option v-for="accountInput in accountInputList">{{ accountInput.account_name }}</option>
+							<option v-for="accountOutput in accountOutputList">{{ accountOutput.account_name }}</option>
 						</select>
 					</div>
 					<div>
@@ -142,7 +144,7 @@
 						<th>勘定科目</th>
 						<th>金額</th>
 					</tr>
-					<tr v-for="journal in journalList" v-bind:key="journal.id">
+					<tr v-for="journal in journalList">
 						<td>{{ journal.date }}</td>
 						<td>{{ journal.use_name }}</td>
 						<td>{{ journal.account_name }}</td>
@@ -171,13 +173,15 @@
 						<div>
 							<p>用途</p>
 							<select name="input-use">
-								<option v-for></option>
+								<option v-for="useInput in useInputList">{{ useInput.use_name }}</option>
+								<option v-for="useOutput in useOutputList">{{ useOutput.use_name }}</option>
 							</select>
 						</div>
 						<div>
 							<p>勘定科目</p>
 							<select name="input-account">
-								<option></option>
+								<option v-for="accountInput in accountInputList">{{ accountInput.account_name }}</option>
+								<option v-for="accountOutput in accountOutputList">{{ accountOutput.account_name }}</option>
 							</select>
 						</div>
 						<div>
@@ -196,7 +200,7 @@
 							<th>勘定科目</th>
 							<th>金額</th>
 						</tr>
-						<tr v-for="budget in budgetList" v-bind:key="budget.id">
+						<tr v-for="budget in budgetList">
 							<td>{{ budget.use_name }}</td>
 							<td>{{ budget.account_name }}</td>
 							<td>{{ budget.amount }}</td>
@@ -218,12 +222,12 @@
 							<th>貸方合計</th>
 							<th>貸方残高</th>
 						</tr>
-						<tr v-for="balance in balanceList" v-bind:key="balance.id">
-							<td>{{ balance.debitBaelance }}</td>
-							<td>{{ balance.debitTotal }}</td>
-							<td>{{ balance.account }}</td>
-							<td>{{ balance.creditorTotal }}</td>
-							<td>{{ balance.creditorBalance }}</td>
+						<tr v-for="balance in balanceList">
+							<td>{{ balance.inputBalance }}</td>
+							<td>{{ balance.inputAmount }}</td>
+							<td>{{ balance.accountName }}</td>
+							<td>{{ balance.outputAmount }}</td>
+							<td>{{ balance.outputBalance }}</td>
 						</tr>
 					</table>
 				</div>
@@ -246,34 +250,54 @@
 				</form>
 				<div class="bsTable">
 					<div class="asset">
-						<p class="bsDetail_title">資産の部</p>
-						<div v-for="assetCategory in assetCategories" v-bind:key="assetCategory.id" class="account_category">
-							<p class="category_title">{{ assetCategory.title }}</p>
-							<div v-for="assetRecord in assetCategory.assetRecords" v-bind:key="assetRecord.id" class="account_record">
-								<span>{{ assetRecord.account }}</span>
-								<span>{{ assetRecord.amount }}</span>
+						<p class="bsDetail_title ">資産の部</p>
+						<div v-for="(bsInput, inputTitle) in bsInputList" class="account_category">
+							<p class="category_title">【{{ inputTitle }}】</p>
+							<div v-for="bsInputRecord in bsInput" class="account_record">
+								<span>{{ bsInputRecord.account_name }}</span>
+								<span>{{ bsInputRecord.input_amount }}</span>
 							</div>
 						</div>
 					</div>
-					<div class="debt">
-						<p class="bsDetail_title">負債の部</p>
-						<div v-for="debtCategory in debtCategories" v-bind:key="debtCategory.id" class="account_category">
-							<p class="category_title">{{ debtCategory.title }}</p>
-							<div v-for="debtRecord in debtCategory.debtRecords" v-bind:key="debtRecord.id" class="account_record">
-								<span>{{ debtRecord.account }}</span>
-								<span>{{ debtRecord.amount }}</span>
+					<div class="debtwrapper">
+						<div class="debt">
+							<p class="bsDetail_title">負債の部</p>
+							<div v-for="(bsOutput, outputTitle) in bsOutputList" class="account_category">
+								<p class="category_title">【{{ outputTitle }}】</p>
+								<div v-for="bsOutputRecord in bsOutput" class="account_record">
+									<span>{{ bsOutputRecord.account_name }}</span>
+									<span>{{ bsOutputRecord.output_amount }}</span>
+								</div>
 							</div>
+							<div class="nDebt_total">
+								<span>負債合計</span>
+								<span v-if="bsTotalList[1]">{{ bsTotalList[1]['amount'] }}</span>
+							</div>
+						</div>
+						<div class="nAsset">
+							<p class="bsDetail_title">純資産の部</p>
+							<div v-for="(bsAsset, assetTitle) in bsAssetList" class="account_category">
+								<p class="category_title">【{{ assetTitle }}】</p>
+								<div v-for="bsAssetRecord in bsAsset" class="account_record">
+									<span>{{ bsAssetRecord.account_name }}</span>
+									<span>{{ bsAssetRecord.output_amount }}</span>
+								</div>
+							</div>
+						</div>
+						<div class="nAsset_total">
+							<span>純資産合計</span>
+							<span v-if="bsTotalList[2]">{{ bsTotalList[2]['amount'] }}</span>
 						</div>
 					</div>
 				</div>
 				<div class="bsDetail_total">
 					<div class="asset_total">
 						<span>資産合計</span>
-						<span>{{ assetTotal }}</span>
+						<span v-if="bsTotalList[0]">{{ bsTotalList[0]['amount'] }}</span>
 					</div>
 					<div class="debt_total">
 						<span>負債・純資産合計</span>
-						<span>{{ debtTotal }}</span>
+						<span v-if="bsTotalList[3]">{{ bsTotalList[3]['amount'] }}</span>
 					</div>
 				</div>
 			</div>
@@ -288,7 +312,7 @@
 							<th border="1">科目</th>
 							<th border="1">金額</th>
 						</tr>
-						<tr v-for="plRecord in plRecords" v-bind:key="plRecord.id">
+						<tr v-for="plRecord in plRecords">
 							<td class="plsubject">{{ plRecord.subject }}</td>
 							<td class="plamount">{{ plRecord.amount }}</td>
 						</tr>
@@ -297,7 +321,6 @@
 			</div>
 		</section>
 	</div>
-
 
 	<!--　Vue.js 導入部 -->
 	<script src="https://unpkg.com/es6-promise"></script>

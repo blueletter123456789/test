@@ -383,7 +383,8 @@ section > h1{
 
 .bsDetail{
 	width: 80%;
-	height: 70%;
+	height: 80%;
+	overflow: scroll;
 	margin: 0 auto;
 	background-color: #c4996d;
 	border-radius: 0 10px 10px 10px;
@@ -433,6 +434,8 @@ section > h1{
 	border-width: thin;
 	margin: -1px;
 	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 .asset{
@@ -442,11 +445,31 @@ section > h1{
 	margin: -1px;
 }
 
-.debt{
+.asset .bsDetail_title{
+	background-color: #6699FF;
+}
+
+.debtwrapper{
 	width: 50%;
 	border-style: solid;
 	border-width: thin;
-	margin: -1px;
+	margin: -1px;	
+}
+
+.debt{
+	width: 100%;
+}
+
+.debt .bsDetail_title{
+	background-color: #CC0000;
+}
+
+.nAsset{
+	width: 100%;
+}
+
+.nAsset .bsDetail_title{
+	background-color: #FFCC33;
 }
 
 .account_category{
@@ -457,7 +480,9 @@ section > h1{
 }
 
 .category_title{
-	padding-left: 10%;
+	font-size: 17px;
+	padding-left: 20%;
+	font-weight: bold;
 }
 
 .account_record{
@@ -487,6 +512,7 @@ section > h1{
 	border-width: thin;
 	margin: -1px;
 	display: flex;
+	background-color: #CCFFFF;
 }
 
 .asset_total > span{
@@ -500,11 +526,38 @@ section > h1{
 	border-width: thin;
 	margin: -1px;
 	display: flex;
+	background-color: #FF8856;
 }
 
 .debt_total > span{
 	width: 50%;
 	text-align: center;	
+}
+
+.nDebt_total{
+	width: 100%;
+    border-style: solid;
+    border-width: thin;
+    margin: -1px;
+    display: flex;
+}
+
+.nDebt_total > span{
+	width: 50%;
+    text-align: center;
+}
+
+.nAsset_total{
+	width: 100%;
+    border-style: solid;
+    border-width: thin;
+    margin: -1px;
+    display: flex;	
+}
+
+.nAsset_total > span{
+	width: 50%;
+    text-align: center;	
 }
 
 
@@ -522,13 +575,14 @@ section > h1{
 }
 
 .plsubject{
-	text-align: center;
+	padding-left: 10%;
 }
 
 .plamount{
 	text-align: right;
 	padding-right: 1em;
 }
+
 
 
 /*********** inputタグ共通 ***********/
