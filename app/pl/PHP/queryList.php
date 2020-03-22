@@ -139,9 +139,9 @@ INNER JOIN TBL_USE u
 ON i.use_code = u.use_code 
 INNER JOIN TBL_ACCOUNT_DETAIL as d 
 ON i.account_code = d.account_code 
-WHERE i.input_date BETWEEN '$startDate'  AND '$endDate' 
-AND i.use_code = '$use' 
-AND i.account_code = '$account' 
+WHERE ( i.input_date BETWEEN '$startDate'  AND '$endDate' )
+AND ( i.use_code = '$use' )
+AND ( i.account_code = '$account' )
 UNION 
 SELECT o.output_date as 'date', u.use_name as 'use_name', d.account_name as 'account_name', o.amount as 'amount' 
 FROM TBL_OUTPUT o 
@@ -149,11 +149,12 @@ INNER JOIN TBL_USE u
 ON o.use_code = u.use_code 
 INNER JOIN TBL_ACCOUNT_DETAIL as d 
 ON o.account_code = d.account_code 
-WHERE o.output_date BETWEEN '$startDate' AND '$endDate' 
-AND o.use_code = '$use' 
-AND o.account_code = '$account'
+WHERE ( o.output_date BETWEEN '$startDate' AND '$endDate' )
+AND ( o.use_code = '$use' )
+AND ( o.account_code = '$account' )
 SQL;
 
+var_dump($statement);
 			return $statement;
 
 	}

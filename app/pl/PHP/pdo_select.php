@@ -44,8 +44,6 @@
 	switch($tbl_var){
 		case 0:
 			$statement = $queryList -> getAllQuery($startDate , $endtDate, $use_code, $account_code, $month, $date);
-			// var_dump($statement);
-			// echo "<br>";
 			foreach ($statement as $key => $value) {
 				$stmtAll[] = $pdo -> query($value);
 			}
@@ -61,6 +59,8 @@
 
 		case 3: 
 			$stmt = $pdo -> query($queryList -> getJournalQuery($startDate , $endtDate, $use_code, $account_code));
+			var_dump($stmt);
+			exit();
 			break;
 
 		case 4: 
@@ -119,11 +119,11 @@
 
     $json = json_encode($row, JSON_UNESCAPED_UNICODE);
 
+    echo $json;
+
 	if (isset($_GET['displayButton'])){
 	    header('location:http://localhost/github/app/pl/index.html');
 	}
-
-    echo $json;
 
     exit;
 
