@@ -29,56 +29,58 @@
 				</div>
 			</div>
 			<div v-show="registerTab === 1" class="inputRegister">
-				<form>
+				<form method="POST" action="php/pdo_insert.php">
 					<div>
 						<p>日付</p>
-						<input type="date" name="input-date">
+						<input type="date" name="input_date" v-model="defaultDate">
 					</div>
 					<div>
 						<p>用途</p>
-						<select name="input-use">
-							<option v-for="useInput in useInputList">{{ useInput.use_name }}</option>
+						<select name="use_code">
+							<option v-for="useInput in useInputList" v-bind:value="useInput.use_code">{{ useInput.use_name }}</option>
 						</select>
 					</div>
 					<div>
 						<p>勘定科目</p>
-						<select name="input-account">
-							<option v-for="accountInput in accountInputList">{{ accountInput.account_name }}</option>
+						<select name="account_code">
+							<option v-for="accountInput in accountInputList" v-bind:value="accountInput.account_code">{{ accountInput.account_name }}</option>
 						</select>
 					</div>
 					<div>
 						<p>金額</p>
-						<input type="number" name="input-amount">
+						<input type="number" name="amount">
 					</div>
 					<div>
-						<input type="submit" name="inputRegistButton" value="登録">
+						<input type="submit" name="registButton" value="登録">
+						<input type="hidden" name="tbl_name" value="TBL_INPUT">
 					</div>
 				</form>
 			</div>
 			<div v-show="registerTab === 2" class="outputRegister">
-				<form>
+				<form method="POST" action="php/pdo_insert.php">
 					<div>
 						<p>日付</p>
-						<input type="date" name="output-date">
+						<input type="date" name="output_date" v-model="defaultDate">
 					</div>
 					<div>
 						<p>用途</p>
-						<select name="output-use">
-							<option v-for="useOutput in useOutputList">{{ useOutput.use_name }}</option>
+						<select name="use_code">
+							<option v-for="useOutput in useOutputList" v-bind:value="useOutput.use_code">{{ useOutput.use_name }}</option>
 						</select>
 					</div>
 					<div>
 						<p>勘定科目</p>
-						<select name="output-account">
-							<option v-for="accountOutput in accountOutputList">{{ accountOutput.account_name }}</option>
+						<select name="account_code">
+							<option v-for="accountOutput in accountOutputList" v-bind:value="accountOutput.account_code">{{ accountOutput.account_name }}</option>
 						</select>
 					</div>
 					<div>
 						<p>金額</p>
-						<input type="number" name="output-amount">
+						<input type="number" name="amount">
 					</div>
 					<div>
-						<input type="submit" name="outputRegistButton" value="登録">
+						<input type="submit" name="registButton" value="登録">
+						<input type="hidden" name="tbl_name" value="TBL_OUTPUT">
 					</div>
 				</form>
 			</div>
@@ -108,31 +110,31 @@
 		<section v-show="activePage === 2" class="journal page">
 			<h1>仕訳帳表示（家計簿情報一覧）</h1>
 			<div class="journalInput">
-				<form>
+				<form method="GET" action="php/pdo_select.php">
 					<div>
 						<span>期間：</span>
 						<div class="journalDate">
-							<input type="date" name="startDate">
+							<input type="date" name="startDate" v-model="startDate">
 							<span> ~ </span>
-							<input type="date" name="endDate">
+							<input type="date" name="endDate" v-model="endDate">
 						</div>
 					</div>
 					<div>
 						<span>用途：</span>
-						<select class="journalUse">
-							<option v-for="useInput in useInputList">{{ useInput.use_name }}</option>
-							<option v-for="useOutput in useOutputList">{{ useOutput.use_name }}</option>
+						<select class="journalUse" name="use_code">
+							<option v-for="useInput in useInputList" v-bind:value="useInput.use_code">{{ useInput.use_name }}</option>
+							<option v-for="useOutput in useOutputList" v-bind:value="useOutput.use_code">{{ useOutput.use_name }}</option>
 						</select>
 					</div>
 					<div>
 						<span>勘定科目：</span>
-						<select class="journalAccount">
-							<option v-for="accountInput in accountInputList">{{ accountInput.account_name }}</option>
-							<option v-for="accountOutput in accountOutputList">{{ accountOutput.account_name }}</option>
+						<select class="journalAccount" name="account_code">
+							<option v-for="accountInput in accountInputList" v-bind:value="accountInput.account_code">{{ accountInput.account_name }}</option>
+							<option v-for="accountOutput in accountOutputList" v-bind:value="accountOutput.account_code">{{ accountOutput.account_name }}</option>
 						</select>
 					</div>
 					<div>
-						<input type="submit" name="journalButton" value="表示">
+						<input type="submit" name="displayButton" value="表示">
 					</div>
 				</form>
 			</div>
@@ -164,33 +166,34 @@
 				</div>
 			</div>
 			<div v-show="balanceTab === 1" class="inputBudget">
-				<form>
+				<form method="POST" action="php/pdo_insert.php">
 					<div>
 						<div>
 							<p>年月</p>
-							<input type="month" name="input-month">
+							<input type="month" name="budget_date" v-model="defaultMonth">
 						</div>
 						<div>
 							<p>用途</p>
-							<select name="input-use">
-								<option v-for="useInput in useInputList">{{ useInput.use_name }}</option>
-								<option v-for="useOutput in useOutputList">{{ useOutput.use_name }}</option>
+							<select name="use_code">
+								<option v-for="useInput in useInputList" v-bind:value="useInput.use_code">{{ useInput.use_name }}</option>
+								<option v-for="useOutput in useOutputList" v-bind:value="useOutput.use_code">{{ useOutput.use_name }}</option>
 							</select>
 						</div>
 						<div>
 							<p>勘定科目</p>
-							<select name="input-account">
-								<option v-for="accountInput in accountInputList">{{ accountInput.account_name }}</option>
-								<option v-for="accountOutput in accountOutputList">{{ accountOutput.account_name }}</option>
+							<select name="account_code">
+								<option v-for="accountInput in accountInputList" v-bind:value="accountInput.account_code">{{ accountInput.account_name }}</option>
+								<option v-for="accountOutput in accountOutputList" v-bind:value="accountOutput.account_code">{{ accountOutput.account_name }}</option>
 							</select>
 						</div>
 						<div>
 							<p>金額</p>
-							<input type="number" name="input-amount">
+							<input type="number" name="amount">
 						</div>
 					</div>
 					<div>
-						<input type="submit" name="inputBudgetButton" value="登録">
+						<input type="submit" name="registButton" value="登録">
+						<input type="hidden" name="tbl_name" value="TBL_BUDGET">
 					</div>
 				</form>
 				<div class="budgetTable">
@@ -211,7 +214,7 @@
 			<div v-show="balanceTab === 2" class="outputBalance">
 				<form>
 					<p>出力年月</p>
-					<input type="month" name="balanceDate">
+					<input type="month" name="balanceDate" v-model="defaultMonth">
 				</form>
 				<div class="balanceTable">
 					<table width="100%" border="1">
@@ -246,7 +249,7 @@
 			<div v-show="bsTab === 1" class="bsDetail">
 				<form>
 					<p>出力年月</p>
-					<input type="month" name="bsMonth">
+					<input type="month" name="bsMonth" v-model="defaultMonth">
 				</form>
 				<div class="bsTable">
 					<div class="asset">
@@ -304,7 +307,7 @@
 			<div v-show="bsTab === 2" class="plDetail">
 				<form>
 					<p>出力年月</p>
-					<input type="month" name="plMonth">
+					<input type="month" name="plMonth" v-model="defaultMonth">
 				</form>
 				<div class="plTable">
 					<table width="100%">
@@ -312,9 +315,9 @@
 							<th border="1">科目</th>
 							<th border="1">金額</th>
 						</tr>
-						<tr v-for="plRecord in plRecords">
-							<td class="plsubject">{{ plRecord.subject }}</td>
-							<td class="plamount">{{ plRecord.amount }}</td>
+						<tr v-for="(plMonth, plTitle) in plMonthList">
+							<td class="plsubject">{{ plTitle }}</td>
+							<td class="plamount">{{ plMonth }}</td>
 						</tr>
 					</table>
 				</div>

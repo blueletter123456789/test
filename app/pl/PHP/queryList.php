@@ -15,27 +15,27 @@ class queryList
 
 	}
 
-	public function getAllQuery($startDate, $endDate, $use, $account){
+	public function getAllQuery($startDate, $endDate, $use, $account, $month){
 		$statement = [
 			self::getInputquery(), 
 			self::getOutputquery(), 
 			self::getJournalQuery($startDate, $endDate, $use, $account), 
 			self::getBudgetquery(), 
-			self::getBalanceQuery(), 
+			self::getBalanceQuery($month), 
+			self::getPlQuery($month),
 			self::getAccountInput(), 
 			self::getAccountOutput(), 
 			self::getUseInput(), 
-			self::getUseOutput(), 
-			self::getBsTotalQuery() 
+			self::getUseOutput()
 		];
 		return $statement;
 	}
 
-	public function getBsAllQuery(){
+	public function getBsAllQuery($month){
 		$statement = [
-			self::getBsInputQuery(), 
-			self::getBsOutputQuery(), 
-			self::getBsAssetQuery()
+			self::getBsInputQuery($month), 
+			self::getBsOutputQuery($month), 
+			self::getBsAssetQuery($month) 
 		];
 		return $statement;
 	}
@@ -45,7 +45,7 @@ class queryList
 	public function getAccountInput(){
 
 		$statement = <<<SQL
-SELECT ad.account_name, a.account_category_name, ad.account_flg 
+SELECT ad.account_name, a.account_category_name, ad.account_flg, ad.account_code
 FROM TBL_ACCOUNT_DETAIL ad 
 INNER JOIN TBL_ACCOUNT_CATEGORY a 
 ON ad.account_category_code = a.account_category_code 
@@ -60,7 +60,7 @@ SQL;
 	public function getAccountOutput(){
 
 		$statement = <<<SQL
-SELECT ad.account_name, a.account_category_name, ad.account_flg 
+SELECT ad.account_name, a.account_category_name, ad.account_flg, ad.account_code
 FROM TBL_ACCOUNT_DETAIL ad 
 INNER JOIN TBL_ACCOUNT_CATEGORY a 
 ON ad.account_category_code = a.account_category_code 
@@ -75,7 +75,7 @@ SQL;
 	public function getUseInput(){
 
 		$statement = <<<SQL
-SELECT use_name, use_flg 
+SELECT use_name, use_flg, use_code
 FROM TBL_USE 
 WHERE use_flg = "0"
 SQL;
@@ -87,7 +87,7 @@ SQL;
 	// 用途（出力）取得SQL
 	public function getUseOutput(){
 		$statement = <<<SQL
-SELECT use_name, use_flg 
+SELECT use_name, use_flg, use_code
 FROM TBL_USE 
 WHERE use_flg = "1"
 SQL;
@@ -163,13 +163,13 @@ SQL;
 	public function getBudgetQuery(){
 
 		$statement = <<<SQL
-SELECT u.use_name, d.account_name, b.amount 
+SELECT u.use_name, d.account_name, d.account_code, b.amount 
 FROM TBL_BUDGET b 
 INNER JOIN TBL_USE u 
 on b.use_code = u.use_code 
 INNER JOIN TBL_ACCOUNT_DETAIL d 
 on b.account_code = d.account_code 
-WHERE DATE_FORMAT(b.budget_month, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')
+WHERE DATE_FORMAT(b.budget_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')
 SQL;
 
 		return $statement;
@@ -177,19 +177,19 @@ SQL;
 
 
 	// 残高取得SQL
-	public function getBalanceQuery(){
+	public function getBalanceQuery($month){
 
 		$statement = <<<SQL
-SELECT IFNULL(input,0) as 'inputAmount', account_name as 'accountName', IFNULL(output, 0) as 'outputAmount' ,IFNULL(budget, 0) as 'budgetAmount' ,ad.account_flg
+SELECT IFNULL(i.input,0) as 'inputAmount', ad.account_name as 'accountName', IFNULL(o.output, 0) as 'outputAmount' ,IFNULL(b.budget, 0) as 'budgetAmount' ,ad.account_flg
 FROM TBL_ACCOUNT_DETAIL as ad 
 LEFT JOIN 
-(SELECT account_code, SUM(amount) as 'budget' FROM TBL_BUDGET WHERE budget_month >= '2020-01-01' GROUP BY account_code) as b 
+(SELECT account_code, SUM(amount) as 'budget' FROM TBL_BUDGET WHERE DATE_FORMAT(budget_date, '%Y-%m') = '$month' GROUP BY account_code) as b 
 ON ad.account_code = b.account_code 
 LEFT JOIN
-(SELECT account_code,  SUM(amount) as 'input' FROM TBL_INPUT WHERE input_date >= '2020-01-01' GROUP BY account_code) as i
+(SELECT account_code,  SUM(amount) as 'input' FROM TBL_INPUT WHERE DATE_FORMAT(input_date, '%Y-%m') = '$month' GROUP BY account_code) as i
 ON ad.account_code = i.account_code 
 LEFT JOIN 
-(SELECT account_code ,SUM(amount) as 'output' FROM TBL_OUTPUT WHERE output_date >= '2020-01-01' GROUP BY account_code) as o
+(SELECT account_code ,SUM(amount) as 'output' FROM TBL_OUTPUT WHERE DATE_FORMAT(output_date, '%Y-%m') = '$month' GROUP BY account_code) as o
 ON ad.account_code = o.account_code 
 WHERE input <> '0' 
 OR output <> '0'
@@ -229,19 +229,19 @@ SQL;
 
 
 	// 貸借対照表貸方取得SQL
-	public function getBsInputQuery(){
+	public function getBsInputQuery($month){
 
 		$statement = <<<SQL
 SELECT ac.account_category_name , ad.account_code, ad.account_name, IFNULL(SUM(i.amount), 0) as 'input_amount' 
 FROM TBL_ACCOUNT_DETAIL ad 
 LEFT JOIN 
 (SELECT * FROM TBL_INPUT 
-WHERE input_date BETWEEN '2020-01-01' AND '2020-03-31') i
+WHERE DATE_FORMAT(input_date, '%Y-%m') = '$month') i
 ON ad.account_code = i.account_code 
 LEFT JOIN TBL_ACCOUNT_CATEGORY ac 
 ON ad.account_category_code = ac.account_category_code  
 WHERE ad.account_flg = '0'
-OR i.input_date BETWEEN '2020-01-01' AND '2020-03-31' 
+OR DATE_FORMAT(i.input_date, '%Y-%m') = '$month' 
 GROUP BY ad.account_code
 SQL;
 
@@ -250,14 +250,14 @@ SQL;
 
 
 	// 貸借対照表借方取得SQL
-	public function getBsOutputQuery(){
+	public function getBsOutputQuery($month){
 
 		$statement = <<<SQL
 SELECT ac.account_category_name , ad.account_code, ad.account_name, IFNULL(SUM(o.amount), 0) as 'output_amount' 
 FROM TBL_ACCOUNT_DETAIL ad 
 LEFT JOIN
 (SELECT * FROM TBL_OUTPUT 
-WHERE output_date BETWEEN '2020-01-01' AND '2020-03-31' ) o
+WHERE DATE_FORMAT(output_date, '%Y-%m') = '$month' ) o
 ON ad.account_code = o.account_code 
 LEFT JOIN TBL_ACCOUNT_CATEGORY ac 
 ON ad.account_category_code = ac.account_category_code  
@@ -291,7 +291,7 @@ SQL;
 	}
 
 
-	public function getBsTotalQuery(){
+	public function getBsTotalQuery($month){
 
 		$statement = <<<SQL
 SELECT IFNULL(SUM(i.amount), 0)  as amount ,
@@ -302,6 +302,7 @@ ON a.asset_code = ad.asset_code
 LEFT JOIN TBL_INPUT i 
 ON ad.account_code = i.account_code 
 WHERE a.asset_code = 1 
+AND DATE_FORMAT(i.input_date, '%Y-%m') = '$month' 
 GROUP BY a.asset_code
 UNION 
 SELECT IFNULL(SUM(o.amount), 0)  as amount, 
@@ -313,10 +314,35 @@ LEFT JOIN TBL_OUTPUT o
 ON ad.account_code = o.account_code 
 WHERE a.asset_code = 2
 OR a.asset_code = 3
+AND DATE_FORMAT(o.output_date, '%Y-%m') = '$month' 
 GROUP BY a.asset_code
 SQL;
 
 		return $statement;
+	}
+
+
+	public function getPlQuery($month){
+
+		$statement = <<<SQL
+SELECT
+ net_sales
+,cost_of_sales
+,gross_profit
+,selling_general_and_administrative_expenses
+,operating_income
+,non_operating_income
+,non_operating_expenses
+,ordinary_income
+,extraordinary_income
+,extraordinary_loss
+,income_before_income_taxes
+,net_income
+FROM TBL_PL_MONTH 
+WHERE DATE_FORMAT(pl_date, '%Y-%m') = '$month'
+SQL;
+
+	return $statement;
 	}
 
 }

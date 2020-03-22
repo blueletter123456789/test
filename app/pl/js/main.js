@@ -16,22 +16,13 @@ var pl = new Vue({
 		balanceList: '', 
 		bsInputList: '', 
 		bsOutputList: '', 
-		bsAssetList: '', 
-		bsTotalList: [], 
-		plRecords: [
-			{ id: 1, subject: '売上高', amount: '30000'},
-			{ id: 2, subject: '売上原価', amount: '30000'},
-			{ id: 3, subject: '売上総利益', amount: '30000'},
-			{ id: 4, subject: '販売費及び一般管理費', amount: '30000'},
-			{ id: 5, subject: '営業利益', amount: '30000'},
-			{ id: 6, subject: '営業外収益', amount: '30000'},
-			{ id: 7, subject: '営業外費用', amount: '30000'},
-			{ id: 8, subject: '経常利益', amount: '30000'},
-			{ id: 9, subject: '特別利益', amount: '30000'},
-			{ id: 10, subject: '特別損失', amount: '30000'},
-			{ id: 11, subject: '税引前登記純利益', amount: '30000'},
-			{ id: 12, subject: '税引後当期純利益', amount: '30000'}
-		], 
+		bsAssetList: [], 
+		bsTotalList: '', 
+		plMonthList: '', 
+		defaultDate: '',  
+		startDate: '', 
+		endDate: '', 
+		defaultMonth: ''
 	}, 
 	methods: {
 		getData: function(){
@@ -50,15 +41,29 @@ var pl = new Vue({
 		      					this.bsOutputList = response.data.bsOutputData, 
 		      					this.bsAssetList = response.data.bsAssetData, 
 		      					this.bsTotalList = response.data.bsTotalData, 
+		      					this.plMonthList = response.data.plMonthData, 
 		      					console.log(response)
 		    })
 		    .catch(function (error) {
             	console.log(error);
             });
-		}
+		}, 
+		getDefaultDate: function(defaultDate, startDate, endDate, defaultMonth){
+			var today = new Date();
+		    today.setDate(today.getDate());
+		    var yyyy = today.getFullYear();
+		    var mm = ("0"+(today.getMonth()+1)).slice(-2);
+		    var dd = ("0"+today.getDate()).slice(-2);
+		    this.defaultDate = yyyy+'-'+mm+'-'+dd;
+		    this.startDate = yyyy+'-'+mm+'-'+dd;
+		    this.endDate = yyyy+'-'+mm+'-'+dd; 
+		    this.defaultMonth = yyyy+'-'+mm;
+    	}
 	}, 
 	mounted(){
-		this.getData();
+		this.getData(); 
+		this.getDefaultDate();　
   }
+  
 })
 
