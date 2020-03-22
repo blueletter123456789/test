@@ -154,7 +154,6 @@ AND ( o.use_code = '$use' )
 AND ( o.account_code = '$account' )
 SQL;
 
-var_dump($statement);
 			return $statement;
 
 	}

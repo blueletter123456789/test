@@ -20,10 +20,10 @@
 
 	if (isset($_GET['displayButton'])){
 		$getData = $_GET;
-		$startDate = $getDate['startDate'];
-		$endtDate = $getDate['endDate'];
-		$use_code = $getDate['use_code'];
-		$account_code = $getDate['account_code']; 
+		$startDate = $getData['startDate'];
+		$endDate = $getData['endDate'];
+		$use_code = $getData['use_code'];
+		$account_code = $getData['account_code']; 
 	}
 
 	// DBの名前をpdoより取得
@@ -59,8 +59,6 @@
 
 		case 3: 
 			$stmt = $pdo -> query($queryList -> getJournalQuery($startDate , $endtDate, $use_code, $account_code));
-			var_dump($stmt);
-			exit();
 			break;
 
 		case 4: 
