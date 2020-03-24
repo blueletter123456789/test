@@ -18,7 +18,8 @@
 	$startDate = '2020-02-01';
 	$month = '2020-03';
 
-	if (isset($_GET['displayButton'])){
+
+	if(isset($_GET['displayButton'])){
 		$getData = $_GET;
 		$startDate = $getData['startDate'];
 		$endDate = $getData['endDate'];
@@ -117,13 +118,11 @@
 
     $json = json_encode($row, JSON_UNESCAPED_UNICODE);
 
+	// if (isset($_GET['displayButton'])){
+	//     header('location:http://localhost/github/app/pl/index.html');
+	// }
+
     echo $json;
-
-	if (isset($_GET['displayButton'])){
-	    header('location:http://localhost/github/app/pl/index.html');
-	}
-
-    exit;
 
     // ************ 集計関数 ************
 

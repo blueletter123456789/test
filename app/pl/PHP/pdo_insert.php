@@ -75,7 +75,9 @@ exit();
 	}
 
 
-
+	if (isset($_GET['registerButton'])){
+	    header('location:http://localhost/github/app/pl/index.html');
+	}
 
 
 

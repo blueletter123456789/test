@@ -110,7 +110,7 @@
 		<section v-show="activePage === 2" class="journal page">
 			<h1>仕訳帳表示（家計簿情報一覧）</h1>
 			<div class="journalInput">
-				<form method="GET" action="php/pdo_select.php">
+				<form v-on:submit.prevent="onClick" method="GET">
 					<div>
 						<span>期間：</span>
 						<div class="journalDate">
@@ -121,20 +121,21 @@
 					</div>
 					<div>
 						<span>用途：</span>
-						<select class="journalUse" name="use_code">
+						<select class="journalUse" name="use_code"　v-model="use_code">
 							<option v-for="useInput in useInputList" v-bind:value="useInput.use_code">{{ useInput.use_name }}</option>
 							<option v-for="useOutput in useOutputList" v-bind:value="useOutput.use_code">{{ useOutput.use_name }}</option>
 						</select>
 					</div>
 					<div>
 						<span>勘定科目：</span>
-						<select class="journalAccount" name="account_code">
+						<select class="journalAccount" name="account_code" v-model="account_code">
 							<option v-for="accountInput in accountInputList" v-bind:value="accountInput.account_code">{{ accountInput.account_name }}</option>
 							<option v-for="accountOutput in accountOutputList" v-bind:value="accountOutput.account_code">{{ accountOutput.account_name }}</option>
 						</select>
 					</div>
 					<div>
 						<input type="submit" name="displayButton" value="表示">
+<!-- 						<button button="button">表示</button> -->
 					</div>
 				</form>
 			</div>
