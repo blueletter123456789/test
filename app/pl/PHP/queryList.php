@@ -163,7 +163,7 @@ SQL;
 	public function getBudgetQuery(){
 
 		$statement = <<<SQL
-SELECT u.use_name, d.account_name, d.account_code, b.amount 
+SELECT u.use_name, d.account_name, d.account_code, b.budget_date, b.amount 
 FROM TBL_BUDGET b 
 INNER JOIN TBL_USE u 
 on b.use_code = u.use_code 
@@ -271,14 +271,14 @@ SQL;
 
 
 	// 貸借対照表純資産取得SQL
-	public function getBsAssetQuery(){
+	public function getBsAssetQuery($month){
 
 		$statement = <<<SQL
 SELECT ac.account_category_name , ad.account_code, ad.account_name, IFNULL(SUM(o.amount), 0) as 'output_amount' 
 FROM TBL_ACCOUNT_DETAIL ad 
 LEFT JOIN 
 (SELECT * FROM TBL_OUTPUT 
-WHERE output_date BETWEEN '2020-01-01' AND '2020-03-31' ) o
+WHERE DATE_FORMAT(output_date, '%Y-%m') = '$month' ) o
 ON ad.account_code = o.account_code 
 LEFT JOIN TBL_ACCOUNT_CATEGORY ac 
 ON ad.account_category_code = ac.account_category_code  
@@ -299,10 +299,12 @@ a.asset_name
 FROM TBL_ASSET a 
 LEFT JOIN TBL_ACCOUNT_DETAIL ad 
 ON a.asset_code = ad.asset_code 
-LEFT JOIN TBL_INPUT i 
+LEFT JOIN (
+SELECT * 
+FROM TBL_INPUT 
+WHERE DATE_FORMAT(input_date, '%Y-%m') = '$month') i 
 ON ad.account_code = i.account_code 
 WHERE a.asset_code = 1 
-AND DATE_FORMAT(i.input_date, '%Y-%m') = '$month' 
 GROUP BY a.asset_code
 UNION 
 SELECT IFNULL(SUM(o.amount), 0)  as amount, 
@@ -310,11 +312,13 @@ a.asset_name
 FROM TBL_ASSET a 
 LEFT JOIN TBL_ACCOUNT_DETAIL ad 
 ON a.asset_code = ad.asset_code 
-LEFT JOIN TBL_OUTPUT o 
+LEFT JOIN (
+SELECT * 
+FROM TBL_OUTPUT 
+WHERE DATE_FORMAT(output_date, '%Y-%m') = '$month') o 
 ON ad.account_code = o.account_code 
-WHERE a.asset_code = 2
-OR a.asset_code = 3
-AND DATE_FORMAT(o.output_date, '%Y-%m') = '$month' 
+WHERE ( a.asset_code = 2
+OR a.asset_code = 3 )
 GROUP BY a.asset_code
 SQL;
 

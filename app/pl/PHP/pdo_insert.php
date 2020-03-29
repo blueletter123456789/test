@@ -10,6 +10,8 @@
 
 	$pdo = $db -> connect();
 
+	$flg = 0;
+
 
 	// PHPからのデータ受け取り
 
@@ -29,7 +31,11 @@
 		}
 
 		if(preg_match("/date$/", $key)){
-			$colValue = '"'.$value .'"';
+			if ($tblName == 'TBL_BUDGET') {
+				$colValue = '"'.$value .'-01"';
+			}else{
+				$colValue = '"'.$value .'"';
+			}
 		}elseif ($key !== 'registButton' && $key !== 'tbl_name') {
 			$colValue .= ', ' .$value;
 		}
@@ -40,7 +46,7 @@
 
 	if ($tblName == 'TBL_BUDGET') {
 
-		getBudgetData($pdo, $phpPath, $post);
+		$flg = getBudgetData($pdo, $phpPath, $post);
 
 		intval($post['account_code']) <= 28 ? $colValue .= ', 0' : $colValue .= ', 1';
 
@@ -56,26 +62,20 @@ VALUES ($colValue)
 SQL;
 
 
-var_dump($sql);
-	echo "<br>";
-var_dump($colValue);
-exit();
-
-
 	try {
-		$stmt = $pdo->prepare($sql);
-
-		$result = $stmt->execute();
-
-	    if (!$result) {
-	        throw new Exception ("execute_false");
-	    }
+		if ($flg == 0) {
+			$stmt = $pdo->prepare($sql);
+			$result = $stmt->execute();
+		    if (!$result) {
+		        throw new Exception ("execute_false");
+		    }
+		}
 	} catch (Exception $e) {
 	    var_dump($e->getMessage());
 	}
 
 
-	if (isset($_GET['registerButton'])){
+	if (isset($_POST['registButton'])){
 	    header('location:http://localhost/github/app/pl/index.html');
 	}
 
@@ -86,6 +86,8 @@ exit();
 	// 予算データ取得関数
 	function getBudgetData($pdo, $phpPath, $post){
 
+		$flg = 0;
+
 		require_once ($phpPath."/queryList.php");
 
 		$queryList = new queryList();
@@ -93,22 +95,18 @@ exit();
 		$stmt = $pdo -> query($queryList -> getBudgetQuery());
 		$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-		$account_code = $post['account_code'];
+		$baseMonth = date("Y-m");
 
-		foreach ($row as $k => $v) {
-			foreach ($v as $key => $value) {
-				if ($key == 'account_code') {
-					if ($value == $account_code) {
-						var_dump('error');
-					}
-				}
+		$account_code = $post['account_code'];
+		$month = $post['budget_date'];
+
+		foreach ($row as $key => $value) {
+			if ($value['account_code'] == $account_code && $value['budget_date'] == $month) {
+				$flg = 1;
 			}
 		}
 
-		var_dump($row);
-		echo "<br>";
-		var_dump($post);
-		exit();
+		return $flg;
 
 	}
 

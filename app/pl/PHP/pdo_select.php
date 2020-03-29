@@ -7,7 +7,7 @@
 	$date = date("Y-m-d"); 
 	$month = date("Y-m");
 	$startDate = $date;
-	$endtDate = $date;
+	$endDate = $date;
 	$use_code = '1';
 	$account_code = '1';
 	
@@ -25,7 +25,9 @@
 		$endDate = $getData['endDate'];
 		$use_code = $getData['use_code'];
 		$account_code = $getData['account_code']; 
+		$month = $_GET['defaultMonth'];
 	}
+
 
 	// DBの名前をpdoより取得
 	require_once ($phpPath."/dbConnect.php");
@@ -44,7 +46,7 @@
 
 	switch($tbl_var){
 		case 0:
-			$statement = $queryList -> getAllQuery($startDate , $endtDate, $use_code, $account_code, $month, $date);
+			$statement = $queryList -> getAllQuery($startDate , $endDate, $use_code, $account_code, $month, $date);
 			foreach ($statement as $key => $value) {
 				$stmtAll[] = $pdo -> query($value);
 			}
@@ -177,13 +179,18 @@
 
     	$bsData = 0;
 
-    	for ($i=1; $i <= 2; $i++) { 
-	    	$bsData += intval($tblData['bsTotalData'][$i]['amount']);
+    	if (count($tblData['bsTotalData']) == 3) {
+	    	for ($i=1; $i <= 2; $i++) { 
+		    	$bsData += intval($tblData['bsTotalData'][$i]['amount']);
+	    	}
+	    	$bsTotal = [ 'amount' => strval($bsData), 
+	    				 'asset_name' => '負債・純資産の部'
+	    				];
+    	}else{
+	    	$bsTotal = [ 'amount' => '0', 
+	    				 'asset_name' => '負債・純資産の部'
+	    				];
     	}
-
-    	$bsTotal = [ 'amount' => strval($bsData), 
-    				 'asset_name' => '負債・純資産の部'
-    				];
 
     	array_push($tblData['bsTotalData'], $bsTotal);
 
@@ -196,8 +203,11 @@
     	$plName = ['売上高', '売上原価', '売上総利益', '販売費及び一般管理費', '営業利益', '営業外収益', '営業外費用', '経常利益', '特別利益', '特別損失', '税引前登記純利益', '当期純利益'];
 
     	$plData = $tblData['plMonthData'];
-    	
-    	$plData = array_combine($plName, $plData[0]);
+
+    	if (!empty($plData)) {
+	    	$plData = array_combine($plName, $plData[0]);
+    	}
+
 
     	$tblData['plMonthData'] = $plData;
 

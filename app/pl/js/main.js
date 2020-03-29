@@ -70,6 +70,7 @@ var pl = new Vue({
     					endDate: this.endDate, 
     					use_code: this.use_code, 
     					account_code: this.account_code, 
+    					defaultMonth: this.defaultMonth, 
     					displayButton: this.displayButton
     				}
     		})
