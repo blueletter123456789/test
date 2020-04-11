@@ -15,8 +15,8 @@
 
 
 	// テスト用
-	$startDate = '2020-02-01';
-	$month = '2020-03';
+	// $startDate = '2020-02-01';
+	// $month = '2020-03';
 
 
 	if(isset($_GET['displayButton'])){

@@ -22,7 +22,7 @@ class queryList
 			self::getJournalQuery($startDate, $endDate, $use, $account), 
 			self::getBudgetquery(), 
 			self::getBalanceQuery($month), 
-			self::getPlQuery($month),
+			self::getPlQuery($month), 
 			self::getAccountInput(), 
 			self::getAccountOutput(), 
 			self::getUseInput(), 
@@ -36,6 +36,14 @@ class queryList
 			self::getBsInputQuery($month), 
 			self::getBsOutputQuery($month), 
 			self::getBsAssetQuery($month) 
+		];
+		return $statement;
+	}
+
+	public function getAllplQuery($month){
+		$statement = [
+			self::plInputQuery($month),
+			self::plOutputQuery($month)
 		];
 		return $statement;
 	}
@@ -347,6 +355,41 @@ WHERE DATE_FORMAT(pl_date, '%Y-%m') = '$month'
 SQL;
 
 	return $statement;
+	}
+
+
+	public function plInputQuery($month){
+		$statement = <<<SQL
+SELECT
+ u.use_code
+,u.use_name 
+,IFNULL(SUM(i.amount), 0) as 'input_amount'
+FROM TBL_USE u 
+LEFT JOIN TBL_INPUT i 
+ON u.use_code = i.use_code 
+WHERE DATE_FORMAT(i.input_date, '%Y-%m') = '$month' 
+GROUP BY u.use_code
+SQL;
+
+		return $statement;
+	}
+
+
+	public function plOutputQuery($month){
+
+		$statement = <<<SQL
+SELECT
+ u.use_code 
+,u.use_name
+,IFNULL(SUM(o.amount), 0) as 'output_amount'
+FROM TBL_USE u 
+INNER JOIN TBL_OUTPUT o 
+ON u.use_code = o.use_code 
+WHERE DATE_FORMAT(o.output_date, '%Y-%m') = '$month' 
+GROUP BY u.use_code
+SQL;
+
+		return $statement;
 	}
 
 }
