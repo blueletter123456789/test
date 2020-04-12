@@ -18,7 +18,9 @@ var pl = new Vue({
 		bsOutputList: '', 
 		bsAssetList: [], 
 		bsTotalList: '', 
-		plMonthList: '', 
+		// plMonthList: '', 
+		plInputList: '', 
+		plOutputList: '', 
 		defaultDate: '',  
 		startDate: '', 
 		endDate: '', 
@@ -44,9 +46,23 @@ var pl = new Vue({
 		      					this.bsOutputList = response.data.bsOutputData, 
 		      					this.bsAssetList = response.data.bsAssetData, 
 		      					this.bsTotalList = response.data.bsTotalData, 
-		      					this.plMonthList = response.data.plMonthData, 
+		      					// this.plMonthList = response.data.plMonthData, 
 		      					console.log(response)
 		    })
+		    .catch(function (error) {
+            	console.log(error);
+            });
+            axios 
+    		.get('php/calc_pl.php', {
+    			params: {
+    					defaultMonth: this.defaultMonth, 
+    					displayButton: this.displayButton
+    				}
+    		})
+    		.then(response => {this.plInputList = response.data.plInputData,
+    							this.plOutputList = response.data.plOutputData,  
+    							console.log(response)
+    			})
 		    .catch(function (error) {
             	console.log(error);
             });
@@ -87,8 +103,22 @@ var pl = new Vue({
 		      					this.bsOutputList = response.data.bsOutputData, 
 		      					this.bsAssetList = response.data.bsAssetData, 
 		      					this.bsTotalList = response.data.bsTotalData, 
-		      					this.plMonthList = response.data.plMonthData, 
+		      					// this.plMonthList = response.data.plMonthData, 
 		      					console.log(response)
+    			})
+		    .catch(function (error) {
+            	console.log(error);
+            });
+            axios 
+    		.get('php/calc_pl.php', {
+    			params: {
+    					defaultMonth: this.defaultMonth, 
+    					displayButton: this.displayButton
+    				}
+    		})
+    		.then(response => {this.plInputList = response.data.plInputData,
+    							this.plOutputList = response.data.plOutputData,  
+    							console.log(response)
     			})
 		    .catch(function (error) {
             	console.log(error);
@@ -96,8 +126,8 @@ var pl = new Vue({
     	}
 	}, 
 	mounted(){
-		this.getData(); 
 		this.getDefaultDate(); 
+		this.getData(); 
   }
 })
 

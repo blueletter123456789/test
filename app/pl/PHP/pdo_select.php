@@ -11,7 +11,7 @@
 	$use_code = '1';
 	$account_code = '1';
 	
-	$tblNames = ['inputData', 'outputData', 'journalData', 'budgetData', 'balanceData', 'plMonthData', 'accountInputData', 'accountOutputData', 'useInputData' , 'useOutputData'];
+	$tblNames = ['inputData', 'outputData', 'journalData', 'budgetData', 'balanceData', 'accountInputData', 'accountOutputData', 'useInputData' , 'useOutputData'];
 
 
 	// テスト用
@@ -73,7 +73,7 @@
 			break;
 
 		case 6: 
-			$stmt = $pdo -> query($queryList -> getPlQuery($month));
+			// $stmt = $pdo -> query($queryList -> getPlQuery($month));
 			break;
 
 		default: 
@@ -101,13 +101,13 @@
 			$bsrow = getBsAllData($pdo, $queryList, $month);
 			$row = array_merge($row, $bsrow);
 			$row = calcBs($row);
-			$row = getPlTitle($row);
+			// $row = getPlTitle($row);
 			break;
 		case 5:
 			$row = calcBalance($row);
 			break;
 		case 6: 
-			$row = getPlTitle($row);
+			// $row = getPlTitle($row);
 			break;
 		case 7: 
 			$row = getBsAllData($pdo, $queryList, $month); 
@@ -198,21 +198,21 @@
 
     }
 
-    function getPlTitle($tblData){
+    // function getPlTitle($tblData){
 
-    	$plName = ['売上高', '売上原価', '売上総利益', '販売費及び一般管理費', '営業利益', '営業外収益', '営業外費用', '経常利益', '特別利益', '特別損失', '税引前登記純利益', '当期純利益'];
+    // 	$plName = ['売上高', '売上原価', '売上総利益', '販売費及び一般管理費', '営業利益', '営業外収益', '営業外費用', '経常利益', '特別利益', '特別損失', '税引前登記純利益', '当期純利益'];
 
-    	$plData = $tblData['plMonthData'];
+    // 	$plData = $tblData['plMonthData'];
 
-    	if (!empty($plData)) {
-	    	$plData = array_combine($plName, $plData[0]);
-    	}
+    // 	if (!empty($plData)) {
+	   //  	$plData = array_combine($plName, $plData[0]);
+    // 	}
 
 
-    	$tblData['plMonthData'] = $plData;
+    // 	$tblData['plMonthData'] = $plData;
 
-    	return $tblData;
-    }
+    // 	return $tblData;
+    // }
 
 
 ?>

@@ -75,6 +75,28 @@ SQL;
 	}
 
 
+	// jsonデータ出力部分
+	if ($tblName == 'TBL_INPUT' || $tblName == 'TBL_OUTPUT') {
+	
+		require_once($phpPath."/calc_pl.php");
+	
+		if ($tblName == 'TBL_INPUT') {
+			$date = $post['input_date'];
+		}else{
+			$date = $post['output_date'];
+		}
+
+		$date = date('Y-m', strtotime($date));
+		$year = date('Y', strtotime($date));
+		$month = date('m', strtotime($date));
+
+		$calc = new calc_pl();
+
+		$calc->writeData($date, $year, $month);
+
+	}
+
+
 	if (isset($_POST['registButton'])){
 	    header('location:http://localhost/github/app/pl/index.html');
 	}

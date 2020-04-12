@@ -1,7 +1,22 @@
 <?php
 
+	$path = dirname(__DIR__);
 
-$calc = new calc_pl();
+	if(isset($_GET['displayButton'])){
+		$getMonth = $_GET['defaultMonth'];
+		$year = date('Y', strtotime($getMonth));
+		$month = date('m', strtotime($getMonth));
+	}
+
+
+	//テスト用データ
+	// $year = '2020';
+	// $month = '03';
+	
+	$calc = new calc_pl();
+	$calc->readData($year, $month, $path);
+
+
 
 /**
  * 
@@ -9,16 +24,15 @@ $calc = new calc_pl();
 class calc_pl
 {
 
-	public $year;
-	public $month;
-	public $queryDate;
+	// public $year;
+	// public $month;
+	// public $queryDate;
 
-	function __construct(){
-		$this->year = date('Y');
-		$this->month = date('m');
-		$this->queryDate = date('Y-m');
-		self::writeData($this->queryDate, $this->year, $this->month);
-	}
+	// function __construct(){
+	// 	$this->year = date('Y');
+	// 	$this->month = date('m');
+	// 	$this->queryDate = date('Y-m');
+	// }
 
 
 	public function writeData($queryDate, $year, $month){
@@ -114,6 +128,7 @@ class calc_pl
 		$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
 
 		echo $json;
+
 	}
 
 }

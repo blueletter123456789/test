@@ -22,7 +22,7 @@ class queryList
 			self::getJournalQuery($startDate, $endDate, $use, $account), 
 			self::getBudgetquery(), 
 			self::getBalanceQuery($month), 
-			self::getPlQuery($month), 
+			// self::getPlQuery($month), 
 			self::getAccountInput(), 
 			self::getAccountOutput(), 
 			self::getUseInput(), 
@@ -334,28 +334,28 @@ SQL;
 	}
 
 
-	public function getPlQuery($month){
+// 	public function getPlQuery($month){
 
-		$statement = <<<SQL
-SELECT
- net_sales
-,cost_of_sales
-,gross_profit
-,selling_general_and_administrative_expenses
-,operating_income
-,non_operating_income
-,non_operating_expenses
-,ordinary_income
-,extraordinary_income
-,extraordinary_loss
-,income_before_income_taxes
-,net_income
-FROM TBL_PL_MONTH 
-WHERE DATE_FORMAT(pl_date, '%Y-%m') = '$month'
-SQL;
+// 		$statement = <<<SQL
+// SELECT
+//  net_sales
+// ,cost_of_sales
+// ,gross_profit
+// ,selling_general_and_administrative_expenses
+// ,operating_income
+// ,non_operating_income
+// ,non_operating_expenses
+// ,ordinary_income
+// ,extraordinary_income
+// ,extraordinary_loss
+// ,income_before_income_taxes
+// ,net_income
+// FROM TBL_PL_MONTH 
+// WHERE DATE_FORMAT(pl_date, '%Y-%m') = '$month'
+// SQL;
 
-	return $statement;
-	}
+// 	return $statement;
+// 	}
 
 
 	public function plInputQuery($month){

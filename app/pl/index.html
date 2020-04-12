@@ -315,9 +315,13 @@
 							<th border="1">科目</th>
 							<th border="1">金額</th>
 						</tr>
-						<tr v-for="(plMonth, plTitle) in plMonthList">
-							<td class="plsubject">{{ plTitle }}</td>
-							<td class="plamount">{{ plMonth }}</td>
+						<tr v-for="plInput in plInputList">
+							<td class="plsubject">{{ plInput.use_name }}</td>
+							<td class="plamount">{{ plInput.input_amount }}</td>
+						</tr>
+						<tr v-for="plOutput in plOutputList">
+							<td class="plsubject">{{ plOutput.use_name }}</td>
+							<td class="plamount">{{ plOutput.output_amount }}</td>
 						</tr>
 					</table>
 				</div>
