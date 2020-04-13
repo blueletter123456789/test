@@ -18,9 +18,11 @@ var pl = new Vue({
 		bsOutputList: '', 
 		bsAssetList: [], 
 		bsTotalList: '', 
-		// plMonthList: '', 
 		plInputList: '', 
+		plInputTotalList: [], 
 		plOutputList: '', 
+		plOutputTotalList: [], 
+		plProfitTotalList: '', 
 		defaultDate: '',  
 		startDate: '', 
 		endDate: '', 
@@ -46,7 +48,6 @@ var pl = new Vue({
 		      					this.bsOutputList = response.data.bsOutputData, 
 		      					this.bsAssetList = response.data.bsAssetData, 
 		      					this.bsTotalList = response.data.bsTotalData, 
-		      					// this.plMonthList = response.data.plMonthData, 
 		      					console.log(response)
 		    })
 		    .catch(function (error) {
@@ -59,8 +60,11 @@ var pl = new Vue({
     					displayButton: this.displayButton
     				}
     		})
-    		.then(response => {this.plInputList = response.data.plInputData,
-    							this.plOutputList = response.data.plOutputData,  
+    		.then(response => {this.plInputList = response.data.plInputData, 
+    							this.plInputTotalList = response.data.plInputTotalData, 
+    							this.plOutputList = response.data.plOutputData, 
+    							this.plOutputTotalList = response.data.plOutputTotalData, 
+    							this.plProfitTotalList = response.data.plProfitTotalData, 
     							console.log(response)
     			})
 		    .catch(function (error) {
@@ -103,7 +107,6 @@ var pl = new Vue({
 		      					this.bsOutputList = response.data.bsOutputData, 
 		      					this.bsAssetList = response.data.bsAssetData, 
 		      					this.bsTotalList = response.data.bsTotalData, 
-		      					// this.plMonthList = response.data.plMonthData, 
 		      					console.log(response)
     			})
 		    .catch(function (error) {
@@ -116,8 +119,11 @@ var pl = new Vue({
     					displayButton: this.displayButton
     				}
     		})
-    		.then(response => {this.plInputList = response.data.plInputData,
-    							this.plOutputList = response.data.plOutputData,  
+    		.then(response => {this.plInputList = response.data.plInputData, 
+    							this.plInputTotalList = response.data.plInputTotalData, 
+    							this.plOutputList = response.data.plOutputData, 
+    							this.plOutputTotalList = response.data.plOutputTotalData, 
+    							this.plProfitTotalList = response.data.plProfitTotalData, 
     							console.log(response)
     			})
 		    .catch(function (error) {

@@ -319,9 +319,21 @@
 							<td class="plsubject">{{ plInput.use_name }}</td>
 							<td class="plamount">{{ plInput.input_amount }}</td>
 						</tr>
+						<tr>
+							<td class="plTotalSubject">売上高</td>
+							<td class="plTotalAmount" v-if="plInputTotalList[0]">{{ plInputTotalList[0]['input_total'] }}</td>
+						</tr>
 						<tr v-for="plOutput in plOutputList">
 							<td class="plsubject">{{ plOutput.use_name }}</td>
 							<td class="plamount">{{ plOutput.output_amount }}</td>
+						</tr>
+						<tr>
+							<td class="plTotalSubject">経費</td>
+							<td class="plTotalAmount" v-if="plOutputTotalList[0]">{{ plOutputTotalList[0]['output_total'] }}</td>
+						</tr>
+						<tr>
+							<td class="plTotalSubject">利益</td>
+							<td class="plTotalAmount">{{ plProfitTotalList }}</td>
 						</tr>
 					</table>
 				</div>

@@ -12,9 +12,11 @@
 	//テスト用データ
 	// $year = '2020';
 	// $month = '03';
+	// $queryDate = '2020-03';
 	
 	$calc = new calc_pl();
 	$calc->readData($year, $month, $path);
+	// $calc->writeData($queryDate, $year, $month);
 
 
 
@@ -42,7 +44,7 @@ class calc_pl
 		require_once ($phpPath."/dbConnect.php");
 		require_once ($phpPath."/queryList.php");
 
-		$tblNames = ['plInputData', 'plOutputData'];
+		$tblNames = ['plInputData', 'plInputTotalData', 'plOutputData', 'plOutputTotalData'];
 
 		$db = new dbConnect();
 
@@ -65,6 +67,7 @@ class calc_pl
 
 		$row = array_combine($tblNames, $row);
 
+		$row = self::calcData($row);
 
 
 		//　ディレクトリ作成
@@ -129,6 +132,17 @@ class calc_pl
 
 		echo $json;
 
+	}
+
+
+	public function calcData($row){
+
+		$inputTotal = $row['plInputTotalData'][0]['input_total'];
+		$outputTotal = $row['plOutputTotalData'][0]['output_total'];
+		$profitTotal = $inputTotal - $outputTotal;
+		$row = array_merge($row,array('plProfitTotalData' => strval($profitTotal)));
+
+		return $row;
 	}
 
 }

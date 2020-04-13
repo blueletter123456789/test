@@ -42,8 +42,10 @@ class queryList
 
 	public function getAllplQuery($month){
 		$statement = [
-			self::plInputQuery($month),
-			self::plOutputQuery($month)
+			self::plInputQuery($month), 
+			self::plInputTotalquery($month), 
+			self::plOutputQuery($month), 
+			self::plOutputTotalquery($month), 
 		];
 		return $statement;
 	}
@@ -57,7 +59,7 @@ SELECT ad.account_name, a.account_category_name, ad.account_flg, ad.account_code
 FROM TBL_ACCOUNT_DETAIL ad 
 INNER JOIN TBL_ACCOUNT_CATEGORY a 
 ON ad.account_category_code = a.account_category_code 
-WHERE account_flg = "0"
+WHERE account_flg = "0" 
 SQL;
 	return $statement;
 
@@ -113,7 +115,8 @@ FROM TBL_INPUT i
 INNER JOIN TBL_USE u on i.use_code = u.use_code 
 INNER JOIN TBL_ACCOUNT_DETAIL d on i.account_code = d.account_code 
 WHERE u.use_flg = '0' 
-AND d.account_flg = '0'
+AND d.account_flg = '0' 
+ORDER BY i.input_date DESC
 SQL;
 
 		return $statement;
@@ -130,7 +133,8 @@ FROM TBL_OUTPUT o
 INNER JOIN TBL_USE u on o.use_code = u.use_code 
 INNER JOIN TBL_ACCOUNT_DETAIL d on o.account_code = d.account_code 
 WHERE u.use_flg = '1' 
-AND d.account_flg = '1'
+AND d.account_flg = '1' 
+ORDER BY o.output_date DESC
 SQL;
 
 			return $statement;
@@ -368,10 +372,26 @@ FROM TBL_USE u
 LEFT JOIN TBL_INPUT i 
 ON u.use_code = i.use_code 
 WHERE DATE_FORMAT(i.input_date, '%Y-%m') = '$month' 
+AND u.use_flg = '0'
 GROUP BY u.use_code
 SQL;
 
 		return $statement;
+	}
+
+	public function plInputTotalquery($month){
+		$statement = <<<SQL
+SELECT
+IFNULL(SUM(i.amount), 0) as 'input_total'
+FROM TBL_USE u 
+LEFT JOIN TBL_INPUT i 
+ON u.use_code = i.use_code 
+WHERE DATE_FORMAT(i.input_date, '%Y-%m') = '$month' 
+AND u.use_flg = '0'
+GROUP BY u.use_flg
+SQL;
+
+		return $statement;	
 	}
 
 
@@ -386,7 +406,24 @@ FROM TBL_USE u
 INNER JOIN TBL_OUTPUT o 
 ON u.use_code = o.use_code 
 WHERE DATE_FORMAT(o.output_date, '%Y-%m') = '$month' 
+AND u.use_flg = '1'
 GROUP BY u.use_code
+SQL;
+
+		return $statement;
+	}
+
+	public function plOutputTotalQuery($month){
+
+		$statement = <<<SQL
+SELECT 
+IFNULL(SUM(o.amount), 0) as 'output_total'
+FROM TBL_USE u 
+INNER JOIN TBL_OUTPUT o 
+ON u.use_code = o.use_code 
+WHERE DATE_FORMAT(o.output_date, '%Y-%m') = '$month' 
+AND u.use_flg = '1'
+GROUP BY u.use_flg
 SQL;
 
 		return $statement;

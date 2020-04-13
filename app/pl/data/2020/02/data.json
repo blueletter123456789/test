@@ -1,1 +1,1 @@
-{"plInputData":[{"use_code":"1","use_name":"給与","input_amount":"320000"}],"plOutputData":[{"use_code":"8","use_name":"租税公課","output_amount":"2000"},{"use_code":"17","use_name":"消耗品費","output_amount":"400"}]}
+{"plInputData":[{"use_code":"1","use_name":"給与","input_amount":"320000"}],"plInputTotalData":[{"input_total":"320000"}],"plOutputData":[{"use_code":"8","use_name":"租税公課","output_amount":"2000"},{"use_code":"17","use_name":"消耗品費","output_amount":"400"}],"plOutputTotalData":[{"output_total":"2400"}],"plProfitTotalData":"317600"}
