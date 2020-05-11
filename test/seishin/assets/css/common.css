@@ -1,0 +1,146 @@
+@charset "UTF-8";
+/*------------------------normalize*/
+html {-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary {display: block;}audio,canvas,progress,video {display: inline-block; vertical-align: baseline;}a {background: transparent;}a:active,a:hover {outline: 0;}sub,sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}sup {top: -0.5em;}sub {bottom: -0.25em;}img {border: 0;}svg:not(:root) {overflow: hidden;}figure {margin: 0;}hr {-moz-box-sizing: content-box; box-sizing: content-box; height: 0;}pre {overflow: auto;}button,input,optgroup,select,textarea {color: inherit; font: inherit; margin: 0;}button {overflow: visible;}button,select {text-transform: none;}button,html input[type="button"],input[type="reset"],input[type="submit"] {-webkit-appearance: button; cursor: pointer;}button[disabled],html input[disabled] {cursor: default;}button::-moz-focus-inner,input::-moz-focus-inner {border: 0; padding: 0;}input {line-height: normal;}input[type="checkbox"],input[type="radio"] {box-sizing: border-box; padding: 0;}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button {height: auto;}input[type="search"] {-webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration {-webkit-appearance: none;}fieldset {border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em;}textarea {overflow: auto;}table {border-collapse: collapse; border-spacing: 0;}td,th {padding: 0;}img{ vertical-align: bottom;}
+button{ border:none;}button:focus{ outline:none;}table { border-collapse: collapse; border-spacing: 0;}
+*{ box-sizing: border-box;}
+ul{ margin: 0; padding: 0; list-style: none; font-size: 18px; }
+/*------------------------normalizeEnd*/
+
+body {
+	background: linear-gradient(#089bd5, #28a9a8);
+	min-height: 100vh;
+	font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+	color:#666;
+	margin:0 auto;
+	text-align:center;
+	font-size:100%;
+}
+
+h1, h2, h3, h4, h5, h6, p{ margin:0; padding:0; font-size:1.2em; line-height:1.5em;}
+h1{ font-weight: normal; font-size: 14px; color: #fff; text-align: center; margin: 0; padding: 10px; }
+h2{ font-weight: normal; font-size: 36px; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); padding: 24px 20px;}
+h3{ font-size: 32px; color: #000; }
+h3 span{ color: #089bd5; display: block; font-size: 14px; line-height: 1.5em; }
+h4{ text-align: center; font-size: 32px; color: #000; margin-bottom: 1em;}
+h4 span{ border-bottom: 2px solid #089bd5; padding-bottom: 10px; }
+h5{ font-size: 36px; }
+
+p{ font-size: 24px; margin-bottom: 1em;}
+
+
+section{ margin-bottom: 40px; }
+article{}
+address{ font-style:normal;}
+a:link, a:visited{ text-decoration: none; color:#007ab0;}/*007ab0*/
+a:hover{ opacity: 0.6; transition: 0.4s; color:#0099FF;}/*0099FF*/
+area { outline:none; }
+
+/*------*/
+main,
+footer,
+.wrapBox{ width:1020px; margin: 0 auto;}
+
+.mainImgBox{
+	margin-bottom: 40px;
+	position: relative;
+	height: 360px;
+	background-image:url("../img/mainImg.jpg");
+	background-size:cover;
+	background-position:center center;
+}
+.mainImgBox p{
+	position: absolute;
+	width: 100%;
+	padding: 2.2em 5px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	color: #000; background: rgba(255,255,255,0.6);  text-align: center; }
+
+.contentsBox{ margin-bottom: 40px; padding: 80px 20px; background: #fff; border-radius: 8px; box-shadow: 0 0 4px 4px rgba(0,0,0,0.2); }
+
+.infoBox{ margin-bottom: 40px; text-align: center; }
+
+/*------------------------Style*/
+main{ text-align:left;}
+
+
+footer{text-align: left; color: #666; background: #fff; padding: 40px 20px; border-radius: 8px 8px 0 0; box-shadow: 0 0 4px 4px rgba(0,0,0,0.2); }
+footer > div{display: flex;width:100%;}
+footer > div > div{ margin: 0 180px 20px 0; }
+footer > div > div:last-child{margin-right: 160px;}
+footer h5{ font-size: 24px; }
+footer p{ font-size: 14px; }
+
+
+
+/*------*/
+.columnBox{ display: flex; justify-content: space-between; }
+.columnBox figure{ max-width: 320px;}
+.columnBox figure img{ width: 100%; }
+.columnBox div{ width: 640px; max-width: 640px;}
+
+/*------*/
+.infoBox{ color: #fff; margin-bottom: 80px;}
+.infoBox .tel{ font-size: 48px; font-family: 'Oswald', sans-serif; line-height: 2em;}
+.infoBox a:link{ color: #fff; }
+.infoBox .fax{pointer-events: none;}
+.infoBox p{ font-size: 14px; }
+
+
+/*------*/
+.discList { margin: 1em; font-size: 14px; width: 100%;}
+.discList li{ list-style: disc; text-align: left; width: 100%;}
+.list2C li{ width: 45%; display: inline-block;}
+
+li i{ color: #24a45a; }
+
+/*------------------------otherStyle*/
+.PC{ display: block; }
+span.PC{ display: inline-block; }
+.SP{ display: none; }
+
+.clear { clear:both; }
+.clear hr { display:none; }
+.cf:after{/*for modern browser*/
+    content:"."; display: block; height:0px; clear:both; line-height:0; visibility:hidden;}
+.cf {zoom:1;/*for IE 5.5-7*/}
+
+.company{ text-align: center; }
+.company ul{ margin: 0 auto; }
+
+@media screen and (max-width: 1020px) {
+.PC,
+span.PC{ display: none; }
+.SP{ display: block; }
+main,
+footer,
+.wrapBox{ width:auto; margin: 0 10px;}
+footer > div{ display: block; }
+footer > div > div{ margin: 0 0 20px 0; }
+footer > div > div:last-child{
+	margin-right: 15px;
+}
+.contentsBox{ margin-bottom: 20px; padding: 40px 20px 5px;}
+
+h1{ font-size: 10px; }
+h2{ color: #000; text-align: center; font-size: 28px; text-shadow: 0 0 4px rgba(255,255,255,0.8); }
+h3{ font-size: 24px; }
+h4,
+h5{ font-size: 18px;}
+p{ font-size: 18px; }
+
+ul{ font-size: 14px; }
+
+.mainImgBox{ height: 280px; }
+.mainImgBox p{ font-size: 18px; padding: 10px; }
+
+.columnBox{ display: block; }
+.columnBox div{ width: 100%;}
+
+.infoBox{ margin-bottom: 40px;}
+.infoBox .tel{ font-size: 36px; line-height: 2em;}
+
+}
