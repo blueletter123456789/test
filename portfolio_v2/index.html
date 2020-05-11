@@ -6,11 +6,11 @@
     <title>portfolio</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="shortcut icon" href="./css/img/pre-icon.ico">
+    <link rel="shortcut icon" href="./css/img/pre-icon.ico" />
     <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-	<script type="text/javascript" src="./js/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -36,18 +36,61 @@
       </nav>
     </header>
     <div class="main-panel">
-    	<h1>top page title, top page title,<br> top page title</h1>
-      <section class="page top">
-      	<div class="top-base"></div>
-      	<div class="video-wrapper">
-      		<img src="./css/img/IMG_2647.JPG">
-      	</div>
+      <h1>
+        top page title, top page title,<br />
+        top page title
+      </h1>
+      <section id="top" class="page top">
+        <div class="top-base"></div>
+        <div class="video-wrapper">
+          <img src="./css/img/IMG_2647.JPG" />
+        </div>
       </section>
       <section id="about" class="page about"></section>
-      <section id="service" class="page service"></section>
-      <section id="works" class="page works"></section>
-      <section id="blog" class="page blog"></section>
-      <section id="contact" class="page contact"></section>
+      <section id="service" class="page service">
+        <div class="service-background"></div>
+      </section>
+      <section id="works" class="page works">
+        <div class="works-background"></div>
+      </section>
+      <section id="blog" class="page blog">
+        <div class="blog-wrapper">
+          <div id="content1" class="content"></div>
+          <div id="content2" class="content"></div>
+          <div id="content3" class="content"></div>
+        </div>
+      </section>
+      <section id="contact" class="page contact">
+        <div id="form-wrapper">
+          <form method="POST" action="#">
+            <div id="form-inside">
+              <p class="input-record">
+                <span>Name</span>
+                <input type="text" name="name" />
+              </p>
+              <p class="input-record">
+                <span>Mail</span>
+                <input type="text" name="mail" />
+              </p>
+              <p class="input-record">
+                <span>Phone</span>
+                <input type="text" name="phone" />
+              </p>
+              <p class="input-record">
+                <span>Subject</span>
+                <input type="text" name="subject" />
+              </p>
+              <p class="input-record">
+                <span>Message</span>
+                <input type="text" name="message" />
+              </p>
+              <p class="input-record">
+                <input type="submit" value="send" />
+              </p>
+            </div>
+          </form>
+        </div>
+      </section>
     </div>
     <footer></footer>
   </body>

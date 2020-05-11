@@ -3,7 +3,7 @@ body {
   margin: 0;
 }
 
-/* 共通 */
+/* common style */
 .page {
   width: 100%;
   height: 100vh;
@@ -17,7 +17,7 @@ a {
   text-decoration: none;
 }
 
-/* ヘッダー */
+/* header */
 header {
   padding: 30px 0;
   background: transparent;
@@ -41,7 +41,7 @@ header {
   margin-left: 30px;
 }
 
-.top-nav li:hover{
+.top-nav li:hover {
   border-bottom: 2px solid #cecac5;
 }
 
@@ -49,18 +49,18 @@ header {
   color: #efa73d;
 }
 
-.site-header .top-nav a:hover{
+.site-header .top-nav a:hover {
   color: #ecbe79;
 }
 
-/*全体*/
-.main-panel{
+/* main panel */
+.main-panel {
   width: 100%;
   height: 100%;
 }
 
-/*トップページタイトル*/
-.main-panel > h1{
+/* top page title */
+.main-panel > h1 {
   position: absolute;
   left: 10%;
   font-size: 54px;
@@ -69,8 +69,12 @@ header {
   z-index: 11;
 }
 
-/*トップ*/
-.top-base{
+/* top */
+#top {
+  opacity: 1;
+}
+
+.top-base {
   top: 0;
   left: 0;
   width: 100%;
@@ -78,8 +82,8 @@ header {
   background: #33312d;
 }
 
-/*ビデオ挿入*/
-.video-wrapper{
+/* vidoe */
+.video-wrapper {
   top: 80px;
   left: 80px;
   right: 80px;
@@ -89,33 +93,111 @@ header {
   overflow: hidden;
 }
 
-.video-wrapper img{
+.video-wrapper img {
   width: 100%;
   height: auto;
 }
 
-/*説明*/
-.about{
-  background: red;
+/* about */
+#about {
+  background: #eee;
 }
 
-/*サービス*/
-.service{
-  background: blue;
+/* service */
+#service .service-background {
+  width: 100%;
+  height: 100%;
+  background-image: url(./img/IMG_2644.JPG);
+  background-size: cover;
+  background-position: center;
 }
 
-/*実績*/
-.works{
-  background: green;
+/* works */
+#works .works-background {
+  width: 100%;
+  height: 100%;
+  background-image: url(./img/IMG_2650.JPG);
+  background-size: cover;
+  background-position: center;
 }
 
-/*ブログ*/
-.blog{
-  background: pink;
+/* blog */
+#blog {
+  background: #ddd;
 }
 
-/*連絡*/
-.contact{
+#blog .blog-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+#blog .blog-wrapper .content {
+  width: calc(100% / 3);
+  height: 100%;
+}
+
+#blog .blog-wrapper #content1 {
+  background: #d38686;
+}
+
+#blog .blog-wrapper #content2 {
+  background: #faf1d2;
+}
+
+#blog .blog-wrapper #content3 {
+  background: #bbf79f;
+}
+
+/* contact */
+#contact {
   background: gray;
+  position: relative;
 }
 
+#contact #form-wrapper {
+  width: 70%;
+  height: 70vh;
+  background: #eee;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#contact #form-wrapper #form-inside {
+  width: 60%;
+  height: 60vh;
+  margin: 5vh auto;
+}
+
+#contact #form-wrapper #form-inside .input-record {
+  display: block;
+  height: 10%;
+  margin-bottom: 6%;
+  position: relative;
+}
+
+#contact #form-wrapper #form-inside input[type="text"] {
+  width: 100%;
+  height: 50%;
+  background-color: transparent;
+  border: 2px #777;
+  border-style: none none solid none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  outline: none;
+}
+
+#contact #form-wrapper #form-inside span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #ccc;
+  opacity: 1;
+}
+
+#contact #form-wrapper #form-inside span:hover {
+  opacity: 0;
+}
