@@ -6,6 +6,11 @@
     <title>portfolio</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/common.css" />
+    <link rel="shortcut icon" href="./css/img/pre-icon.ico">
+    <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+	<script type="text/javascript" src="./js/main.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -15,28 +20,34 @@
           <li class="nav-about">
             <a href="#">About</a>
           </li>
-          <li class="nav-service">
-            <a href="#">Service</a>
+          <li class="nav-seravice">
+            <a href="#service">Service</a>
           </li>
           <li class="nav-works">
-            <a href="#">Works</a>
+            <a href="#works">Works</a>
           </li>
           <li class="nav-blog">
-            <a href="#">Blog</a>
+            <a href="#blog">Blog</a>
           </li>
           <li class="nav-contact">
-            <a href="#">Contact</a>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </nav>
     </header>
     <div class="main-panel">
-      <section class="page top"></section>
-      <section class="page about"></section>
-      <section class="page service"></section>
-      <section class="page works"></section>
-      <section class="page blog"></section>
-      <section class="page contact"></section>
+    	<h1>top page title, top page title,<br> top page title</h1>
+      <section class="page top">
+      	<div class="top-base"></div>
+      	<div class="video-wrapper">
+      		<img src="./css/img/IMG_2647.JPG">
+      	</div>
+      </section>
+      <section id="about" class="page about"></section>
+      <section id="service" class="page service"></section>
+      <section id="works" class="page works"></section>
+      <section id="blog" class="page blog"></section>
+      <section id="contact" class="page contact"></section>
     </div>
     <footer></footer>
   </body>

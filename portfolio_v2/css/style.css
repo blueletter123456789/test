@@ -38,9 +38,84 @@ header {
 
 .site-header .top-nav li {
   display: inline-block;
-  margin-left: 60px;
+  margin-left: 30px;
+}
+
+.top-nav li:hover{
+  border-bottom: 2px solid #cecac5;
 }
 
 .site-header .top-nav li a {
-  color: gray;
+  color: #efa73d;
 }
+
+.site-header .top-nav a:hover{
+  color: #ecbe79;
+}
+
+/*全体*/
+.main-panel{
+  width: 100%;
+  height: 100%;
+}
+
+/*トップページタイトル*/
+.main-panel > h1{
+  position: absolute;
+  left: 10%;
+  font-size: 54px;
+  bottom: 10px;
+  color: #eeeeee;
+  z-index: 11;
+}
+
+/*トップ*/
+.top-base{
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #33312d;
+}
+
+/*ビデオ挿入*/
+.video-wrapper{
+  top: 80px;
+  left: 80px;
+  right: 80px;
+  height: 80vh;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+}
+
+.video-wrapper img{
+  width: 100%;
+  height: auto;
+}
+
+/*説明*/
+.about{
+  background: red;
+}
+
+/*サービス*/
+.service{
+  background: blue;
+}
+
+/*実績*/
+.works{
+  background: green;
+}
+
+/*ブログ*/
+.blog{
+  background: pink;
+}
+
+/*連絡*/
+.contact{
+  background: gray;
+}
+
