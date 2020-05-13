@@ -174,15 +174,23 @@ header {
 #contact #form-wrapper #form-inside .input-record {
   display: block;
   height: 10%;
-  margin-bottom: 6%;
+  margin-bottom: 5vh;
+  position: relative;
+}
+
+#contact #form-wrapper #form-inside .button-record {
+  display: block;
+  height: 10%;
+  margin-bottom: 5vh;
   position: relative;
 }
 
 #contact #form-wrapper #form-inside input[type="text"] {
   width: 100%;
   height: 50%;
+  font-size: 16px;
   background-color: transparent;
-  border: 2px #777;
+  border: 2px rgba(119, 119, 119, 1);
   border-style: none none solid none;
   position: absolute;
   bottom: 0;
@@ -190,14 +198,120 @@ header {
   outline: none;
 }
 
+#contact #form-wrapper #form-inside .input-record::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: #777;
+  transform: translate(0px, 0px);
+  opacity: 0.3;
+}
+
 #contact #form-wrapper #form-inside span {
   position: absolute;
   bottom: 0;
   left: 0;
-  color: #ccc;
+  color: #aaa;
   opacity: 1;
 }
 
-#contact #form-wrapper #form-inside span:hover {
-  opacity: 0;
+#contact #form-wrapper #form-inside #button-wrapper {
+  display: block;
+  position: absolute;
+  margin-top: 10px;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  width: 70px;
+  height: 40px;
+  border-bottom: solid 4px #777;
+  border-left: solid 4px #777;
+  cursor: pointer;
+}
+
+#contact #form-wrapper #form-inside .button-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  height: 100%;
+  transform: translate(0, 0);
+  transition: all 0.3s ease;
+  color: #ffc107;
+}
+
+#contact #form-wrapper #form-inside input[type="submit"] {
+  width: 70px;
+  height: 40px;
+  padding-left: 15px;
+  border: none;
+  font-size: 20px;
+  color: #777;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  background: transparent;
+  transform: translate(0, 0);
+  transition: all 0.3s ease;
+}
+
+/* CSSアニメーション */
+#contact
+  #form-wrapper
+  #form-inside
+  .input-record:focus-within
+  input[type="text"] {
+  animation-name: flash;
+  animation-timing-function: linear;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+#contact #form-wrapper #form-inside .input-record:focus-within::after {
+  animation-name: fadeIn;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+#contact #form-wrapper #form-inside #button-wrapper:hover .button-icon {
+  transform: translate(5px, 0);
+}
+
+#contact #form-wrapper #form-inside #button-wrapper:hover input[type="submit"] {
+  transform: translate(5px, 0);
+}
+
+@keyframes flash {
+  0% {
+  }
+  25% {
+    border: 2px rgba(119, 119, 119, 0.7);
+  }
+  50% {
+    border: 0px rgba(119, 119, 119, 0.2);
+  }
+  75% {
+    border: 2px rgba(119, 119, 119, 0.7);
+  }
+  100% {
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+    width: 104%;
+    transform: translate(-2%, 8px);
+  }
+  100% {
+    transform: translate(-6%, 15px);
+    width: 112%;
+    opacity: 0;
+  }
 }
