@@ -1,6 +1,13 @@
 body {
   padding: 0;
   margin: 0;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /* common style */
@@ -103,22 +110,143 @@ header {
   background: #eee;
 }
 
+.content-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.content-wrapper #about-position {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(0, -50%);
+  display: flex;
+  color: #33312d;
+}
+
+#about-title {
+  width: 30%;
+  margin-right: 20px;
+  margin-left: 5%;
+}
+
+#about-title > h1 {
+  font-size: 40px;
+}
+
+#about-content {
+  width: 30%;
+  margin-left: 15%;
+}
+
 /* service */
+#service {
+  position: relative;
+}
+
 #service .service-background {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-image: url(./img/IMG_2644.JPG);
   background-size: cover;
   background-position: center;
+  z-index: -1;
+}
+
+#service .service-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 16, 51, 0.274);
+}
+
+.content-wrapper #service-position {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(0, -50%);
+  color: #fff;
+}
+
+#service-position .link-info {
+  margin-top: 30px;
+}
+
+.link-info > a {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+}
+
+.link-info > a > span {
+  margin-left: 10px;
+}
+
+.link-info .link-arrow {
+  color: #efa73d;
+  margin-left: 10px;
+}
+
+#service-headline {
+  width: 60%;
+}
+
+#service-headline > h1 {
+  font-size: 36px;
 }
 
 /* works */
+#works {
+  position: relative;
+}
+
 #works .works-background {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-image: url(./img/IMG_2650.JPG);
   background-size: cover;
   background-position: center;
+  z-index: -1;
+}
+
+#works .works-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 16, 51, 0.274);
+}
+
+.content-wrapper #works-position {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(0, -50%);
+  color: #fff;
+}
+
+#works-position .link-info {
+  margin-top: 30px;
+}
+
+#works-headline {
+  width: 60%;
+}
+
+#works-headline > h1 {
+  font-size: 36px;
 }
 
 /* blog */
@@ -132,21 +260,99 @@ header {
   display: flex;
 }
 
-#blog .blog-wrapper .content {
+#blog .blog-wrapper .blog-content {
   width: calc(100% / 3);
   height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#blog .blog-content .blog-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  transform: scale(0.8);
+  transition: all 0.5s ease;
+}
+
+#blog .blog-content .blog-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: rgba(255, 255, 255);
+  opacity: 0.4;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+#blog .blog-content:hover .blog-background {
+  transform: scale(1);
+  border-radius: 0;
+}
+
+#blog .blog-content:hover .blog-background::after {
+  background: rgba(25, 25, 25);
+  opacity: 0.5;
+  border-radius: 0;
 }
 
 #blog .blog-wrapper #content1 {
-  background: #d38686;
+  background-image: url(./img/IMG_0001.JPG);
 }
 
 #blog .blog-wrapper #content2 {
-  background: #faf1d2;
+  background-image: url(./img/IMG_0002.JPG);
 }
 
 #blog .blog-wrapper #content3 {
-  background: #bbf79f;
+  background-image: url(./img/IMG_0003.jpg);
+}
+
+#blog .blog-content .blog-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #33312d;
+  transition: all 0.5s ease;
+}
+
+#blog .blog-content:hover .blog-text {
+  color: #eee;
+}
+
+#blog .blog-content .blog-text > div {
+  width: 70%;
+  height: 50vh;
+  margin: 30vh 15% 20vh 15%;
+}
+
+#blog .blog-content .blog-text h1 {
+  font-size: 24px;
+}
+
+#blog .blog-content .blog-text p {
+  margin: 1em 0;
+  font-size: 16px;
+}
+
+#blog .blog-content .blog-text > div > span {
+  font-size: 18px;
+  margin-top: 2em;
+}
+
+#blog .blog-content .blog-text span .blog-icon {
+  margin-left: 8px;
 }
 
 /* contact */
@@ -265,8 +471,8 @@ header {
   input[type="text"] {
   animation-name: flash;
   animation-timing-function: linear;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
 }
 
 #contact #form-wrapper #form-inside .input-record:focus-within::after {
