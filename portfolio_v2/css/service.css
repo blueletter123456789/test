@@ -9,7 +9,6 @@ a{
 
 section{
 	width: 100%;
-	height: 100vh;
 }
 
 /* navigation header */
@@ -68,3 +67,91 @@ header {
 	letter-spacing: 8px;
 }
 
+/* circle section */
+.circle-wrapper{
+	width: 60vw;
+	min-width: 600px;
+	height: 60vw;
+	min-height: 600px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#left-circle{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #777;
+	transition: all 2s ease;
+}
+
+#right-circle{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #777;
+	transition: all 2s ease;
+}
+
+#left-circle.active{
+	width: 80%;
+	height: 80%;
+	transform: translate(-75%, -50%);
+}
+
+#right-circle.active{
+	width: 80%;
+	height: 80%;
+	transform: translate(-25%, -50%);
+}
+
+#left-circle.active:hover{
+	background-color: #777;
+	z-index: 10;
+}
+
+#right-circle.active:hover{
+	background-color: #777;
+	z-index: 10;
+}
+
+.circle-title{
+	font-size: 16px;
+	color: #fff;
+	height: 100%;
+	width: 50%;
+	position: relative;
+}
+
+#left-wrapper{
+	margin: 0 auto 0 0;
+}
+
+#right-wrapper{
+	margin: 0 0 0 auto;
+}
+
+.circle-title > h1{
+	position: absolute;
+	top: 50%;
+}
+
+#front{
+	height: 100vh;
+}
+
+#end{
+	height: 100vh;
+}
