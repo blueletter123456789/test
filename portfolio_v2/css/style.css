@@ -346,12 +346,13 @@ header {
   font-size: 16px;
 }
 
-#blog .blog-content .blog-text > div > span {
+#blog .blog-content .blog-text > div > a {
   font-size: 18px;
   margin-top: 2em;
+  color: inherit;
 }
 
-#blog .blog-content .blog-text span .blog-icon {
+#blog .blog-content .blog-text a .blog-icon {
   margin-left: 8px;
 }
 

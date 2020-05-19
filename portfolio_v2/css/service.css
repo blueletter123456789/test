@@ -1,6 +1,14 @@
 body{
 	margin: 0;
 	padding: 0;
+	background: #23211d;
+	color: #eee;
+	-ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display:none;
 }
 
 a{
@@ -48,6 +56,10 @@ header {
 }
 
 /* top page title */
+#service-top{
+	margin-bottom: 20vh;
+}
+
 #page-title{
 	width: 100%;
 	height: 100px;
@@ -59,12 +71,14 @@ header {
 	font-size: 36px;
 	text-align: center;
 	letter-spacing: 10px;
+	font-weight: lighter;
 }
 
 #page-title p{
 	font-size: 14px;
 	text-align: center;
 	letter-spacing: 8px;
+	color: #999;
 }
 
 /* circle section */
@@ -88,7 +102,7 @@ header {
 	border-style: solid;
 	border-width: 2px;
 	border-color: #777;
-	transition: all 2s ease;
+	transition: all 1s ease;
 }
 
 #right-circle{
@@ -102,7 +116,7 @@ header {
 	border-style: solid;
 	border-width: 2px;
 	border-color: #777;
-	transition: all 2s ease;
+	transition: all 1s ease;
 }
 
 #left-circle.active{
@@ -118,22 +132,26 @@ header {
 }
 
 #left-circle.active:hover{
-	background-color: #777;
+	width: 90%;
+	height: 90%;
+	background: #eee;
 	z-index: 10;
 }
 
 #right-circle.active:hover{
-	background-color: #777;
+	width: 90%;
+	height: 90%;
+	background: #eee;
 	z-index: 10;
 }
 
 .circle-title{
 	font-size: 16px;
-	color: #fff;
 	height: 100%;
 	width: 50%;
 	position: relative;
 }
+
 
 #left-wrapper{
 	margin: 0 auto 0 0;
@@ -143,15 +161,217 @@ header {
 	margin: 0 0 0 auto;
 }
 
-.circle-title > h1{
+.circle-title > .push-content{
+	width: 85%;
+	height: 50%;
 	position: absolute;
 	top: 50%;
+	left: 15%;
+	transform: translate(0, -50%);
+	transition: all ease 1s;
 }
 
+#left-circle.active:hover .push-content{
+	left: 30%;
+}
+
+#right-circle.active:hover .push-content{
+	left: 5%;
+}
+
+.circle-title h1{
+	font-size: 36px;
+	padding-top: 30%;
+	transition: all ease 1s;
+	color: #fff;
+}
+
+#left-circle.active:hover .circle-title h1{
+	font-size: 42px;
+	color: #333;
+}
+
+#right-circle.active:hover .circle-title h1{
+	font-size: 42px;
+	color: #333;
+}
+
+
+
+.down-arrow{
+	width: 1px;
+	height: 0px;
+	top: 25%;
+	border-right: 3px solid transparent;
+	box-sizing: border-box;
+	transition: all ease 1s;
+}
+
+#left-circle .down-arrow{
+	position: absolute;
+	right: -25%;
+	transform: translateY(-50%);
+}
+
+#left-circle .down-arrow::after{
+	content: "";
+	position: absolute;
+	bottom: 0px;
+	right: -18px;
+	border-left: 15px solid transparent;
+	border-bottom: 20px solid transparent;
+}
+
+#right-circle .down-arrow{
+	position: absolute;
+	left: -25%;
+	transform: translateY(-50%);
+}
+
+#right-circle .down-arrow::after{
+	content: "";
+	position: absolute;
+	bottom: 0px;
+	left: -15px;
+	border-right: 15px solid transparent;
+	border-bottom: 20px solid transparent;
+}
+
+#left-circle.active:hover .down-arrow{
+	border-right: 3px solid #efa73d;
+	top: 50%;
+	height: 200px;
+}
+
+#left-circle.active:hover .down-arrow::after{
+	border-left: 15px solid #efa73d;
+}
+
+#right-circle.active:hover .down-arrow{
+	border-right: 3px solid #efa73d;
+	top: 50%;
+	height: 200px;
+}
+
+#right-circle.active:hover .down-arrow::after{
+	border-right: 15px solid #efa73d;
+}
+
+
+/* content sections */
+.content-wrapper {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+}
+
+.content-title{
+	width: 100%;
+	height: 30vh;
+	position: absolute;
+	top: 30vh;
+	left: 0;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 30vh;
+}
+
+.content-title > h1{
+	font-size: 52px;
+	font-weight: lighter;
+	color: #efa73d;
+}
+
+.img-wrapper{
+	position: relative;
+	width: 100%;
+	height: 95vh;
+	margin-top: 2.5vh;
+}
+
+.img-wrapper > img{
+	height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.img-wrapper::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #d5cdc5;
+	opacity: 0.3;
+}
+
+.text-wrapper{
+	width: 100%;
+	height: 30%;
+	border: 1px solid #eee;
+	padding: 20px;
+	z-index: 10;
+}
+
+.content-text{
+	width: 70%;
+	margin: 0 auto;
+	font-size: 14px;
+}
+
+
+/* front section */
 #front{
+	margin-bottom: 20vh;
+}
+
+#front-content{
+	width: 40%;
 	height: 100vh;
 }
 
+#front-img{
+	width: 60%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+#front-content {
+	position: relative;
+}
+
+#front-content > .text-wrapper{
+	position: absolute;
+	top: 60%;
+	left: 45px;
+}
+
+
+/* end section */
 #end{
+	margin-bottom: 3vh;
+}
+
+#end-content{
+	width: 40%;
 	height: 100vh;
+}
+
+#end-img{
+	width: 60%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+#end-content {
+	position: relative;
+}
+
+#end-content > .text-wrapper{
+	position: absolute;
+	top: 60%;
+	left: -45px;
 }
