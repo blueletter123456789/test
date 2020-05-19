@@ -13,10 +13,11 @@ $(function () {
     return false;
   });
 
-  //   フォームクリックイベント
+  //  form click event
   $('#form-inside input[type="text"]').on("click", function () {
-    $("#form-inside span");
   });
 
+
+  // scroll magic part
   var controller = new ScrollMagic.Controller();
 });
