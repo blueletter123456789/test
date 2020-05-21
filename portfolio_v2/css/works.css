@@ -82,17 +82,15 @@ header {
 /* top page section */
 #top-slider{
 	width: 100%;
-	height: 100vh;
 	overflow: hidden;
 	margin-bottom: 20vh;
+	position: relative;
 }
 
 .panel{
 	width: 100%;
-	height: 100%;
-	position: absolute;
+	height: 100vh;
 	background-size: cover;
-	background-position: center;
 }
 
 
@@ -100,25 +98,33 @@ header {
 	background-image: url(../css/img/IMG_W0001.JPG);
 }
 
+
 #panel2{
-	background-image: url(../css/img/IMG_W0001.JPG);
+	background-image: url(../css/img/IMG_W0002.JPG);
+}
+
+#panel2.active{
+	opacity: 0;
 }
 
 #panel3{
-	background-image: url(../css/img/IMG_W0001.JPG);
+	background-image: url(../css/img/IMG_W0003.JPG);
 }
 
-#panel4{
-	background-image: url(../css/img/IMG_W0001.JPG);
+#panel3.active{
+	opacity: 0;
 }
 
-#panel5{
-	background-image: url(../css/img/IMG_W0001.JPG);
-}
 
 /* all works section */
 #all-works{
 	width: 100%;
+}
+
+#all-works.active{
+	z-index: 9999;
+	top: 0;
+	left: 0;
 }
 
 #works-title{
