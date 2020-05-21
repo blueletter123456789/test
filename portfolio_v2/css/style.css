@@ -3,7 +3,8 @@ body {
   margin: 0;
   overflow: scroll;
   -ms-overflow-style: none;
-  scrollbar-width: none;
+  scrollbar-width: none; 
+  background: #eee;
 }
 
 body::-webkit-scrollbar {
@@ -93,22 +94,38 @@ header {
 /* top */
 #top {
   opacity: 1;
-  height: 200vh;
+  height: 150vh;
 }
 
 #top::before {
   content: "";
   width: 100%;
-  height: 200vh;
+  height: 150vh;
   position: absolute;
   background: #eee;
   opacity: 0;
-  transition: all 1s ease;
+  transition: all .25s ease-out;
 }
+
+#top::after {
+  content: "";
+  width: 100%;
+  height: 150vh;
+  position: absolute;
+  background: #33312d;
+  opacity: 1;
+  z-index: 10;
+  transition: all .25s ease-out;
+}
+
 
 #top.active::before {
   opacity: 1;
   z-index: 99;
+}
+
+#top.active::after {
+  opacity: 0;
 }
 
 .top-base {
@@ -143,8 +160,15 @@ header {
 
 /* about */
 #about {
-  background: #eee;
+/*  background: #eee;*/
+  background: transparent;
   height: 100vh;
+  opacity: 0;
+  transition: all .5s ease;
+}
+
+#about.active{
+  opacity: 1;
 }
 
 .content-wrapper {
