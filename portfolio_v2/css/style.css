@@ -24,6 +24,20 @@ a {
   text-decoration: none;
 }
 
+/* loading page */
+#loading-page {
+  display: none;
+}
+
+#loading-page.active {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  display: block;
+  z-index: 9999;
+  background: #fff;
+}
+
 /* header */
 header {
   padding: 30px 0;
@@ -67,7 +81,7 @@ header {
 }
 
 /* top page title */
-.main-panel > h1 {
+#top-title {
   position: absolute;
   left: 10%;
   font-size: 54px;
@@ -79,6 +93,22 @@ header {
 /* top */
 #top {
   opacity: 1;
+  height: 200vh;
+}
+
+#top::before {
+  content: "";
+  width: 100%;
+  height: 200vh;
+  position: absolute;
+  background: #eee;
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+#top.active::before {
+  opacity: 1;
+  z-index: 99;
 }
 
 .top-base {
@@ -98,6 +128,8 @@ header {
   overflow: hidden;
   position: absolute;
   overflow: hidden;
+  opacity: 1;
+  transition: all 1s ease;
 }
 
 .video-wrapper img {
@@ -105,9 +137,14 @@ header {
   height: auto;
 }
 
+.video-wrapper.hidden {
+  opacity: 0;
+}
+
 /* about */
 #about {
   background: #eee;
+  height: 100vh;
 }
 
 .content-wrapper {
@@ -118,9 +155,7 @@ header {
 
 .content-wrapper #about-position {
   position: absolute;
-  top: 50%;
   left: 10%;
-  transform: translate(0, -50%);
   display: flex;
   color: #33312d;
 }

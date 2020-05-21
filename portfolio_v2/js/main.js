@@ -14,10 +14,27 @@ $(function () {
   });
 
   //  form click event
-  $('#form-inside input[type="text"]').on("click", function () {
-  });
-
+  $('#form-inside input[type="text"]').on("click", function () {});
 
   // scroll magic part
   var controller = new ScrollMagic.Controller();
+
+  var sceneTitle = new ScrollMagic.Scene({
+    triggerElement: "#top-title",
+    triggerHook: "onCenter",
+    offset: 100,
+    duration: "50%",
+  })
+    .setPin("#top-title")
+    .setClassToggle(".video-wrapper", "hidden")
+    .addIndicators({ name: "top-title" })
+    .addTo(controller);
+
+  var sceneTop = new ScrollMagic.Scene({
+    triggerElement: "#top-title",
+    triggerHook: "onLeave",
+  })
+    .setClassToggle("#top", "active")
+    .addIndicators({ name: "top-hidden" })
+    .addTo(controller);
 });
