@@ -3,7 +3,7 @@ body {
   margin: 0;
   overflow: scroll;
   -ms-overflow-style: none;
-  scrollbar-width: none; 
+  scrollbar-width: none;
   background: #eee;
 }
 
@@ -104,7 +104,7 @@ header {
   position: absolute;
   background: #eee;
   opacity: 0;
-  transition: all .25s ease-out;
+  transition: all 0.25s ease-out;
 }
 
 #top::after {
@@ -115,9 +115,8 @@ header {
   background: #33312d;
   opacity: 1;
   z-index: 10;
-  transition: all .25s ease-out;
+  transition: all 0.25s ease-out;
 }
-
 
 #top.active::before {
   opacity: 1;
@@ -160,15 +159,28 @@ header {
 
 /* about */
 #about {
-/*  background: #eee;*/
-  background: transparent;
+  background: #eee;
   height: 100vh;
-  opacity: 0;
-  transition: all .5s ease;
+  padding: 10vh 0;
+  transition: opacity 0.25s ease-out;
 }
 
-#about.active{
+#about::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #eee;
   opacity: 1;
+  transition: opacity 0.25s ease-out;
+}
+
+#about.hidden {
+  opacity: 0;
+}
+
+#about.hidden::after {
+  opacity: 0;
 }
 
 .content-wrapper {
@@ -177,11 +189,17 @@ header {
   position: relative;
 }
 
-.content-wrapper #about-position {
+#about-position {
   position: absolute;
   left: 10%;
   display: flex;
   color: #33312d;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+#about-position.active {
+  opacity: 1;
 }
 
 #about-title {
@@ -207,13 +225,13 @@ header {
 #service .service-background {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-image: url(./img/IMG_2644.JPG);
   background-size: cover;
   background-position: center;
-  z-index: -1;
+  z-index: -9999;
 }
 
 #service .service-background::after {

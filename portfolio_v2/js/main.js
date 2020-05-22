@@ -4,7 +4,7 @@ $(function () {
   console.log(windowHeight);
   console.log(windowWidth);
 
-/*  $("#about").click(function () {
+  /*  $("#about").click(function () {
     var speed = 1000; //スムーズスクロールスピード
     var href = $(this).attr("href");
     var target = $(href == "#" || href == "" ? "html" : href);
@@ -21,7 +21,7 @@ $(function () {
   // scroll magic part
   var controller = new ScrollMagic.Controller();
 
-// ビデオを隠すための処理
+  // ビデオを隠すための処理
   var sceneVideo = new ScrollMagic.Scene({
     triggerElement: "#top",
     triggerHook: "onLeave",
@@ -32,7 +32,7 @@ $(function () {
     // .addIndicators({ name: "video-hidden" })
     .addTo(controller);
 
-// タイトルを固定するための処理
+  // タイトルを固定するための処理
   var sceneTitle = new ScrollMagic.Scene({
     triggerElement: "#top-title",
     triggerHook: "onCenter",
@@ -43,7 +43,7 @@ $(function () {
     // .addIndicators({ name: "top-title" })
     .addTo(controller);
 
-// トップ画面を隠すための処理（背景を白にする）
+  // トップ画面を隠すための処理（背景を白にする）
   var sceneTop = new ScrollMagic.Scene({
     triggerElement: "#top-title",
     triggerHook: "onLeave",
@@ -52,15 +52,23 @@ $(function () {
     // .addIndicators({ name: "top-hidden" })
     .addTo(controller);
 
-// 概要を表示させるための処理
+  // 概要を表示させるための処理
   var sceneAbout = new ScrollMagic.Scene({
     triggerElement: "#about",
-    triggerHook: "onCenter", 
-    duration: "50%"
+    triggerHook: "onCenter",
+    duration: "50%",
   })
-    .setClassToggle("#about", "active")
+    .setClassToggle("#about-position", "active")
     .addIndicators({ name: "about-active" })
     .addTo(controller);
 
-
+  // サービスを表示させるための処理
+  var sceneService = new ScrollMagic.Scene({
+    triggerElement: "#service",
+    triggerHook: "onEnter",
+    // offset: "10%",
+  })
+    .setClassToggle("#about", "hidden")
+    .addIndicators({ name: "about-hidden" })
+    .addTo(controller);
 });
