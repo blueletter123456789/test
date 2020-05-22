@@ -5,6 +5,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
   background: #eee;
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -161,8 +162,10 @@ header {
 #about {
   background: #eee;
   height: 100vh;
-  padding: 10vh 0;
-  transition: opacity 0.25s ease-out;
+  padding-top: 10vh;
+  opacity: 1;
+  z-index: 10;
+  transition: opacity 0.2s ease-out;
 }
 
 #about::after {
@@ -172,7 +175,8 @@ header {
   height: 100%;
   background: #eee;
   opacity: 1;
-  transition: opacity 0.25s ease-out;
+  z-index: 10;
+  transition: opacity 0.2s ease;
 }
 
 #about.hidden {
@@ -191,11 +195,12 @@ header {
 
 #about-position {
   position: absolute;
+  top: 15%;
   left: 10%;
   display: flex;
   color: #33312d;
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: all 1s ease;
 }
 
 #about-position.active {
@@ -220,6 +225,7 @@ header {
 /* service */
 #service {
   position: relative;
+  height: 80vh;
 }
 
 #service .service-background {
@@ -231,7 +237,9 @@ header {
   background-image: url(./img/IMG_2644.JPG);
   background-size: cover;
   background-position: center;
-  z-index: -9999;
+  z-index: -999;
+  opacity: 0;
+  transition: all 0.25s ease-out;
 }
 
 #service .service-background::after {
@@ -241,14 +249,25 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(15, 16, 51, 0.274);
+  background: #eee;
+  opacity: 1;
+  transition: all 0.4s ease-out;
 }
+
+#service.active .service-background::after {
+  opacity: 0.2;
+}
+
+#service.active .service-background {
+  z-index: -10;
+  opacity: 1;
+}
+
 
 .content-wrapper #service-position {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 10%;
-  transform: translate(0, -50%);
   color: #fff;
 }
 
@@ -282,18 +301,35 @@ header {
 /* works */
 #works {
   position: relative;
+  height: 80vh;
+}
+
+#works::before{
+  content: '';
+  width: 100%;
+  height: 80vh;
+  position: absolute;
+  background: #eee;
+  opacity: 0;
+  transition: all .25s ease-out .25s;
+}
+
+#works.hidden::before{
+  opacity: 1;
+  z-index: 100;
 }
 
 #works .works-background {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-image: url(./img/IMG_2650.JPG);
   background-size: cover;
   background-position: center;
-  z-index: -1;
+  opacity: 0;
+  transition: all .25s ease-out;
 }
 
 #works .works-background::after {
@@ -306,11 +342,14 @@ header {
   background: rgba(15, 16, 51, 0.274);
 }
 
+#works.active .works-background {
+  opacity: 1;
+}
+
 .content-wrapper #works-position {
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 10%;
-  transform: translate(0, -50%);
   color: #fff;
 }
 
@@ -328,13 +367,22 @@ header {
 
 /* blog */
 #blog {
-  background: #ddd;
+  background: transparent;
+  margin-bottom: 20vh;
 }
 
 #blog .blog-wrapper {
   width: 100%;
   height: 100%;
   display: flex;
+  opacity: 0;
+  z-index: -1;
+  transition: all 1s ease;
+}
+
+#blog.active .blog-wrapper {
+  opacity: 1;
+  z-index: 10;
 }
 
 #blog .blog-wrapper .blog-content {
@@ -342,6 +390,23 @@ header {
   height: 100%;
   position: relative;
   overflow: hidden;
+  transition: all 1s ease;
+}
+
+#blog .blog-wrapper .bc1 {
+  transform: translate(-50%, 0);
+}
+
+#blog .blog-wrapper .bc2 {
+  transform: translate(0, 50%);
+}
+
+#blog .blog-wrapper .bc3 {
+  transform: translate(50%, 0);
+}
+
+#blog.active .blog-wrapper .blog-content {
+  transform: translate(0, 0);
 }
 
 #blog .blog-content .blog-background {
@@ -437,6 +502,7 @@ header {
 #contact {
   background: gray;
   position: relative;
+  z-index: 100;
 }
 
 #contact #form-wrapper {

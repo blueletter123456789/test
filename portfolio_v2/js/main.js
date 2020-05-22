@@ -1,8 +1,6 @@
 $(function () {
   var windowHeight = $(window).height();
   var windowWidth = $(window).width();
-  console.log(windowHeight);
-  console.log(windowWidth);
 
   /*  $("#about").click(function () {
     var speed = 1000; //スムーズスクロールスピード
@@ -56,10 +54,11 @@ $(function () {
   var sceneAbout = new ScrollMagic.Scene({
     triggerElement: "#about",
     triggerHook: "onCenter",
-    duration: "50%",
+    duration: "50%", 
+    offset: "10%",
   })
     .setClassToggle("#about-position", "active")
-    .addIndicators({ name: "about-active" })
+    // .addIndicators({ name: "about-active" })
     .addTo(controller);
 
   // サービスを表示させるための処理
@@ -69,6 +68,58 @@ $(function () {
     // offset: "10%",
   })
     .setClassToggle("#about", "hidden")
-    .addIndicators({ name: "about-hidden" })
+    // .addIndicators({ name: "about-hidden" })
     .addTo(controller);
+
+
+  var sceneService1 = new ScrollMagic.Scene({
+    triggerElement: "#service",
+    triggerHook: "onEnter",
+    duration: "150%"
+  })
+    .setClassToggle("#service", "active")
+    // .addIndicators({ name: "service-active" })
+    .addTo(controller);
+
+// 実績表示処理
+  var sceneWork1 = new ScrollMagic.Scene({
+    triggerElement: "#works",
+    triggerHook: "onEnter",
+    offset: 200, 
+    duration: "100%"
+  })
+    .setClassToggle("#works", "active")
+    // .addIndicators({ name: "works-active" })
+    .addTo(controller);
+
+// 実績非表示処理
+  var sceneWork2 = new ScrollMagic.Scene({
+    triggerElement: "#works",
+    triggerHook: "onLeave",
+    offset: 200, 
+  })
+    .setClassToggle("#works", "hidden")
+    // .addIndicators({ name: "works-hidden" })
+    .addTo(controller);
+
+// ブログ表示処理
+  var sceneBlog1 = new ScrollMagic.Scene({
+    triggerElement: "#blog",
+    triggerHook: "onCenter", 
+    offset: "15%"
+  })
+    .setClassToggle("#blog", "active")
+    // .addIndicators({ name: "blog-active" })
+    .addTo(controller);
+
+// ブログ固定
+  var sceneBlog2 = new ScrollMagic.Scene({
+    triggerElement: "#blog",
+    triggerHook: "onLeave", 
+  })
+    .setPin("#blog")
+    // .addIndicators({ name: "blog-set" })
+    .addTo(controller);
+
+
 });

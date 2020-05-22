@@ -5,6 +5,7 @@ body{
 	color: #eee;
 	-ms-overflow-style: none;
     scrollbar-width: none;
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -106,6 +107,21 @@ header {
 	transition: all 1s ease;
 }
 
+#left-circle::before{
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transform: scale(1);
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 2px;
+	background: #eee;
+	color: #23211d;
+	opacity: 0;
+	z-index: -1;
+}
+
 #right-circle{
 	width: 100%;
 	height: 100%;
@@ -120,6 +136,27 @@ header {
 	color: #23211d;
 	transition: all 1s ease;
 }
+
+#right-circle::before{
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transform: scale(1);
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 2px;
+	background: #eee;
+	color: #23211d;
+	opacity: 0;
+	z-index: -1;
+}
+
+#left-circle.click::before, #right-circle.click::before{
+	animation-name: circle-scale;
+	animation-duration: 2s;
+}
+
 
 #left-circle.active{
 	width: 80%;
@@ -347,6 +384,21 @@ header {
 	background-color: #eee;
 }
 
+#front::before{
+	content: '';
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background: #eee;
+	z-index: 999;
+	opacity: 0;
+}
+
+#front.hidden::before{
+	animation-name: section-hidden;
+	animation-duration: 3s;
+}
+
 #front-content{
 	width: 40%;
 	height: 100vh;
@@ -376,6 +428,21 @@ header {
 	background-color: #eee;
 }
 
+#end::before{
+	content: '';
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background: #eee;
+	opacity: 0;
+	z-index: 999;
+}
+
+#end.hidden::before{
+	animation-name: section-hidden;
+	animation-duration: 3s;
+}
+
 #end-content{
 	width: 40%;
 	height: 100vh;
@@ -396,4 +463,35 @@ header {
 	position: absolute;
 	top: 60%;
 	left: -45px;
+}
+
+
+@keyframes circle-scale{
+	0% {
+        opacity:0;
+        transform: scale(1);
+        z-index: -1;
+    }
+    50%{
+		opacity: 1;
+		transform: scale(10);
+    	z-index: 100;
+    }
+    100% {
+        opacity:0;
+        transform: scale(1);
+        z-index: -1;
+    }
+}
+
+@keyframes section-hidden{
+	0% {
+        opacity:0;
+    }
+    30%{
+		opacity: 1;
+    }
+    100% {
+        opacity:0;
+    }
 }
