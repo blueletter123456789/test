@@ -274,7 +274,7 @@
 							</div>
 							<div class="nDebt_total">
 								<span>負債合計</span>
-								<span v-if="bsTotalList[1]">{{ bsTotalList[1]['amount'] }}</span>
+								<span v-if="bsTotalList[1]['amount']">{{ bsTotalList[1]['amount'] }}</span>
 							</div>
 						</div>
 						<div class="nAsset">
@@ -289,18 +289,18 @@
 						</div>
 						<div class="nAsset_total">
 							<span>純資産合計</span>
-							<span v-if="bsTotalList[2]">{{ bsTotalList[2]['amount'] }}</span>
+							<span v-if="bsTotalList[2]['amount']">{{ bsTotalList[2]['amount'] }}</span>
 						</div>
 					</div>
 				</div>
 				<div class="bsDetail_total">
 					<div class="asset_total">
 						<span>資産合計</span>
-						<span v-if="bsTotalList[0]">{{ bsTotalList[0]['amount'] }}</span>
+						<span v-if="bsTotalList[0]['amount']">{{ bsTotalList[0]['amount'] }}</span>
 					</div>
 					<div class="debt_total">
 						<span>負債・純資産合計</span>
-						<span v-if="bsTotalList[3]">{{ bsTotalList[3]['amount'] }}</span>
+						<span v-if="bsTotalList[3]['amount']">{{ bsTotalList[3]['amount'] }}</span>
 					</div>
 				</div>
 			</div>

@@ -93,7 +93,7 @@ header {
 }
 
 #panel1 {
-  background-image: url(../css/img/IMG_W0001.JPG);
+  background-image: url(../css/img/works_top_bg1.JPG);
 }
 
 #panel1.hidden {
@@ -101,7 +101,7 @@ header {
 }
 
 #panel2 {
-  background-image: url(../css/img/IMG_W0002.JPG);
+  background-image: url(../css/img/works_top_bg2.JPG);
 }
 
 #panel2.hidden {
@@ -109,7 +109,7 @@ header {
 }
 
 #panel3 {
-  background-image: url(../css/img/IMG_W0003.JPG);
+  background-image: url(../css/img/works_top_bg3.JPG);
 }
 
 #panel3.hidden {

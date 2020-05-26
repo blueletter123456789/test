@@ -10,6 +10,7 @@
     <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script type="text/javascript" src="./js/core.js"></script>
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
@@ -17,9 +18,10 @@
     <script type="text/javascript" src="./js/main.js"></script>
   </head>
   <body>
-    <div id="loading-page">
+    <div id="loading-page" class="active">
       <div>
         <h1 id="loading-title">Hello</h1>
+        <div id="loading-bar"></div>
       </div>
     </div>
     <header class="site-header">
@@ -47,12 +49,13 @@
     <div class="main-panel">
       <h1 id="top-title">
         top page title, top page title,<br />
-        top page title
+        top page title<br>
+        <span id="title-type"></span>
       </h1>
       <section id="top" class="page top">
         <div class="top-base"></div>
         <div class="video-wrapper">
-          <img src="./css/img/IMG_1001.JPG" />
+          <img src="./css/img/index_top.JPG" />
         </div>
       </section>
       <section id="about" class="page about">
@@ -125,7 +128,7 @@
           <div class="blog-content bc1">
             <div id="content1" class="blog-background"></div>
             <div class="blog-text">
-              <div>
+              <div class="blog1">
                 <h1>blog pages, blog pages, blog pages, blog pages</h1>
                 <p>20xx/xx/xx</p>
                 <a href="#">
@@ -148,7 +151,7 @@
           <div class="blog-content bc2">
             <div id="content2" class="blog-background"></div>
             <div class="blog-text">
-              <div>
+              <div class="blog2">
                 <h1>blog pages, blog pages, blog pages, blog pages</h1>
                 <p>20xx/xx/xx</p>
                 <a href="#">
@@ -171,7 +174,7 @@
           <div class="blog-content bc3">
             <div id="content3" class="blog-background"></div>
             <div class="blog-text">
-              <div>
+              <div class="blog3">
                 <h1>blog pages, blog pages, blog pages, blog pages</h1>
                 <p>20xx/xx/xx</p>
                 <a href="#">
