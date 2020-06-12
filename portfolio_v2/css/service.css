@@ -509,11 +509,11 @@ header {
 	}
 
 	#left-circle.active .circle-title h1 {
-    	font-size: 27px;
+    	font-size: 24px;
     }
 
 	#right-circle.active .circle-title h1 {
-    	font-size: 27px;
+    	font-size: 24px;
     }
 
     #left-circle.active:hover {
