@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+li{
+  list-style: none;
+}
+
 section {
   width: 100%;
 }
@@ -27,7 +31,11 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 9000;
+}
+
+.mobile-menu{
+  display: none;
 }
 
 .top-nav {
@@ -69,14 +77,14 @@ header {
 /* top page title */
 #title-wrapper{
   width: 100%;
-  height: 80vh;
+  height: 100vh;
 }
 
 #page-title {
   width: 100%;
   height: 100px;
-  margin-top: 40vh;
-  margin-bottom: 20vh;
+  padding-top: 40vh;
+  padding-bottom: 20vh;
 }
 
 #page-title h1 {
@@ -110,7 +118,7 @@ header {
 
 #title-bar > div{
   width: 2px;
-  height: 100%;
+  height: 80%;
   background: #efa73d;
   position: absolute;
   top: 0;
@@ -127,6 +135,7 @@ header {
   position: absolute;
   top: 100%;
   left: 50%;
+  transform: translateX(-1px);
   width: 0;
   height: 0;
   border-bottom: 30px solid transparent;
@@ -143,6 +152,13 @@ header {
   height: 100vh;
   position: relative;
   background: transparent;
+  z-index: 0;
+}
+
+#circle-section.set{
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .circle{
@@ -156,14 +172,28 @@ header {
   transition: all .5s ease;
 }
 
+.work-title{
+  line-height: 30vh;
+  text-align: center;
+  vertical-align: middle;
+  color: #333;
+  opacity: 0;
+  font-size: 36px;
+  transition: all 0.5s ease;
+}
+
 .circle.active{
-  width: 90vw;
+  width: 85vw;
   height: 90vh;
   border-radius: 0;
   border: 0;
   background-size: cover;
   background-position: center;
   z-index: 10;
+}
+
+.circle.active .work-title{
+  opacity: 1;
 }
 
 #circle1{
@@ -211,6 +241,10 @@ header {
   height: 100vh;
 }
 
+#panel-wrapper3{
+/*  padding-bottom: 20vh;*/
+}
+
 .panel {
   background: transparent;
   width: 100%;
@@ -240,7 +274,6 @@ header {
 
 #panel3 {
   background-image: url(../css/img/works_top_bg3.JPG);
-  height: 200vh;
 }
 
 
@@ -290,18 +323,146 @@ header {
   background-color: #f00;
 }
 
+/* responsive section */
+
+/* tablet version */
+@media screen and (max-width: 959px){
+
+  .circle {
+    width: 50vw;
+    height: 50vw;
+  }
+
+  #circle1{
+    transform: translate(-50%, -25%);
+  }
+
+}
+
+/* smart phone version */
+@media screen and (max-width: 560px){
+  /* header section */
+  .mobile-menu{
+    display: block;
+    width: calc(100vw - 80px);
+  }
+
+  #menu-wrapper{
+    position: relative;
+    margin-left: 30px;
+    width: 30px;
+    height: 40px;
+    z-index: 1000;
+  }
+
+  #menu-wrapper span, #menu-wrapper span::before, #menu-wrapper span::after{
+    position: absolute;
+    height: 3px;
+    width: 27px;
+    border-radius: 3px;
+    background: #efa73d;
+    display: block;
+    content: '';
+    cursor: pointer;
+  }
+
+  #menu-wrapper span::before{
+    bottom: -10px;
+  }
+
+  #menu-wrapper span::after{
+    bottom: -20px;
+  }
+
+  #mobile-navigation{
+    width: 80vw;
+    height: 140px;
+    display: block;
+    z-index: 999;
+    border-radius: 15px;
+    position: fixed;
+    top: 60px;
+    left: 30px;
+    transition: all 1s ease;
+  }
+
+  #mobile-navigation::before{
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: -30px;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  #mobile-navigation.hidden{
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  #mobile-navigation > div{
+    width: 80vw;
+    height: 140px;
+    border-radius: 15px;
+    background: #13110d;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  #mobile-navigation a{
+    display: block;
+    width: 85%;
+    height: 100%;
+    font-size: 18px;
+    line-height: 45px;
+    margin-left: 1.2em;
+    color: #eee;
+  }
+
+  #mobile-navigation li{
+    position: relative;
+  }
+
+  #mobile-navigation .mob-icon{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #eee;
+  }
+
+  .works-header{
+    display: flex;
+  }
+
+  #top-logo {
+    margin-left: 0px;
+  }
+
+  .top-nav{
+    display: none;
+  }
+
+  /* circle section */
+  #circle1{
+    transform: translate(-50%, 25%);
+  }
+}
+
+
+/* animation section */
 @keyframes flash{
   0%{
     opacity: 0.3;
   }
-  5%{
-    opacity: 1;
-  }
   50%{
     opacity: 1;
-  }
-  95%{
-    opacity: 0.5;
   }
   100%{
     opacity: 0.3;
