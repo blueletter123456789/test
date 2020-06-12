@@ -18,15 +18,25 @@ $(window).on('load',function(){
   function loadingAnimation(){
     var loading = function(){
       $('#loading-page').removeClass('active');
-      $('#loading-bar').css('opacity', '0');
+      $('.site-header').removeClass('hidden');
+      $('.main-panel').removeClass('hidden');
       $(window).scrollTop(0);
     };
 
     var loadingTitle = function(){
-      $('#loading-title').css('color', 'transparent');
+      $('#loading-title').css({
+        'color': 'transparent', 
+        'font-size': '90px', 
+        'opacity': '0'
+      });
     }
-    setTimeout(loadingTitle, 4000);
-    setTimeout(loading,4000);
+
+    var loadingBar = function(){
+      $('#loading-bar').css('opacity', '0');
+    }
+    setTimeout(loadingBar, 1900);
+    setTimeout(loadingTitle,6000);
+    setTimeout(loading,6000);
   }
 
   if (urlBefore != ulrBlog && urlBefore != urlWork && urlBefore != urlService) {
@@ -34,6 +44,8 @@ $(window).on('load',function(){
   }else{
     $('#loading-page').css("transition", "none");
     $('#loading-page').removeClass('active'); 
+    $('.site-header').removeClass('hidden');
+    $('.main-panel').removeClass('hidden');
   }
 
 });
@@ -42,7 +54,26 @@ $(function () {
   var windowHeight = $(window).height();
   var windowWidth = $(window).width();
 
-  //type writter section
+
+  // navigator section
+  var beforePosition = 0;
+  var scrollPosition = 0;
+  $(window).on('scroll',function(){
+    scrollPosition = $(this).scrollTop();
+    if ($('#mobile-navigation').hasClass('hidden')) {
+      if (scrollPosition >= beforePosition && scrollPosition != 0) {
+        $('.site-header').addClass('hidden');
+      } else {
+        $('.site-header').removeClass('hidden');
+        if(scrollPosition >50){
+          $('.site-header').addClass('visible');
+        }else{
+          $('.site-header').removeClass('visible');
+        }
+      }
+    }
+    beforePosition = scrollPosition;
+  });
 
   // scroll magic part
   var controller = new ScrollMagic.Controller();
@@ -69,21 +100,32 @@ $(function () {
     // .addIndicators({ name: "top-title" })
     .addTo(controller);
 
-/*  var sceneTitle2 = new ScrollMagic.Scene({
+  var sceneTitle2 = new ScrollMagic.Scene({
     triggerElement: "#top-title",
     triggerHook: "onCenter",
-    offset: 100,
     duration: "50%",
+    // reverse:false
   })
+    .setClassToggle("#top-title", "active")
     .on("enter", function(event){
-      const instance = new Typewriter('.title-type', {
-        strings: ['Hello World', 'こんにちは'], 
-        cursorClassName: 'Typewriter__cursor', 
-        autoStart: true, 
-      })
+      $("#top-title").addClass('active');
+      $('#top-title.active').t({
+        repeat: 0
+      });
     })
-    .setClassToggle('#title-type', 'active')
-    .addIndicators({ name: "top-title" })
+    // .addIndicators({ name: "top-title" })
+    .addTo(controller);
+/*
+  var sceneTitle3 = new ScrollMagic.Scene({
+    triggerElement: "#top-title",
+    triggerHook: "onLeave",
+    duration: "50%"
+  })
+    .setClassToggle("#top-title", "active")
+    // .on("enter", function(event){
+    //   $("#top-title").removeClass("active");
+    // })
+    .addIndicators({ name: "top-hidden" })
     .addTo(controller);
 */
   // トップ画面を隠すための処理（背景を白にする）
@@ -193,5 +235,38 @@ $(function () {
   }).fail(function(json){
           $('.data').append("読み込みませんでした。");
   });
+
+  // フォームタグアニメーション
+  $(".input-val").keyup(function(){
+
+    if ($(this).val().length != 0) {
+      $(this).parent().addClass("filled");
+      console.log('chk add');
+    }else{
+      $(this).parent().removeClass("filled");
+      console.log('chk remove');
+    }
+  })
+
+  $(".input-val").blur(function(){
+    if ($(this).val().length != 0) {
+      $(this).parent().addClass("filled");
+      console.log('chk add');
+    }else{
+      $(this).parent().removeClass("filled");
+      console.log('chk remove');
+    }
+  })
+
+  // モバイル対応
+  const mobMenu = '#menu-wrapper span, #menu-wrapper span::before, #menu-wrapper span::after';
+  $(mobMenu).on('click', function(){
+    $('#mobile-navigation').toggleClass("hidden");
+    if ($('#mobile-navigation').hasClass('hidden')) {
+      $("body").css({overflow: "visible"});
+    }else{
+      $("body").css({overflow: "hidden"});
+    }
+  })
 
 });

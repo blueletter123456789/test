@@ -21,3 +21,6 @@
 
 【Ubuntu】
 	font-family: 'Ubuntu', sans-serif;
+
+【Montaga】
+	font-family: 'Montaga', serif;

@@ -56,16 +56,32 @@ header {
   color: #ecbe79;
 }
 
+#top-logo{
+  margin-left: 15px;
+}
+
+#top-logo img{
+  height: 40px;
+  transform: translateY(-9px);
+}
+
+
 /* top page title */
+#title-wrapper{
+  width: 100%;
+  height: 80vh;
+}
+
 #page-title {
   width: 100%;
   height: 100px;
-  margin-top: 30vh;
+  margin-top: 40vh;
   margin-bottom: 20vh;
 }
 
 #page-title h1 {
-  font-size: 36px;
+  font-size: 42px;
+  line-height: 50px;
   text-align: center;
   letter-spacing: 10px;
   font-weight: lighter;
@@ -78,7 +94,111 @@ header {
   color: #999;
 }
 
+#title-bar{
+  width: 100%;
+  height: 10vh;
+  position: relative;
+  padding: 5vh 0;
+}
+
+#title-bar > span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(10%, -50%);
+}
+
+#title-bar > div{
+  width: 2px;
+  height: 100%;
+  background: #efa73d;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-name: flash;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+#title-bar > div::before{
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-bottom: 30px solid transparent;
+  border-left: 10px solid #efa73d;
+  animation-name: flash;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
 /* top page section */
+#circle-section{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: transparent;
+}
+
+.circle{
+  position: absolute;
+  width: 55vh;
+  height: 55vh;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #777;
+  transition: all .5s ease;
+}
+
+.circle.active{
+  width: 90vw;
+  height: 90vh;
+  border-radius: 0;
+  border: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 10;
+}
+
+#circle1{
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#circle1.active{
+  transform: translate(-50%, -30%);
+  background-image: url(../css/img/works_top_bg1.JPG);
+}
+
+#circle2{
+  top: 67%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+}
+
+#circle2.active{
+  transform: translate(-35%, -69%);
+  background-image: url(../css/img/works_top_bg2.JPG);
+}
+
+#circle3{
+  top: 67%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+}
+
+#circle3.active{
+  transform: translate(-64%, -69%);
+  background-image: url(../css/img/works_top_bg3.JPG);
+}
+
 #top-slider {
   width: 100%;
   overflow: hidden;
@@ -86,46 +206,55 @@ header {
   position: relative;
 }
 
+.panel-content{
+  width: 100%;
+  height: 100vh;
+}
+
 .panel {
+  background: transparent;
   width: 100%;
   height: 100vh;
   background-size: cover;
+  background-attachment: fixed;
+  opacity: 0;
+  filter: blur(4px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  transition: all 1s ease;
+}
+
+.panel.active{
+  opacity: 1;
 }
 
 #panel1 {
   background-image: url(../css/img/works_top_bg1.JPG);
 }
 
-#panel1.hidden {
-  opacity: 0;
-}
-
 #panel2 {
   background-image: url(../css/img/works_top_bg2.JPG);
 }
 
-#panel2.hidden {
-  opacity: 0;
-}
-
 #panel3 {
   background-image: url(../css/img/works_top_bg3.JPG);
+  height: 200vh;
 }
 
-#panel3.hidden {
-  z-index: -9999;
-}
 
 /* all works section */
 #all-works {
   width: 100%;
   background-color: #23211d;
+  z-index: 999;
 }
 
-#all-works.active {
+/*#all-works.active {
   z-index: 9999;
 }
-
+*/
 #works-title {
   width: 100%;
   height: 10vh;
@@ -159,4 +288,22 @@ header {
   height: 80%;
   margin: 0 auto;
   background-color: #f00;
+}
+
+@keyframes flash{
+  0%{
+    opacity: 0.3;
+  }
+  5%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 1;
+  }
+  95%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 0.3;
+  }
 }

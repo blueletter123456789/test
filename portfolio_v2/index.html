@@ -6,26 +6,48 @@
     <title>portfolio</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="shortcut icon" href="./css/img/pre-icon.ico" />
+    <link rel="shortcut icon" href="./css/img/favicon.ico" type="image/svg+xml"/>
     <script src="./js/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script type="text/javascript" src="./js/core.js"></script>
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
-    ></script>
+    <script type="text/javascript" src="./js/t.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" integrity="sha384-ujbKXb9V3HdK7jcWL6kHL1c+2Lj4MR4Gkjl7UtwpSHg/ClpViddK9TI7yU53frPN" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/main.js"></script>
   </head>
   <body>
     <div id="loading-page" class="active">
       <div>
-        <h1 id="loading-title">Hello</h1>
+        <h1 id="loading-title"></h1>
         <div id="loading-bar"></div>
       </div>
     </div>
-    <header class="site-header">
-      <a id="top-logo" href="#"></a>
+    <header class="site-header hidden">
+      <div class="mobile-menu">
+        <div id="menu-wrapper">
+          <span></span>
+        </div>
+          <div id="mobile-navigation" class="hidden">
+            <div>
+              <ul>
+                <li>
+                  <a href="./html/service.html">Service</a>
+                  <i class="fas fa-laptop-code fa-fw mob-icon"></i>
+                </li>
+                <li>
+                  <a href="./html/works.html">Works</a>
+                  <i class="fas fa-database fa-fw mob-icon"></i>
+                </li>
+                <li>
+                  <a href="./html/blogs.html">Blog</a>
+                  <i class="fas fa-book fa-fw mob-icon"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <a id="top-logo" href="./index.html">
+        <img src="./css/img/main-icon.SVG" alt="">
+      </a>
       <nav class="top-nav">
         <ul>
           <li class="nav-about">
@@ -46,16 +68,13 @@
         </ul>
       </nav>
     </header>
-    <div class="main-panel">
-      <h1 id="top-title">
-        top page title, top page title,<br />
-        top page title<br>
-        <span id="title-type"></span>
-      </h1>
+    <div class="main-panel hidden">
+      <h1 id="top-title">Design is not just <br>what it looks like and feels like. <br>Design is how it works.</h1>
       <section id="top" class="page top">
         <div class="top-base"></div>
         <div class="video-wrapper">
-          <img src="./css/img/index_top.JPG" />
+          <!-- <img src="./css/img/index_top.JPG" /> -->
+          <video src="./css/img/test2-movie.mp4" autoplay muted loop></video>
         </div>
       </section>
       <section id="about" class="page about">
@@ -63,17 +82,13 @@
           <div id="about-position">
             <div id="about-title">
               <h1>
-                about page, about page, about page, about page
+                美しく、<br>より正確に、<br>より速く。
               </h1>
             </div>
             <div id="about-content">
               <p>
-                about page, about page, about page, about page, about page,
-                about page, about page, about page, about page, about page,
-                about page, about page, about page, about page, about page,
-                about page, about page, about page, about page, about page,
-                about page, about page, about page, about page, about page,
-                about page, about page, about page, about page, about page,
+                <div class="text-bold">エンジニアとして正確さ、速さに挑戦してくだけでいいのでしょうか？</div>
+                IT技術が多様化する社会の中で、システムエンジニアとしてあくなき探究心を持ち、正確さ、速さを追求していくだけでなく、美しいデザイン設計を追求していきます。ユーザーインタフェースの機能美だけでなく、システム内部の美しさも追求することで、お客さまに印象に残る作品を生み出し、RASISが高いシステムを作成することを実現します。
               </p>
             </div>
           </div>
@@ -85,8 +100,7 @@
           <div id="service-position">
             <div id="service-headline">
               <h1>
-                service page, service page, service page, service page, service
-                page, service page, service page
+                Who decides the border<br>between <span class="text-bold">"Front end"</span> and <span class="text-bold">"Back end"</span>?
               </h1>
             </div>
             <div class="link-info">
@@ -107,8 +121,7 @@
           <div id="works-position">
             <div id="works-headline">
               <h1>
-                works page, works page, works page, works page, works page,
-                works page, works page, works page, works page, works page,
+                Quantity produces quality.<br>Many works are the trajectory of growth.
               </h1>
             </div>
             <div class="link-info">
@@ -200,25 +213,25 @@
         <div id="form-wrapper">
           <form method="POST" action="#" autocomplete="off">
             <div id="form-inside">
-              <p class="input-record">
+              <p class="input-record" id="input-name">
                 <span>Name</span>
-                <input type="text" name="name" />
+                <input class="input-val" type="text" name="name" />
               </p>
-              <p class="input-record">
+              <p class="input-record" id="input-mail">
                 <span>Mail</span>
-                <input type="text" name="mail" />
+                <input class="input-val" type="text" name="mail" />
               </p>
-              <p class="input-record">
+              <p class="input-record" id="input-phone">
                 <span>Phone</span>
-                <input type="text" name="phone" />
+                <input class="input-val" type="text" name="phone" />
               </p>
-              <p class="input-record">
+              <p class="input-record" id="input-subject">
                 <span>Subject</span>
-                <input type="text" name="subject" />
+                <input class="input-val" type="text" name="subject" />
               </p>
-              <p class="input-record">
+              <p class="input-record" id="input-message">
                 <span>Message</span>
-                <input type="text" name="message" />
+                <input class="input-val" type="textarea" name="message" />
               </p>
               <p class="button-record">
                 <span id="button-wrapper">

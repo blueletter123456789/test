@@ -55,6 +55,15 @@ header {
   color: #ecbe79;
 }
 
+#top-logo{
+  margin-left: 15px;
+}
+
+#top-logo img{
+  height: 40px;
+  transform: translateY(-9px);
+}
+
 
 /* top page title */
 #page-title{

@@ -6,7 +6,7 @@
     <title>portfolio | works</title>
     <link rel="stylesheet" href="../css/works.css" />
     <link rel="stylesheet" href="../css/common.css" />
-    <link rel="shortcut icon" href="../css/img/pre-icon.ico" />
+    <link rel="shortcut icon" href="../css/img/favicon.ico" />
     <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
@@ -18,7 +18,9 @@
   </head>
   <body>
     <header class="works-header">
-      <a id="top-logo" href="#"></a>
+      <a id="top-logo" href="../index.html">
+        <img src="../css/img/main-icon.SVG" alt="">
+      </a>
       <nav class="top-nav">
         <ul>
           <li class="nav-about">
@@ -39,14 +41,33 @@
         </ul>
       </nav>
     </header>
-    <div id="page-title">
-      <h1>Works</h1>
-      <p>実績内容</p>
+    <div id="title-wrapper">
+      <div id="page-title">
+        <h1>Works</h1>
+        <p>実績内容</p>
+      </div>
+      <div id="title-bar">
+        <span>scroll page</span>
+        <div></div>
+      </div>
     </div>
     <section id="top-slider">
-      <div class="panel p1" id="panel1"></div>
-      <div class="panel p2" id="panel2"></div>
-      <div class="panel p3" id="panel3"></div>
+      <div id="circle-section">
+          <div class="circle" id="circle1"></div>
+          <div class="circle" id="circle2"></div>
+          <div class="circle" id="circle3"></div>
+      </div>
+      <div class="panel-wrapper">
+        <div id="panel-wrapper1" class="panel-content">
+          <div class="panel" id="panel1"></div> 
+        </div>
+        <div id="panel-wrapper2" class="panel-content">
+          <div class="panel" id="panel2"></div>
+        </div>
+        <div id="panel-wrapper3" class="panel-content">
+          <div class="panel" id="panel3"></div>
+        </div>
+      </div>
     </section>
     <section id="all-works">
       <div id="works-title">

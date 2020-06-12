@@ -37,3 +37,9 @@
   font-family: 'Ubuntu';
   src: url('./font/Ubuntu/Ubuntu-Regular.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Montaga', serif;
+  src: url('./font/Montaga/Montaga-Regular.ttf') format('truetype');
+}
+
