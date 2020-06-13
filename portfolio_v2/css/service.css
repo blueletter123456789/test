@@ -386,12 +386,39 @@ header {
 	padding: 20px;
 	color: #555;
 	z-index: 10;
+	background: #eee;
 }
 
 .content-text{
-	width: 70%;
+	width: 80%;
 	margin: 0 auto;
 	font-size: 14px;
+}
+
+.content-text > ul{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.content-text > ul > li{
+	width: 20%;
+    min-width: 50px;
+	margin: 0 10px;
+}
+
+.skill-icon-wrapper{
+	width: 100%;
+	margin-top: 1em;
+	text-align: center;
+}
+
+.skill-icon{
+	font-size: 3em;
+}
+
+.skill-name{
+	width: 100%;
+	text-align: center;
 }
 
 
