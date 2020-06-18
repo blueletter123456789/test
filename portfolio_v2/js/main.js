@@ -212,7 +212,7 @@ $(function () {
     // ブログデータ取得処理
   $.ajax({
     type: 'GET',
-    url: 'http://localhost/wordpress/wp-json/wp/v2/posts?per_page=3',
+    url: 'https://riding.co.jp/portfolio/ShuheiAbe/blog/wp-json/wp/v2/posts?per_page=3',
     dataType: 'json'
   }).done(function(json){
         var len = json.length;
@@ -241,20 +241,16 @@ $(function () {
 
     if ($(this).val().length != 0) {
       $(this).parent().addClass("filled");
-      console.log('chk add');
     }else{
       $(this).parent().removeClass("filled");
-      console.log('chk remove');
     }
   })
 
   $(".input-val").blur(function(){
     if ($(this).val().length != 0) {
       $(this).parent().addClass("filled");
-      console.log('chk add');
     }else{
       $(this).parent().removeClass("filled");
-      console.log('chk remove');
     }
   })
 

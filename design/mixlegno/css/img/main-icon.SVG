@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Vectornator for iOS (http://vectornator.io/) --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.1" viewBox="0 0 1920 1080">
+<metadata>
+<vectornator:setting key="DisplayWhiteBackground" value="0"/>
+<vectornator:setting key="RulersVisible" value="1"/>
+<vectornator:setting key="SnapToEdges" value="0"/>
+<vectornator:setting key="Units" value="Pixels"/>
+<vectornator:setting key="DynamicGuides" value="0"/>
+<vectornator:setting key="SnapToPoints" value="0"/>
+<vectornator:setting key="SnapToGrid" value="0"/>
+<vectornator:setting key="SnapToGuides" value="1"/>
+<vectornator:setting key="GridSpacing" value="10"/>
+</metadata>
+<defs/>
+<g id="Layer 2" vectornator:layerName="Layer 2">
+<path stroke="#efa73d" stroke-width="10" d="M810.187+947.236C983.174+945.748+1067.45+799.806+1067.45+695.533C1067.45+591.26+990.732+425.097+812.788+427.11C634.844+429.123+535.076+562.01+537.243+692.042C539.41+822.075+637.2+948.724+810.187+947.236ZM1153.5+951.307C1326.49+949.819+1410.77+803.877+1410.77+699.604C1410.77+595.331+1334.05+429.168+1156.1+431.181C978.158+433.194+878.39+566.081+880.557+696.113C882.724+826.146+980.514+952.795+1153.5+951.307ZM987.652+660.441C1160.64+658.953+1244.92+513.011+1244.92+408.738C1244.92+304.465+1168.2+138.302+990.252+140.315C812.309+142.328+712.54+275.214+714.707+405.247C716.874+535.28+814.665+661.929+987.652+660.441Z" fill="none" stroke-linecap="round" opacity="1" stroke-linejoin="round"/>
+</g>
+</svg>
