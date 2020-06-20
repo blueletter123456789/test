@@ -4,9 +4,11 @@ $(function(){
 	var navButton = $('.navigation-button');
 	var navBar = $('.navigation-bar');
 	var navMenu = $('.navigation-wrapper');
+	var siteLogo = $('.site-logo');
 	var prevButton = $('.button-wrapper.prev');
 	var nextButton = $('.button-wrapper.next');
 	var titleWrapper = $('.title-wrapper');
+	var titleText = $('.title-wrapper a');
 	var videoWrapper = $('.background-wrapper');
 
 	// title setting
@@ -17,6 +19,13 @@ $(function(){
 	var subprev;
 	var subnext;
 	var video = videoWrapper.find();
+
+	// pointer setting
+	var cursor = $(".cursor");
+	var cWidth = 20;
+	var mouseX = 0;
+	var mouseY = 0; 
+
 
 	// each fuction definition section
 	var titleDisplay =  function(){
@@ -95,5 +104,62 @@ $(function(){
     	currentVideo();
 	})
 
+	// pointer section
+		$(document).on('mousemove', function(e) {
+			mouseX = e.pageX;
+			mouseY = e.pageY;
+			cursor.css({
+				'left': mouseX - (cWidth / 2),
+				'top': mouseY - (cWidth / 2)
+			})
+		});
+
+	navButton.hover(
+		function(){
+			cursor.addClass('active');
+	}, 
+		function(){
+			cursor.removeClass('active');
+		}
+	);
+	
+	siteLogo.hover(
+		function(){
+			cursor.addClass('active');
+	}, 
+		function(){
+			cursor.removeClass('active');
+		}
+	);
+
+	titleText.hover(
+		function(){
+			cursor.addClass('active');
+	}, 
+		function(){
+			cursor.removeClass('active');
+		}
+	);
+
+	nextButton.hover(
+		function(){
+			var prevContent = title.prevObject[prev].innerText;
+			console.log(prevContent);
+			cursor.addClass('active');
+			$('.cursor::before').css('content', prevContent);
+	}, 
+		function(){
+			cursor.removeClass('active');
+		}
+	);
+
+	prevButton.hover(
+		function(){
+			cursor.addClass('active');
+	}, 
+		function(){
+			cursor.removeClass('active');
+		}
+	);
 
 });

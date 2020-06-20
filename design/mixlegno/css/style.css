@@ -10,6 +10,7 @@ body{
 	color: #eee;
 	background-color: #272727;
 	overflow: hidden;
+	cursor: none;
 }
 
 a{
@@ -49,6 +50,7 @@ li{
 	position: absolute;
 	top: 0;
 	left: 0;
+	cursor: none;
 }
 
 .site-logo > img{
@@ -69,7 +71,6 @@ li{
     width: 45px;
     height: 13px;
     z-index: 11;
-    cursor: pointer;
 }
 
 .navigation-bar, .navigation-bar::before{
@@ -193,6 +194,7 @@ li{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	cursor: none;
 }
 
 .content-index{
@@ -247,7 +249,6 @@ li{
 	position: absolute;
 	width: 300px;
 	height: 300px;
-	cursor: pointer;
 	transform: translate(-50%, 0);
 	z-index: 100;
 }
@@ -258,6 +259,36 @@ li{
 
 .button-wrapper.prev{
 	left: 100vw;
+}
+
+
+/*pointer section*/
+.cursor{
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0; 
+  cursor: none;
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #a9a9a9;
+  z-index: 9999;
+  transition: width 0.5s ease, height 0.5s ease, transform 0.5s ease;
+}
+
+.cursor.active{
+	width: 50px;
+	height: 50px;
+	transform: translate(-25%, -25%);
+}
+
+.cursor::before{
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 
