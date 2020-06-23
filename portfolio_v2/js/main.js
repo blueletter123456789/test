@@ -1,19 +1,33 @@
+
+var sessionValue = sessionStorage.getItem('key');
+
+
 // ローディングアニメーション
 $(window).on('load',function(){
 
   // ローディングアニメーション制御
-  ulrBlog = 'http://localhost/github/portfolio_v2/html/blogs.html';
+  /*ulrBlog = 'http://localhost/github/portfolio_v2/html/blogs.html';
   urlService = 'http://localhost/github/portfolio_v2/html/service.html';
   urlWork = 'http://localhost/github/portfolio_v2/html/works.html';
-  
   urlBefore = document.referrer;
   var hereHost = window.location.hostname;
   // console.log(hereHost);
   // console.log(urlBefore);
+  */
+
 
   $('#loading-page').css({'position': 'fixed', "overflow": "hidden"});
 
   $('#loading-bar').addClass('end');
+
+  if (sessionValue == '!QAZ2wsx') {
+    $('#loading-page').css("transition", "none");
+    $('#loading-page').removeClass('active'); 
+    $('.site-header').removeClass('hidden');
+    $('.main-panel').removeClass('hidden');
+  }else{
+    loadingAnimation();      
+  }
 
   function loadingAnimation(){
     var loading = function(){
@@ -21,6 +35,7 @@ $(window).on('load',function(){
       $('.site-header').removeClass('hidden');
       $('.main-panel').removeClass('hidden');
       $(window).scrollTop(0);
+      sessionStorage.setItem('key', '!QAZ2wsx');
     };
 
     var loadingTitle = function(){
@@ -39,20 +54,13 @@ $(window).on('load',function(){
     setTimeout(loading,6000);
   }
 
-  if (urlBefore != ulrBlog && urlBefore != urlWork && urlBefore != urlService) {
-    loadingAnimation();      
-  }else{
-    $('#loading-page').css("transition", "none");
-    $('#loading-page').removeClass('active'); 
-    $('.site-header').removeClass('hidden');
-    $('.main-panel').removeClass('hidden');
-  }
-
 });
 
 $(function () {
   var windowHeight = $(window).height();
   var windowWidth = $(window).width();
+
+  console.log(sessionValue);
 
 
   // navigator section
@@ -115,19 +123,7 @@ $(function () {
     })
     // .addIndicators({ name: "top-title" })
     .addTo(controller);
-/*
-  var sceneTitle3 = new ScrollMagic.Scene({
-    triggerElement: "#top-title",
-    triggerHook: "onLeave",
-    duration: "50%"
-  })
-    .setClassToggle("#top-title", "active")
-    // .on("enter", function(event){
-    //   $("#top-title").removeClass("active");
-    // })
-    .addIndicators({ name: "top-hidden" })
-    .addTo(controller);
-*/
+
   // トップ画面を隠すための処理（背景を白にする）
   var sceneTop = new ScrollMagic.Scene({
     triggerElement: "#top-title",
