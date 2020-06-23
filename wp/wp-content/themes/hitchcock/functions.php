@@ -633,3 +633,26 @@ if ( ! function_exists( 'hitchcock_block_editor_styles' ) ) :
 	}
 	add_action( 'enqueue_block_editor_assets', 'hitchcock_block_editor_styles', 1 );
 endif;
+
+//REST APIにアイキャッチ追加
+add_action('rest_api_init', 'custom_wp_rest_api_post');
+function custom_wp_rest_api_post() {
+  register_rest_field('post',
+    'featured_image',
+    array(
+      'get_callback' => 'rest_api_add_image',
+      'update_callback' => null,
+      'schema' => null,
+    )
+  );
+}
+ 
+function rest_api_add_image($object, $field_name, $request) {
+  $feat_img_array = wp_get_attachment_image_src($object['featured_media'], 'large', true);
+  return [
+    'src' => $feat_img_array[0],
+    'width' => $feat_img_array[1],
+    'height' => $feat_img_array[2],
+  ];
+}
+
