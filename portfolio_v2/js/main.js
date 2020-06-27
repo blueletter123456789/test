@@ -1,24 +1,12 @@
-
-var sessionValue = sessionStorage.getItem('key');
-
-
-// ローディングアニメーション
+// loading animation
 $(window).on('load',function(){
-
-  // ローディングアニメーション制御
-  /*ulrBlog = 'http://localhost/github/portfolio_v2/html/blogs.html';
-  urlService = 'http://localhost/github/portfolio_v2/html/service.html';
-  urlWork = 'http://localhost/github/portfolio_v2/html/works.html';
-  urlBefore = document.referrer;
-  var hereHost = window.location.hostname;
-  // console.log(hereHost);
-  // console.log(urlBefore);
-  */
 
 
   $('#loading-page').css({'position': 'fixed', "overflow": "hidden"});
 
   $('#loading-bar').addClass('end');
+
+  var sessionValue = sessionStorage.getItem('key');
 
   if (sessionValue == '!QAZ2wsx') {
     $('#loading-page').css("transition", "none");
@@ -35,7 +23,6 @@ $(window).on('load',function(){
       $('.site-header').removeClass('hidden');
       $('.main-panel').removeClass('hidden');
       $(window).scrollTop(0);
-      sessionStorage.setItem('key', '!QAZ2wsx');
     };
 
     var loadingTitle = function(){
@@ -46,12 +33,17 @@ $(window).on('load',function(){
       });
     }
 
+    var setSession =function(){
+      sessionStorage.setItem('key', '!QAZ2wsx');
+    }
+
     var loadingBar = function(){
       $('#loading-bar').css('opacity', '0');
     }
     setTimeout(loadingBar, 1900);
     setTimeout(loadingTitle,6000);
     setTimeout(loading,6000);
+    setTimeout(setSession,15000);
   }
 
 });
@@ -59,9 +51,6 @@ $(window).on('load',function(){
 $(function () {
   var windowHeight = $(window).height();
   var windowWidth = $(window).width();
-
-  console.log(sessionValue);
-
 
   // navigator section
   var beforePosition = 0;
@@ -216,6 +205,8 @@ $(function () {
           var title = json[i].title.rendered;
           var link = json[i].link;
           var excerpt = json[i].excerpt.rendered;
+          var bkImage = json[i].featured_image.src;
+          var bkImageName = json[i].featured_image.src.slice(-11);
 
           var pubDD = new Date(json[i].date);
           yy = pubDD.getFullYear();
@@ -227,12 +218,15 @@ $(function () {
           $('.blog' + pageNum  + '> h1').text(title);
           $('.blog' + pageNum  + '> p').text(pubDate);
           $('.blog' + pageNum  + '> a').attr('href', link);
+          if (bkImageName != 'default.png') {
+            $('#content' + pageNum).css('background-image', 'url(' + bkImage + ')');
+          }
         }
   }).fail(function(json){
           $('.data').append("読み込みませんでした。");
   });
 
-  // フォームタグアニメーション
+  // form section animation
   $(".input-val").keyup(function(){
 
     if ($(this).val().length != 0) {
@@ -250,7 +244,10 @@ $(function () {
     }
   })
 
-  // モバイル対応
+  // form  validation section
+  
+
+  // mobile style section
   const mobMenu = '#menu-wrapper span, #menu-wrapper span::before, #menu-wrapper span::after';
   $(mobMenu).on('click', function(){
     $('#mobile-navigation').toggleClass("hidden");

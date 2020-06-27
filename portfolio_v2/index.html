@@ -74,7 +74,6 @@
       <section id="top" class="page top">
         <div class="top-base"></div>
         <div class="video-wrapper">
-          <!-- <img src="./css/img/index_top.JPG" /> -->
           <video src="./css/img/test2-movie.mp4" autoplay muted loop></video>
         </div>
       </section>
@@ -210,37 +209,43 @@
           </div>
           <div id="page-to-blog">
             <a href="https://riding.co.jp/portfolio/ShuheiAbe/blog/">
-              <!-- <span  class="fa-layers faa-flash animated-hover"> -->
                 <i class="fas fa-share faa-shake animated-hover fa-fw blog-icon" data-fa-transform="grow-64"></i>
-                <!-- <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-2">everything here</span> -->
-              <!-- </span> -->
             </a>
           </div>
         </div>
       </section>
       <section id="contact" class="page contact">
+        <div class="form-title">
+          <h1 id="contact-title">Contact Me</h1>
+        </div>
         <div id="form-wrapper">
-          <form method="POST" action="#" autocomplete="off">
+          <form method="POST" action="./php/mail_form.php" autocomplete="off">
             <div id="form-inside">
-              <p class="input-record" id="input-name">
-                <span>Name</span>
-                <input class="input-val" type="text" name="name" />
-              </p>
+              <div class="name-record">
+                <p class="input-record" id="input-firstname">
+                  <span class="form-tag">First Name</span>
+                  <input class="input-val" type="text" name="firstname" required/>
+                </p>
+                <p class="input-record" id="input-lastname">
+                  <span class="form-tag">Last Name</span>
+                  <input class="input-val" type="text" name="lastname" required/>
+                </p>
+              </div>
               <p class="input-record" id="input-mail">
-                <span>Mail</span>
-                <input class="input-val" type="text" name="mail" />
+                <span class="form-tag">Mail</span>
+                <input class="input-val" type="email" name="mail" required/>
               </p>
               <p class="input-record" id="input-phone">
-                <span>Phone</span>
-                <input class="input-val" type="text" name="phone" />
+                <span class="form-tag">Phone</span>
+                <input class="input-val" type="tel" name="phone" required/>
               </p>
               <p class="input-record" id="input-subject">
-                <span>Subject</span>
-                <input class="input-val" type="text" name="subject" />
+                <span class="form-tag">Subject</span>
+                <input class="input-val" type="text" name="subject" required/>
               </p>
               <p class="input-record" id="input-message">
-                <span>Message</span>
-                <input class="input-val" type="textarea" name="message" />
+                <span class="form-tag">Message</span>
+                <input class="input-val" type="textarea" name="message" rows="10" cols="20" wrap="hard" required/>
               </p>
               <p class="button-record">
                 <span id="button-wrapper">
@@ -248,7 +253,7 @@
                     class="fas fa-caret-right faa-flash animated button-icon"
                     data-fa-transform="grow-8"
                   ></i>
-                  <input type="submit" value="send" />
+                  <input type="submit" value="Send by Mail" />
                 </span>
               </p>
             </div>
