@@ -1,14 +1,10 @@
 // loading animation
-$(window).on('load',function(){
+$(function () {
 
+  // get session key section
+  // var sessionValue = sessionStorage.getItem('key');
 
-  $('#loading-page').css({'position': 'fixed', "overflow": "hidden"});
-
-  $('#loading-bar').addClass('end');
-
-  var sessionValue = sessionStorage.getItem('key');
-
-  if (sessionValue == '!QAZ2wsx') {
+  if (localStorage.getItem('key') == '!QAZ2wsx') {
     $('#loading-page').css("transition", "none");
     $('#loading-page').removeClass('active'); 
     $('.site-header').removeClass('hidden');
@@ -16,6 +12,12 @@ $(window).on('load',function(){
   }else{
     loadingAnimation();      
   }
+
+  // set loading page section
+  $('#loading-page').css({'position': 'fixed', "overflow": "hidden"});
+
+  // loading finished section
+  $('#loading-bar').addClass('end');
 
   function loadingAnimation(){
     var loading = function(){
@@ -48,7 +50,12 @@ $(window).on('load',function(){
 
 });
 
-$(function () {
+$(window).on('load',function(){
+
+  // animation css reading section
+  var style = '<link rel="stylesheet" href="./css/animation.css">';
+  $('head link:last').after(style);
+
   var windowHeight = $(window).height();
   var windowWidth = $(window).width();
 
@@ -79,11 +86,11 @@ $(function () {
   var sceneVideo = new ScrollMagic.Scene({
     triggerElement: "#top",
     triggerHook: "onLeave",
-    offset: 100,
+    offset: 250,
     duration: "200%",
   })
     .setClassToggle(".video-wrapper", "hidden")
-    // .addIndicators({ name: "video-hidden" })
+    .addIndicators({ name: "video-hidden" })
     .addTo(controller);
 
   // タイトルを固定するための処理
@@ -100,7 +107,7 @@ $(function () {
   var sceneTitle2 = new ScrollMagic.Scene({
     triggerElement: "#top-title",
     triggerHook: "onCenter",
-    duration: "50%",
+    duration: "50%", 
     // reverse:false
   })
     .setClassToggle("#top-title", "active")
@@ -110,27 +117,28 @@ $(function () {
         repeat: 0
       });
     })
-    // .addIndicators({ name: "top-title" })
+    .addIndicators({ name: "top-title" })
     .addTo(controller);
 
   // トップ画面を隠すための処理（背景を白にする）
   var sceneTop = new ScrollMagic.Scene({
     triggerElement: "#top-title",
     triggerHook: "onLeave",
+    offset: "5%"
   })
     .setClassToggle("#top", "active")
-    // .addIndicators({ name: "top-hidden" })
+    .addIndicators({ name: "top-hidden" })
     .addTo(controller);
 
   // 概要を表示させるための処理
   var sceneAbout = new ScrollMagic.Scene({
     triggerElement: "#about",
     triggerHook: "onCenter",
-    duration: "50%", 
-    offset: "10%",
+    duration: "60%", 
+    // offset: "10%",
   })
     .setClassToggle("#about-position", "active")
-    // .addIndicators({ name: "about-active" })
+    .addIndicators({ name: "about-active" })
     .addTo(controller);
 
   // サービスを表示させるための処理

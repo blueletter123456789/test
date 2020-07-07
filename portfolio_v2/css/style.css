@@ -46,6 +46,10 @@ a {
   z-index: 999;
 }
 
+_:lang(x)+_:-webkit-full-screen-document, #loading-page {
+  opacity: 0;
+}
+
 #loading-page > div{
   width: 80%;
   height: 20vh;
@@ -221,13 +225,13 @@ a {
 /* top */
 #top {
   opacity: 1;
-  height: 150vh;
+  height: 130vh;
 }
 
 #top::before {
   content: "";
   width: 100%;
-  height: 150vh;
+  height: 130vh;
   position: absolute;
   background: #eee;
   opacity: 0;
@@ -328,8 +332,8 @@ a {
 #about-position {
   position: absolute;
   top: 10%;
-  left: 15%;
-  width: 70%;
+  left: 10%;
+  width: 80%;
   display: flex;
   color: #33312d;
   opacity: 0;
@@ -351,13 +355,14 @@ a {
 }
 
 #about-content {
-  width: 40%;
+  width: 50%;
   font-size: 18px;
   letter-spacing: 2px;
   line-height: 1.5em;
 }
 
-#about-content p{
+#about-content span{
+  display: inline-block;
 }
 
 #about-content .text-bold{
@@ -559,15 +564,25 @@ a {
 
 #blog .blog-wrapper #page-to-blog{
   position: absolute;
-  bottom: 60px;
-  right: 40px;
+  bottom: 30px;
+  right: 200px;
   width: 100px;
   text-align: center;
 }
 
+#page-to-blog a{
+  display: flex;
+}
+
 #page-to-blog .blog-icon{
-  /*font-size: 5em;*/
   color: #efa73d;
+}
+
+#page-to-blog span{
+  font-size: 32px;
+  color: #111;
+  white-space: nowrap;
+  border-radius: 4%;
 }
 
 #blog.active .blog-wrapper .blog-content {
@@ -583,6 +598,7 @@ a {
   background-size: cover;
   background-position: center;
   border-radius: 20px;
+  box-shadow: 0px 0px 20px -5px #333;
   transform: scale(0.8);
   transition: all 0.5s ease;
 }
@@ -1000,7 +1016,7 @@ a {
 
   #blog .blog-content .blog-text > div{
     height: 30vh;
-    margin: 10vh auto auto 20vw;
+    margin: 10vh auto auto 13vw;
   }
 
 }
@@ -1162,8 +1178,17 @@ a {
     right: 0;
   }
 
-  #page-to-blog .blog-icon{
-    font-size: 0.5em;
+  #page-to-blog span{
+    font-size: 24px;
+  }
+
+  .blog-icon{
+    font-size: 0.75em;
+  }
+
+  #blog .blog-wrapper #page-to-blog {
+    bottom: 10px;
+    right: 110px;
   }
 
   /* contact section */
@@ -1173,381 +1198,6 @@ a {
 
   #contact-title{
     font-size: 24px;
-  }
-}
-
-
-/* CSS animation */
-@keyframes loading-bar{
-  0% {
-    width: 0px;
-  }
-  50% {
-    width: 150px;
-  }
-  100% {
-    width: 240px;
-  }
-}
-
-@keyframes flash {
-  0% {
-    border: 2px rgba(119, 119, 119);
-  }
-  50% {
-    border: 1px rgba(119, 119, 119);
-  }
-  100% {
-    border: 0px rgba(119, 119, 119);
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.8;
-    width: 104%;
-    transform: translate(-2%, 8px);
-  }
-  100% {
-    transform: translate(-6%, 15px);
-    width: 112%;
-    opacity: 0;
-  }
-}
-
-@keyframes loading-fade{
-  0% {
-    font-size: 55px;
-    opacity: 1;
-    content: 'こんにちは';
-  }
-  2%{
-    content: 'Szia';
-  }
-  4%{
-    content: 'Ciao';
-  }
-  6%{
-    content: 'Hola';
-  }
-  8% {
-    content: 'Bonjour';
-  }
-  10%{
-    content: 'Hallo';
-  }
-  12%{
-    content: '你好';
-  }
-  15%{
-    content: 'Hello';
-  }
-  18%{
-    content: 'こんにちは';
-    opacity: 1;
-  }
-  49%{
-    opacity: 0;
-    content: '';
-    font-size: 55px;
-    font-family: 'Noto Sans JP', sans-serif;
-  }
-  50% {
-    content: 'Welcome';
-    font-size: 100px;
-    opacity: 1;
-  }
-  54%{
-    font-size: 100px;
-  }
-  55%{
-    font-size: 85px;
-    content: 'to';
-  }
-  58%{
-    content: 'my';
-  }
-  60%{
-    font-size: 85px;
-  }
-  61%{
-    content: 'Portfolio site';
-    font-size: 100px;
-  }
-  68%{
-    font-size: 100px;
-  }
-  69%{
-    font-size: 55px;
-  }
-  70%{
-    content: 'Please';
-  }
-  73% {
-    content: 'Please have';
-  }
-  76%{
-    content: 'Please have a';
-  }
-  78%{
-    content: 'Please have a look';
-  }
-  81%{
-    content: 'Please have a look around';
-    font-size: 55px;
-  }
-  84%{
-    font-size: 55px;
-  }
-  85%{
-    font-size: 65px;
-    content: 'as';
-  }
-  88%{
-    content: 'much';
-  }
-  91%{
-    content: 'as';
-  }
-  94%{
-    content: 'you';
-  }
-  97%{
-    content: 'like';
-    font-size: 65px;
-  }
-  100% {
-    font-size: 85px;
-    content: '';
-  }
-}
-
-/* animation resposive */
-@keyframes loading-bar{
-  0% {
-    width: 0px;
-  }
-  50% {
-    width: 150px;
-  }
-  100% {
-    width: 200px;
-  }
-}
-
-@keyframes res-loading-fade{
-  0% {
-    font-size: 45px;
-    opacity: 1;
-    content: 'こんにちは';
-  }
-  2%{
-    content: 'Szia';
-  }
-  4%{
-    content: 'Ciao';
-  }
-  6%{
-    content: 'Hola';
-  }
-  8% {
-    content: 'Bonjour';
-  }
-  10%{
-    content: 'Hallo';
-  }
-  12%{
-    content: '你好';
-  }
-  15%{
-    content: 'Hello';
-  }
-  18%{
-    content: 'こんにちは';
-    opacity: 1;
-  }
-  49%{
-    opacity: 0;
-    content: '';
-    font-size: 45px;
-    font-family: 'Noto Sans JP', sans-serif;
-  }
-  50% {
-    content: 'Welcome';
-    font-size: 100px;
-    opacity: 1;
-  }
-  54%{
-    font-size: 100px;
-  }
-  55%{
-    font-size: 55px;
-    content: 'to';
-  }
-  58%{
-    content: 'my';
-  }
-  60%{
-    font-size: 55px;
-  }
-  61%{
-    content: 'Portfolio site';
-    font-size: 70px;
-  }
-  68%{
-    font-size: 70px;
-  }
-  69%{
-    font-size: 40px;
-  }
-  70%{
-    content: 'Please';
-  }
-  73% {
-    content: 'Please \Ahave';
-  }
-  76%{
-    content: 'Please \Ahave \A a';
-  }
-  78%{
-    content: 'Please \Ahave \A a \Alook';
-  }
-  81%{
-    content: 'Please \Ahave \A a \Alook \A around';
-    font-size: 40px;
-  }
-  84%{
-    font-size: 40px;
-  }
-  85%{
-    font-size: 45px;
-    content: 'as';
-  }
-  88%{
-    content: 'much';
-  }
-  91%{
-    content: 'as';
-  }
-  94%{
-    content: 'you';
-  }
-  97%{
-    content: 'like';
-    font-size: 45px;
-  }
-  100% {
-    font-size: 55px;
-    content: '';
-  }
-}
-
-@keyframes sres-loading-fade{
-  0%{
-    content: '';
-  }
-  20% {
-    font-size: 24px;
-    opacity: 1;
-    content: 'こんにちは';
-  }
-  22%{
-    content: 'Szia';
-  }
-  24%{
-    content: 'Ciao';
-  }
-  26%{
-    content: 'Hola';
-  }
-  28% {
-    content: 'Bonjour';
-  }
-  30%{
-    content: 'Hallo';
-  }
-  32%{
-    content: '你好';
-  }
-  35%{
-    content: 'Hello';
-  }
-  38%{
-    content: 'こんにちは';
-    opacity: 1;
-  }
-  49%{
-    opacity: 0;
-    content: '';
-    font-size: 24px;
-    font-family: 'Noto Sans JP', sans-serif;
-  }
-  50% {
-    content: 'Welcome';
-    font-size: 45px;
-    opacity: 1;
-  }
-  54%{
-    font-size: 45px;
-  }
-  55%{
-    font-size: 36px;
-    content: 'to';
-  }
-  58%{
-    content: 'my';
-  }
-  60%{
-    content: 'Portfolio \Asite';
-  }
-  68%{
-    font-size: 36px;
-  }
-  69%{
-    font-size: 40px;
-  }
-  70%{
-    content: 'Please';
-  }
-  73% {
-    content: 'Please \Ahave';
-  }
-  76%{
-    content: 'Please \Ahave \A a';
-  }
-  78%{
-    content: 'Please \Ahave \A a \Alook';
-  }
-  81%{
-    content: 'Please \Ahave \A a \Alook \A around';
-    font-size: 40px;
-  }
-  84%{
-    font-size: 40px;
-  }
-  85%{
-    font-size: 45px;
-    content: 'as';
-  }
-  88%{
-    content: 'much';
-  }
-  91%{
-    content: 'as';
-  }
-  94%{
-    content: 'you';
-  }
-  97%{
-    content: 'like';
-    font-size: 45px;
-  }
-  100% {
-    font-size: 40px;
-    content: '';
   }
 }
 
