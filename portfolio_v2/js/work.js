@@ -78,6 +78,42 @@ $(function () {
     // .addIndicators(name, "c3")
     .addTo(controller);
 
+  // pin side navigation
+  var scene5_1 = new ScrollMagic.Scene({
+    triggerElement: "#panel-wrapper1",
+    triggerHook: "onLeave", 
+  })
+    .setClassToggle(".side-navigation", "active")
+    // .addIndicators({name: "side"})
+    .addTo(controller);
+
+  var scene5_2 = new ScrollMagic.Scene({
+    triggerElement: "#panel-wrapper1",
+    triggerHook: "onLeave", 
+    duration: windowH
+  })
+    .setClassToggle(".side-wrapper1", "active")
+    // .addIndicators({name: "s1"})
+    .addTo(controller);
+
+  var scene5_3 = new ScrollMagic.Scene({
+    triggerElement: "#panel-wrapper2",
+    triggerHook: "onLeave", 
+    duration: windowH
+  })
+    .setClassToggle(".side-wrapper2", "active")
+    // .addIndicators({name: "s2"})
+    .addTo(controller);
+
+  var scene5_4 = new ScrollMagic.Scene({
+    triggerElement: "#panel-wrapper3",
+    triggerHook: "onLeave", 
+  })
+    .setClassToggle(".side-wrapper3", "active")
+    // .addIndicators({name: "s3"})
+    .addTo(controller);
+
+
   // モバイル対応
   const mobMenu = '#menu-wrapper span, #menu-wrapper span::before, #menu-wrapper span::after';
   $(mobMenu).on('click', function(){

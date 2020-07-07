@@ -34,20 +34,24 @@ a {
   left: 0;
   height: 100vh;
   width: 100%;
+  color: transparent;
   background: -moz-linear-gradient(top, #fff, #ccc);
   background: -webkit-linear-gradient(top, #fff 60%, #ccc);
   background: linear-gradient(to bottom, #fff, #ccc);
   z-index: -100;
-  transition: all 1.5s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 #loading-page.active {
   opacity: 1;
   z-index: 999;
+  color: #000;
 }
 
 _:lang(x)+_:-webkit-full-screen-document, #loading-page {
   opacity: 0;
+  background: transparent;
+  display: none;
 }
 
 #loading-page > div{
@@ -1201,12 +1205,5 @@ _:lang(x)+_:-webkit-full-screen-document, #loading-page {
   }
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  ::i-block-chrome, #loading-page{
-    opacity: 0;
-    background: transparent;
-    display: none;
-  }
-}
 
 

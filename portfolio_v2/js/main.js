@@ -1,6 +1,7 @@
 // loading animation
 $(function () {
 
+  // browser setting section
   var useBrowser = '';
   var userAgent = window.navigator.userAgent.toLowerCase();
 
@@ -19,8 +20,6 @@ $(function () {
   } else {
   }
 
-console.log(useBrowser);
-
   // get session key section
   // var sessionValue = sessionStorage.getItem('key');
 
@@ -30,14 +29,13 @@ console.log(useBrowser);
     $('.site-header').removeClass('hidden');
     $('.main-panel').removeClass('hidden');
   }else{
-    loadingAnimation();      
+    $('#loading-page').addClass('active'); 
+    // set loading page section
+    $('#loading-page').css({'position': 'fixed', "overflow": "hidden"});
+    // loading finished section
+    $('#loading-bar').addClass('end');
+    loadingAnimation();
   }
-
-  // set loading page section
-  $('#loading-page').css({'position': 'fixed', "overflow": "hidden"});
-
-  // loading finished section
-  $('#loading-bar').addClass('end');
 
   function loadingAnimation(){
     var loading = function(){
