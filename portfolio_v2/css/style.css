@@ -1201,4 +1201,12 @@ _:lang(x)+_:-webkit-full-screen-document, #loading-page {
   }
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  ::i-block-chrome, #loading-page{
+    opacity: 0;
+    background: transparent;
+    display: none;
+  }
+}
+
 

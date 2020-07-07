@@ -1,10 +1,30 @@
 // loading animation
 $(function () {
 
+  var useBrowser = '';
+  var userAgent = window.navigator.userAgent.toLowerCase();
+
+  if(userAgent.indexOf('msie') != -1 || userAgent.indexOf('trident') != -1) {
+    useBrowser = 'ie';
+  } else if(userAgent.indexOf('edge') != -1) {
+    useBrowser = 'edge';
+  } else if(userAgent.indexOf('chrome') != -1) {
+    useBrowser = 'chrome';
+  } else if(userAgent.indexOf('safari') != -1) {
+    useBrowser = 'safari';
+  } else if(userAgent.indexOf('firefox') != -1) {
+    useBrowser = 'firefox';
+  } else if(userAgent.indexOf('opera') != -1) {
+    useBrowser = 'opera';
+  } else {
+  }
+
+console.log(useBrowser);
+
   // get session key section
   // var sessionValue = sessionStorage.getItem('key');
 
-  if (localStorage.getItem('key') == '!QAZ2wsx') {
+  if (localStorage.getItem('key') == '!QAZ2wsx' || useBrowser == 'safari') {
     $('#loading-page').css("transition", "none");
     $('#loading-page').removeClass('active'); 
     $('.site-header').removeClass('hidden');
@@ -90,7 +110,7 @@ $(window).on('load',function(){
     duration: "200%",
   })
     .setClassToggle(".video-wrapper", "hidden")
-    .addIndicators({ name: "video-hidden" })
+    // .addIndicators({ name: "video-hidden" })
     .addTo(controller);
 
   // タイトルを固定するための処理
@@ -117,7 +137,7 @@ $(window).on('load',function(){
         repeat: 0
       });
     })
-    .addIndicators({ name: "top-title" })
+    // .addIndicators({ name: "top-title" })
     .addTo(controller);
 
   // トップ画面を隠すための処理（背景を白にする）
@@ -127,7 +147,7 @@ $(window).on('load',function(){
     offset: "5%"
   })
     .setClassToggle("#top", "active")
-    .addIndicators({ name: "top-hidden" })
+    // .addIndicators({ name: "top-hidden" })
     .addTo(controller);
 
   // 概要を表示させるための処理
@@ -138,7 +158,7 @@ $(window).on('load',function(){
     // offset: "10%",
   })
     .setClassToggle("#about-position", "active")
-    .addIndicators({ name: "about-active" })
+    // .addIndicators({ name: "about-active" })
     .addTo(controller);
 
   // サービスを表示させるための処理
