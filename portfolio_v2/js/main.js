@@ -23,47 +23,50 @@ $(function () {
   // get session key section
   // var sessionValue = sessionStorage.getItem('key');
 
-  if (localStorage.getItem('key') == '!QAZ2wsx' || useBrowser == 'safari') {
-    $('#loading-page').css("transition", "none");
-    $('#loading-page').removeClass('active'); 
-    $('.site-header').removeClass('hidden');
-    $('.main-panel').removeClass('hidden');
-  }else{
-    $('#loading-page').addClass('active'); 
-    // set loading page section
-    $('#loading-page').css({'position': 'fixed', "overflow": "hidden"});
-    // loading finished section
-    $('#loading-bar').addClass('end');
-    loadingAnimation();
-  }
-
-  function loadingAnimation(){
-    var loading = function(){
-      $('#loading-page').removeClass('active');
+  if ($('#loading-page').length) {
+    if (localStorage.getItem('key') == '!QAZ2wsx' || useBrowser == 'safari') {
+      $('#loading-page').css("transition", "none");
+      $('#loading-page').removeClass('active'); 
       $('.site-header').removeClass('hidden');
       $('.main-panel').removeClass('hidden');
-      $(window).scrollTop(0);
-    };
-
-    var loadingTitle = function(){
-      $('#loading-title').css({
-        'color': 'transparent', 
-        'font-size': '90px', 
-        'opacity': '0'
-      });
+    }else{
+      $('#loading-page').addClass('active'); 
+      // set loading page section
+      $('#loading-page').css({'position': 'fixed', "overflow": "hidden"});
+      // loading finished section
+      $('#loading-bar').addClass('end');
+      loadingAnimation();
     }
 
-    var setSession =function(){
-      sessionStorage.setItem('key', '!QAZ2wsx');
-    }
+    function loadingAnimation(){
+      var loading = function(){
+        $('#loading-page').removeClass('active');
+        $('.site-header').removeClass('hidden');
+        $('.main-panel').removeClass('hidden');
+        $(window).scrollTop(0);
+      };
 
-    var loadingBar = function(){
-      $('#loading-bar').css('opacity', '0');
+      var loadingTitle = function(){
+        $('#loading-title').css({
+          'color': 'transparent', 
+          'font-size': '90px', 
+          'opacity': '0'
+        });
+      }
+
+      var setSession =function(){
+        sessionStorage.setItem('key', '!QAZ2wsx');
+      }
+
+      var loadingBar = function(){
+        $('#loading-bar').css('opacity', '0');
+      }
+      setTimeout(loadingBar, 1900);
+      setTimeout(loadingTitle,6000);
+      setTimeout(loading,6000);
+      // setTimeout(setSession,6000);
+      setSession();
     }
-    setTimeout(loadingBar, 1900);
-    setTimeout(loadingTitle,6000);
-    setTimeout(loading,6000);
-    setTimeout(setSession,15000);
   }
 
 });
@@ -152,7 +155,7 @@ $(window).on('load',function(){
   var sceneAbout = new ScrollMagic.Scene({
     triggerElement: "#about",
     triggerHook: "onCenter",
-    duration: "60%", 
+    duration: "70%", 
     // offset: "10%",
   })
     .setClassToggle("#about-position", "active")
@@ -253,6 +256,13 @@ $(window).on('load',function(){
   });
 
   // form section animation
+
+  if ($(".input-val").val().length != 0) {
+    $(".input-val").parent().addClass("filled");
+  }else{
+    $(".input-val").parent().removeClass("filled");
+  }
+
   $(".input-val").keyup(function(){
 
     if ($(this).val().length != 0) {
@@ -269,6 +279,7 @@ $(window).on('load',function(){
       $(this).parent().removeClass("filled");
     }
   })
+
 
   // form  validation section
   

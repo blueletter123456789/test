@@ -38,14 +38,14 @@ a {
   background: -moz-linear-gradient(top, #fff, #ccc);
   background: -webkit-linear-gradient(top, #fff 60%, #ccc);
   background: linear-gradient(to bottom, #fff, #ccc);
-  z-index: -100;
   transition: all 0.5s ease-in;
+  z-index: -10;
 }
 
 #loading-page.active {
   opacity: 1;
-  z-index: 999;
   color: #000;
+  z-index: 9999;
 }
 
 _:lang(x)+_:-webkit-full-screen-document, #loading-page {
@@ -302,7 +302,7 @@ _:lang(x)+_:-webkit-full-screen-document, #loading-page {
 #about {
   background: #eee;
   height: 100vh;
-  padding-top: 10vh;
+  padding-top: 20vh;
   opacity: 1;
   z-index: 10;
   transition: opacity 0.2s ease-out;

@@ -172,6 +172,10 @@ header {
   transition: all 0.5s ease;
 }
 
+_:lang(x)+_:-webkit-full-screen-document, .circle {
+  transition: none;
+}
+
 .circle::before{
   border-radius: 50%;
   transition: all .5s ease;
