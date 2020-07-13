@@ -37,7 +37,7 @@
 	if ($firstName == '') {
 		$allCheckFlg = false;
 		$ngCheckFlg1 = true;
-	}elseif (preg_match('/[^ぁ-んァ-ヶ亜-熙a-zA-Z]/', $firstName) != 0) {
+	}elseif (preg_match('/[^ぁ-んァ-ン一-龥a-zA-Z]/', $firstName) != 0) {
 		$allCheckFlg = false;
 		$ngCheckFlg2 = true;
 	}
@@ -45,7 +45,7 @@
 	if ($lastName == '') {
 		$allCheckFlg = false;
 		$ngCheckFlg3 = true;
-	}elseif (preg_match('/[^ぁ-んァ-ヶ亜-熙a-zA-Z]/', $lastName) != 0) {
+	}elseif (preg_match('/[^ぁ-んァ-ン一-龥a-zA-Z]/', $lastName) != 0) {
 		$allCheckFlg = false;
 		$ngCheckFlg4 = true;
 	}

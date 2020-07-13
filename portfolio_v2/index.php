@@ -42,7 +42,7 @@
         <div id="menu-wrapper">
           <span></span>
         </div>
-          <div id="mobile-navigation">
+          <div id="mobile-navigation" class="hidden">
             <div>
               <ul>
                 <li>
@@ -61,7 +61,7 @@
             </div>
           </div>
       </div>
-      <a id="top-logo" href="./index.php">
+      <a id="top-logo" href="./form/test_cache_clear.php">
         <img src="./css/img/main-icon.SVG" alt="">
       </a>
       <nav class="top-nav">

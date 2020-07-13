@@ -2,8 +2,8 @@ $(function () {
 
 	var fLocate = $('#front').offset().top;
 	var eLocate = $('#end').offset().top;
-	console.log(fLocate);
-	console.log(eLocate);
+	// console.log(fLocate);
+	// console.log(eLocate);
 
 	$('#left-circle').click(function(){
 		$("#left-circle").addClass("click");

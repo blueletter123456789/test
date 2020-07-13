@@ -359,6 +359,7 @@ _:lang(x)+_:-webkit-full-screen-document, .circle {
 }
 
 .side-nav-wrapper{
+  display: block;
   width: 5vw;
   height: 30px;
   margin-bottom: 5vh;
@@ -374,6 +375,10 @@ _:lang(x)+_:-webkit-full-screen-document, .circle {
 .side-nav{
   color: #eee;
   font-size: 18px;
+}
+
+.side-wrapperAll .side-nav{
+  font-size: 14px;
 }
 
 .side-nav-wrapper.active .side-nav{

@@ -124,5 +124,34 @@ $(function () {
       $("body").css({overflow: "hidden"});
     }
   })
-
 });
+
+$(window).on('load', function(){
+  // サイドバークリックリンク調整
+  var panel1H = $('#panel-wrapper1').offset().top;
+  var panel2H = $('#panel-wrapper2').offset().top;
+  var panel3H = $('#panel-wrapper3').offset().top;
+  var panelAllH = $('#all-works').offset().top;
+
+    // console.log(panel1H);
+    // console.log(panel2H);
+    // console.log(panel3H);
+    // console.log(panelAllH);
+
+  $('.side-wrapper1').on('click', function(){
+    $(window).scrollTop(panel1H);
+  })
+
+  $('.side-wrapper2').on('click', function(){
+    $(window).scrollTop(panel2H);
+  })
+
+  $('.side-wrapper3').on('click', function(){
+    $(window).scrollTop(panel3H);
+  })
+
+  $('.side-wrapperAll').on('click', function(){
+    $(window).scrollTop(panelAllH);
+  })
+
+})

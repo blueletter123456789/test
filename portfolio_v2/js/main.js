@@ -73,6 +73,8 @@ $(function () {
 
 $(window).on('load',function(){
 
+  $(window).scrollTop(0);
+
   // animation css reading section
   var style = '<link rel="stylesheet" href="./css/animation.css">';
   $('head link:last').after(style);
