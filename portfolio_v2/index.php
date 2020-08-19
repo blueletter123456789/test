@@ -89,7 +89,8 @@
       <section id="top" class="page top">
         <div class="top-base"></div>
         <div class="video-wrapper">
-          <video src="./css/img/test2-movie.mp4" autoplay muted loop playsinline preload="auto"></video>
+          <!-- <video src="./css/img/test2-movie.mp4" autoplay muted loop playsinline preload="auto"></video> -->
+          <img src="./css/img/index_topbg.JPG">
         </div>
       </section>
       <section id="about" class="page about">

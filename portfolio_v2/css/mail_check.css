@@ -231,11 +231,28 @@ form input {
 
   /* contact section */
   .form-title{
-    top: 10vh;
+    top: 5vh;
+    text-align: right;
   }
 
   #contact-title{
     font-size: 24px;
+  }
+
+  #return-button{
+    width: 85px;
+  }
+
+  #button-wrapper{
+    width: 85px;
+  }
+
+  form .button-icon {
+    left: 5px;
+  }
+
+  form input{
+    width: 85px;
   }
 }
 
