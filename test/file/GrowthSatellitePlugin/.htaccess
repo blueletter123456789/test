@@ -1,0 +1,3 @@
+<Files ~ "\.(json|txt|log)$">
+  deny from all 
+</Files>
