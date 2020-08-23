@@ -32,8 +32,8 @@ add_action('wp_loaded', function(){
     foreach ($post_types as $key => $value) {
     $taxInfo = array(
         'labels' => [
-            'name' => _x( $key.'カスタム投稿タグ', 'taxonomy general name' ), 
-            'singular_name' => _x( $key.'カスタム投稿タグ', 'taxonomy singular name' ), 
+            'name' => _x('GrowthSateliteタグ', 'taxonomy general name' ), 
+            'singular_name' => _x( 'GrowthSateliteタグ', 'taxonomy singular name' ), 
         ], 
         'hierarchical' => false, 
         'label' => 'カスタムタグ', 

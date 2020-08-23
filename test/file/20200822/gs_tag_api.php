@@ -49,12 +49,12 @@ while ( count($GScomm->curlJson($token, $parameter)['items']) > 0 ) {
 	}
 	$pageCount++;
 }
+(count($dataArr)>0) ? GenTags($dataArr, $param) : returnFalse();	//対象データからタグの生成、対象データが存在しない場合exit
 
 // 20200718_add start **********************************
 (count($dataArr)>0) ? setTagInfo($dataArr) : returnFalse();	
 // 20200718_add end ************************************
 
-(count($dataArr)>0) ? GenTags($dataArr, $param) : returnFalse();	//対象データからタグの生成、対象データが存在しない場合exit
 
 
 echo 'true';
@@ -121,7 +121,7 @@ function setTagInfo($dataArr){
 		}
 		foreach ($gsPostData['tags'] as $gs_value) {
 			$wp_tags = (array)get_term_by('name', $gs_value['name'], $post_tag_name);
-			if ((isset($wp_tags[0]) != false) && ($wp_tags[0] != false)) {
+			if (isset($wp_tags[0]) == false){
 				// タグ情報が既に存在する場合はスラッグと説明を追加
 				$wp_tags['slug'] = $gs_value['slug'];
                 $wp_tags['description'] = $gs_value['description'];
